@@ -1,0 +1,22 @@
+{
+  "name": "webcrawl",
+  "version": "0.0.1",
+  "description": "webpage crawler",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "frankc60",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "htmlparser2": "^3.9.2",
+    "request": "^2.85.0",
+    "request-promise": "^4.2.2"
+  }
+}
