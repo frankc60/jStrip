@@ -1,7 +1,7 @@
 {
-  "name": "webcrawl",
-  "version": "0.0.1",
-  "description": "webpage crawler",
+  "name": "jstrip",
+  "version": "0.0.2",
+  "description": "webpage crawler manipulation",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
