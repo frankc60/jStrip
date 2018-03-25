@@ -3,8 +3,7 @@ const cheerio = require('cheerio');
 
 
 class _CrawlPage {
-  constructor(url) {
-    this.url = url;
+  constructor() {
     this.htmlparser2Options = {
       withDomLvl1: true,
       normalizeWhitespace: false,
@@ -24,11 +23,9 @@ class _CrawlPage {
     const start = Date.now();
     return new Promise((resolve, reject) => {
       // console.log(`crawling ${url}`);
-
       rp(this.options)
         .then(async ($) => {
-          await console.log(`done in ${(Date.now() - start)} ms`);
-
+          //await console.log(`done in ${(Date.now() - start)} ms`);
           resolve($);
         })
         .catch((err) => {
@@ -41,7 +38,6 @@ class _CrawlPage {
 const CrawlPage = url => new _CrawlPage(url); // so don't need a contructor new call
 
 const crawlpage = CrawlPage();
-
 
 /*
 crawlpage.get('https://www.google.com')
