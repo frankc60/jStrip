@@ -1,19 +1,31 @@
 # jStrip
 
-Crawl a webpage, and return jQuery (Cheerio) result.
+Pass a webpage uri with jQuery ([cheerio](https://www.npmjs.com/package/cheerio)) on the result you want. The result is returned via a Promise or Async/Await, examples below.
+
 
 ## Installing
 
-Start with installing jStrip.
+Start with installing **jStrip**.
 Install with npm.
 
 ```js
 npm i -S jStrip
 ```
 
+Include **jStrip** into your code.
+
 ```js
 const jStrip = require('./jStrip');
 ```
+
+jStrip takes 2 String Parameters: [webpage] and [jQuery].
+For example:
+
+```js
+jStrip("http://www.google.com","$('title').html()");
+```
+
+jStrip can be written as a **Promise** or as **Async/Await**.
 
 ### Using Promises
 
