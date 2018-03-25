@@ -4,7 +4,7 @@ const jStrip = require('./jStrip');
 // Using Promise
 jStrip('https://www.bing.com', "$('title').html()")
   .then((result) => {
-    console.log(`app2, bing=${  result}`);
+    console.log(`promise result: ${result}`);
   })
   .catch((e) => {
     console.log(`Error: ${e}`);
