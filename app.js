@@ -1,5 +1,5 @@
 const jStrip = require('./jStrip');
-
+const jQuery = require("jquery");
 
 // Using Promise
 jStrip('https://www.bing.com', "$('title').html()")

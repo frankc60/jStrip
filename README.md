@@ -1,6 +1,6 @@
 # jStrip
 
-Pass a webpage uri with jQuery ([cheerio](https://www.npmjs.com/package/cheerio)) on the result you want. The result is returned via a Promise or Async/Await, examples below.
+Pass a webpage uri with jQuery ([cheerio](https://www.npmjs.com/package/cheerio)) to jStrip and retrieve the result. The result is returned via a Promise or Async/Await, examples below.
 
 
 ## Installing
@@ -15,7 +15,7 @@ npm i -S jStrip
 Include **jStrip** into your code.
 
 ```js
-const jStrip = require('./jStrip');
+const jStrip = require('jStrip');
 ```
 
 jStrip takes 2 String Parameters: [webpage] and [jQuery].
@@ -56,7 +56,7 @@ const fn = (async () => {
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use [SemVer](http://semver.org/) for versioning. 
 
 ## Authors
 
