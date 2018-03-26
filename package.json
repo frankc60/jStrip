@@ -1,6 +1,6 @@
 {
   "name": "jstrip",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "webpage crawler manipulation",
   "main": "app.js",
   "scripts": {
@@ -26,12 +26,12 @@
     "request": "^2.85.0",
     "request-promise": "^4.2.2"
   },
-"repository": {
-  "type": "git",
-  "url": "https://github.com/frankc60/jStrip.git"
-},
-"bugs": {
-  "url": "https://github.com/frankc60/jStrip/issues"
-},
-"homepage": "https://github.com/frankc60/jStrip#readme"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/frankc60/jStrip.git"
+  },
+  "bugs": {
+    "url": "https://github.com/frankc60/jStrip/issues"
+  },
+  "homepage": "https://github.com/frankc60/jStrip#readme"
 }
