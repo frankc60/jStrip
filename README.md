@@ -17,7 +17,7 @@ Include **jStrip** into your code.
 const jStrip = require('jStrip');
 ```
 
-jStrip takes 2 String Parameters: [webpage] and [jQuery].
+jStrip takes 2 String Parameters, comma delimited: [webpage] and [jQuery].
 For example:
 
 ```js
