@@ -2,7 +2,6 @@ const request = require("request");
 const rp = require('request-promise');
 const cheerio = require('cheerio');
 
-
 class _CrawlPage {
   constructor() {
     this.htmlparser2Options = {
@@ -36,8 +35,7 @@ class _CrawlPage {
   }
 }
 
-const CrawlPage = url => new _CrawlPage(url); // so don't need a contructor new call
-
+const CrawlPage = url => new _CrawlPage(url); // so don't need a new contructor call
 const crawlpage = CrawlPage();
 
 /*
