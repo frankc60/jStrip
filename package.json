@@ -3,6 +3,9 @@
   "version": "0.0.9",
   "description": "webpage crawler manipulation",
   "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "keywords": [
     "crawl",
     "cheerio",
@@ -10,9 +13,6 @@
     "scrap",
     "jquery"
   ],
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "frankc60",
   "license": "MIT",
   "devDependencies": {
