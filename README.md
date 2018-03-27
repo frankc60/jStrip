@@ -24,13 +24,14 @@ For example:
 jStrip("http://www.google.com","$('title').html()");
 ```
 
-jStrip returns an **object**, with four properties:
+jStrip returns an **object**, with five properties:
 
 <pre>
-* data:   the results from your jquery selector.
-* timed:  milliseconds taken for uri retrieval.
-* uri:    the uri of the page.
-* jquery: the jquery executed on the uri.
+1. data:       the results from your jquery selector.
+2. timed:      milliseconds taken for uri retrieval.
+3. uri:        the uri of the page.
+4. jquery:     the jquery executed on the uri.
+5. statuscode: statusCode returned from uri.
 </pre>
 
 for example:
@@ -40,7 +41,8 @@ for example:
   data:  "Sunny with light winds.",
   timed: 1238,
   uri: "http://www.my-weather.co.nz/132443",
-  jquery: "$('div#weatherDesc').html()"
+  jquery: "$('div#weatherDesc').html()",
+  statuscode: 200
 }
 ```
 

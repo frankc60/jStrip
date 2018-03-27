@@ -3,98 +3,40 @@ const jsdom = require('jsdom');
 
 const { JSDOM } = jsdom;
 
-// const rp = require('request-promise');
-// const cheerio = require('cheerio');
+const crawlpage = {
 
-class _CrawlPage {
-  constructor() {
-    this.htmlparser2Options = {
-      withDomLvl1: true,
-      normalizeWhitespace: false,
-      xmlMode: true,
-      decodeEntities: true,
-    };
-    this.options = {
-      uri: 'blank',
-      transform(body) {
-        return cheerio.load(body, this.htmlparser2Options);
-      },
-    };
-  }
-
-  get(url) {
-    this.options.uri = url;
-   
-    return new Promise((resolve, reject) => {
-      // console.log(`crawling ${url}`);
-      const start = Date.now();
-      request(url, (error, response, body) => {
-        if (error) reject(error);
-        /* const dom = new JSDOM(body);
-        let window = dom.window.document.defaultView;
-        let $ = require('jquery')(window);
-        */
-        resolve([body, (Date.now() - start) ]);
-      });
+  get: url => new Promise((resolve, reject) => {
+    // console.log(`crawling ${url}`);
+    const start = Date.now();
+    request(url, (error, response, body) => {
+      if (error) reject(error);
+      resolve([body, (Date.now() - start), response && response.statusCode]);
     });
-  }
-/*
-      rp(this.options)
-        .then(async ($) => {
-          //await console.log(`done in ${(Date.now() - start)} ms`);
-          resolve($);
-        })
-        .catch((err) => {
-          reject((err));
-        });
-  */
-}
+  }),
+  jdom: async (body, jquery) => {
+    const dom = await new JSDOM(body, { runScripts: 'outside-only' });
+    const window = await dom.window.document.defaultView;
+    const $ = await require('jquery')(window);
+    const rnd = await Math.floor((Math.random() * 1000) + 1);
+    await window.eval(`$('body').append('<jStrip id=\\'jStripSpecialTag${rnd}\\'>' + ${jquery}  + '</jStrip>');`);
+    const rtn = await $(`jStrip#jStripSpecialTag${rnd}`).html();
+    return rtn;
+  },
+};
 
-const CrawlPage = url => new _CrawlPage(url); // so don't need a new contructor call
-const crawlpage = CrawlPage();
-
-/*
-crawlpage.get('https://www.google.com')
-  .then(($) => {
-    console.log(`via promise: ${$('title').html()}`);
-  })
-  .catch((err) => {
-    console.log(`promise Error: ${err}`);
-  });
-*/
 
 const jStrip = async (uri, jquery) => {
   try {
     const body = await crawlpage.get(uri);
-    /* const dom = new JSDOM(body);
-    let window = dom.window.document.defaultView;
-    let $ = require('jquery')(window);
-    */
-    //console.log("lookup: " + body[1]);
-    const dom = await new JSDOM(body, { runScripts: 'outside-only' });
-    const window = dom.window.document.defaultView;
-
-    const $ = await require('jquery')(window);
-
-
-    const rnd = Math.floor((Math.random() * 1000) + 1);
-
-    // window.eval(`document.body.innerHTML = "<p id='xxx'>Hello, world!${5+7}</p>";`);
-    await window.eval(`$('body').append('<jStrip id=\\'jStripSpecialTag${rnd}\\'>' + ${jquery}  + '</jStrip>');`);
-
-    let x = {};
-
-    x["data"] = $('jStrip#jStripSpecialTag' + rnd).html();
-    x["timed"] = body[1];
-    x["uri"] = uri;
-    x["jquery"] = jquery;
-    // const arg = await new Function('$,jquery', `'use strict';return ${jquery}`);
-    // const x = await arg($, jquery);
-    // await console.log(`${uri} page crawled`);
-    // await console.log(`via await: ${x}`); // eval(jquery) - look for alternative
+    const data = await crawlpage.jdom(body[0], jquery);
+    const x = {};
+    x.data = data;
+    x.timed = body[1];
+    x.uri = uri;
+    x.jquery = jquery;
+    x.statuscode = body[2];
     return x;
   } catch (err) {
-    // console.log(`async Error ${err}`);
     throw err;
   }
 };
@@ -105,3 +47,4 @@ const jStrip = async (uri, jquery) => {
 
 
 module.exports = jStrip;
+

@@ -2,14 +2,14 @@
   "name": "jstrip",
   "version": "1.0.0",
   "description": "webpage crawler manipulation",
-  "main": "app.js",
+  "main": "jStrip.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "crawl",
     "html",
-    "scrap",
+    "scrape",
     "jquery"
   ],
   "author": "frankc60",
