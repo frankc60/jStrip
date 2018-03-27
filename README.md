@@ -26,10 +26,12 @@ jStrip("http://www.google.com","$('title').html()");
 
 jStrip returns an **object**, with four properties:
 
-* data: &nbsp;&nbsp;the results from your jquery selector.
-* timed: &nbsp;milliseconds taken for uri retrieval.
-* uri: &nbsp;&nbsp;&nbsp;the uri of the page.
+<pre>
+* data:   the results from your jquery selector.
+* timed:  milliseconds taken for uri retrieval.
+* uri:    the uri of the page.
 * jquery: the jquery executed on the uri.
+</pre>
 
 for example:
 
