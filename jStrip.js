@@ -1,8 +1,7 @@
 const request = require('request');
-
 const jsdom = require('jsdom');
-
 const { JSDOM } = jsdom;
+
 // const rp = require('request-promise');
 // const cheerio = require('cheerio');
 
