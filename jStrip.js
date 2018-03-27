@@ -1,6 +1,10 @@
-const request = require("request");
-const rp = require('request-promise');
-const cheerio = require('cheerio');
+const request = require('request');
+
+const jsdom = require('jsdom');
+
+const { JSDOM } = jsdom;
+// const rp = require('request-promise');
+// const cheerio = require('cheerio');
 
 class _CrawlPage {
   constructor() {
@@ -23,6 +27,16 @@ class _CrawlPage {
     const start = Date.now();
     return new Promise((resolve, reject) => {
       // console.log(`crawling ${url}`);
+      request(url, (error, response, body) => {
+        if (error) reject(error);
+        const dom = new JSDOM(body);
+        let window = dom.window.document.defaultView;
+        let $ = require('jquery')(window);
+        resolve($);
+      });
+    });
+  }
+/*
       rp(this.options)
         .then(async ($) => {
           //await console.log(`done in ${(Date.now() - start)} ms`);
@@ -31,8 +45,7 @@ class _CrawlPage {
         .catch((err) => {
           reject((err));
         });
-    });
-  }
+  */
 }
 
 const CrawlPage = url => new _CrawlPage(url); // so don't need a new contructor call
@@ -51,7 +64,7 @@ crawlpage.get('https://www.google.com')
 const jStrip = async (uri, jquery) => {
   try {
     const $ = await crawlpage.get(uri);
-    const arg = await new Function('$,jquery', `return ${jquery}`);
+    const arg = await new Function('$,jquery', `'use strict';return ${jquery}`);
     const x = await arg($, jquery);
     // await console.log(`${uri} page crawled`);
     // await console.log(`via await: ${x}`); // eval(jquery) - look for alternative
