@@ -4,7 +4,9 @@ const jStrip = require('./jStrip');
 jStrip('https://www.bing.com', "$('title').html()")
   .then((result) => {
     console.log(`promise result: ${result.data}
-    time taken: ${result.timed}`);
+      time taken: ${result.timed}
+      uri: ${result.uri}
+      jquery: ${result.jquery}`);
   })
   .catch((e) => {
     console.log(`Error: ${e}`);
