@@ -16,7 +16,9 @@ const fn = (async () => {
   try {
     const result = await jStrip('https://www.bing.com', "$('title').html()");
     await console.log(`async/await result: ${result.data}
-    time taken: ${result.timed}`);
+    time taken: ${result.timed}
+    uri: ${result.uri}
+    jquery: ${result.jquery}`);
     } catch (err) {
     console.log(`error ${err}`);
   }

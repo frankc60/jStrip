@@ -24,16 +24,20 @@ For example:
 jStrip("http://www.google.com","$('title').html()");
 ```
 
-jStrip returns an **object**, with two properties: __data__ and __timed__.
+jStrip returns an **object**, with four properties:
 * data: the results from your jquery selector.
 * timed: milliseconds taken for uri retrieval.
+* uri: the uri of the page.
+* jquery: the jquery executed on the uri.
 
 for example:
 
 ```js
 {
   data:  "Sunny with light winds.",
-  timed: 1238 
+  timed: 1238,
+  uri: "http://www.my-weather.co.nz",
+  jquery: "$('div#weatherDesc').html()"
 }
 ```
 
@@ -46,7 +50,9 @@ jStrip can be written as a **Promise** or as **Async/Await**.
 jStrip('https://www.bing.com', "$('title').html()")
   .then((result) => {
     console.log(`promise result: ${result.data}
-    time taken ${result.timed}`);
+      time taken: ${result.timed}
+      uri: ${result.uri}
+      jquery: ${result.jquery}`);
   })
   .catch((e) => {
     console.log(`Error: ${e}`);
@@ -61,7 +67,9 @@ const fn = (async () => {
   try {
     const result = await jStrip('https://www.youtube.com', "$('title').html()");
     await console.log(`async/await result: ${result.data}
-    time taken ${result.timed}`);
+      time taken: ${result.timed}
+      uri: ${result.uri}
+      jquery: ${result.jquery}`);
   } catch (err) {
     console.log(`error ${err}`);
   }

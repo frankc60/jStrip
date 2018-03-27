@@ -86,6 +86,8 @@ const jStrip = async (uri, jquery) => {
 
     x["data"] = $('jStrip#jStripSpecialTag' + rnd).html();
     x["timed"] = body[1];
+    x["uri"] = uri;
+    x["jquery"] = jquery;
     // const arg = await new Function('$,jquery', `'use strict';return ${jquery}`);
     // const x = await arg($, jquery);
     // await console.log(`${uri} page crawled`);
