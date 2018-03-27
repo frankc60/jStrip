@@ -2,8 +2,14 @@
 
 ![npm](https://img.shields.io/npm/v/npm.svg) 
 ![npm licence](https://img.shields.io/npm/l/express.svg)
-![npm downloads per week](https://img.shields.io/npm/dw/localeval.svg)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/badges/shields.svg)
+[![npm downloads per week](https://img.shields.io/npm/dw/localeval.svg)](https://www.npmjs.com/package/jstrip)
+[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/badges/shields.svg)](https://github.com/frankc60/jStrip)
+
+
+
+
+
+
 
 
 Pass a webpage uri with pure [jQuery](http://api.jquery.com/) to jStrip and retrieve the results. The results are returned as an object via a Promise or Async/Await, examples below.
