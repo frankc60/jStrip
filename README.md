@@ -26,13 +26,27 @@ jStrip("http://www.google.com","$('title').html()");
 
 jStrip can be written as a **Promise** or as **Async/Await**.
 
+an **object* is returned, with two properties: data and timed.
+* data: the results from your jquery selector.
+* timed: milliseconds taken for uri retrieval.
+
+for example:
+
+```js
+obj: {
+  data:  "Sunny with light winds.",
+  timed: 1238 
+}
+```
+
 ### Using Promises
 
 ```js
 // Using Promise
 jStrip('https://www.bing.com', "$('title').html()")
   .then((result) => {
-    console.log(`promise result: ${result}`);
+    console.log(`promise result: ${result.data}
+    time taken ${result.timed}`);
   })
   .catch((e) => {
     console.log(`Error: ${e}`);
@@ -46,7 +60,8 @@ jStrip('https://www.bing.com', "$('title').html()")
 const fn = (async () => {
   try {
     const result = await jStrip('https://www.youtube.com', "$('title').html()");
-    await console.log(`async/await result: ${result}`);
+    await console.log(`async/await result: ${result.data}
+    time taken ${result.timed}`);
   } catch (err) {
     console.log(`error ${err}`);
   }

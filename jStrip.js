@@ -1,5 +1,6 @@
 const request = require('request');
 const jsdom = require('jsdom');
+
 const { JSDOM } = jsdom;
 
 // const rp = require('request-promise');
@@ -23,15 +24,17 @@ class _CrawlPage {
 
   get(url) {
     this.options.uri = url;
-    const start = Date.now();
+   
     return new Promise((resolve, reject) => {
       // console.log(`crawling ${url}`);
+      const start = Date.now();
       request(url, (error, response, body) => {
         if (error) reject(error);
-        const dom = new JSDOM(body);
+        /* const dom = new JSDOM(body);
         let window = dom.window.document.defaultView;
         let $ = require('jquery')(window);
-        resolve($);
+        */
+        resolve([body, (Date.now() - start) ]);
       });
     });
   }
@@ -62,9 +65,29 @@ crawlpage.get('https://www.google.com')
 
 const jStrip = async (uri, jquery) => {
   try {
-    const $ = await crawlpage.get(uri);
-    const arg = await new Function('$,jquery', `'use strict';return ${jquery}`);
-    const x = await arg($, jquery);
+    const body = await crawlpage.get(uri);
+    /* const dom = new JSDOM(body);
+    let window = dom.window.document.defaultView;
+    let $ = require('jquery')(window);
+    */
+    //console.log("lookup: " + body[1]);
+    const dom = await new JSDOM(body, { runScripts: 'outside-only' });
+    const window = dom.window.document.defaultView;
+
+    const $ = await require('jquery')(window);
+
+
+    const rnd = Math.floor((Math.random() * 1000) + 1);
+
+    // window.eval(`document.body.innerHTML = "<p id='xxx'>Hello, world!${5+7}</p>";`);
+    await window.eval(`$('body').append('<jStrip id=\\'jStripSpecialTag${rnd}\\'>' + ${jquery}  + '</jStrip>');`);
+
+    let x = {};
+
+    x["data"] = $('jStrip#jStripSpecialTag' + rnd).html();
+    x["timed"] = body[1];
+    // const arg = await new Function('$,jquery', `'use strict';return ${jquery}`);
+    // const x = await arg($, jquery);
     // await console.log(`${uri} page crawled`);
     // await console.log(`via await: ${x}`); // eval(jquery) - look for alternative
     return x;
