@@ -1,6 +1,6 @@
 {
   "name": "jstrip",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "webpage crawler manipulation",
   "main": "app.js",
   "scripts": {
@@ -8,7 +8,6 @@
   },
   "keywords": [
     "crawl",
-    "cheerio",
     "html",
     "scrap",
     "jquery"
