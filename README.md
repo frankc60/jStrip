@@ -1,8 +1,7 @@
-![npm](https://img.shields.io/npm/v/npm.svg) 
-![npm](https://img.shields.io/npm/l/express.svg)
-
-
 # jStrip
+
+![npm](https://img.shields.io/npm/v/npm.svg) 
+![npm licence](https://img.shields.io/npm/l/express.svg)
 
 Pass a webpage uri with pure [jQuery](http://api.jquery.com/) to jStrip and retrieve the results. The results are returned as an object via a Promise or Async/Await, examples below.
 
