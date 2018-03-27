@@ -1,6 +1,6 @@
 # jStrip
 
-Pass a webpage uri with associated [jQuery](http://api.jquery.com/) to jStrip and retrieve the results. The results are returned via a Promise or Async/Await, examples below.
+Pass a webpage uri with pure [jQuery](http://api.jquery.com/) to jStrip and retrieve the results. The results are returned via a Promise or Async/Await, examples below.
 
 ## Installing
 
@@ -24,20 +24,20 @@ For example:
 jStrip("http://www.google.com","$('title').html()");
 ```
 
-jStrip can be written as a **Promise** or as **Async/Await**.
-
-an **object* is returned, with two properties: data and timed.
+jStrip returns an **object**, with two properties: __data__ and __timed__.
 * data: the results from your jquery selector.
 * timed: milliseconds taken for uri retrieval.
 
 for example:
 
 ```js
-obj: {
+{
   data:  "Sunny with light winds.",
   timed: 1238 
 }
 ```
+
+jStrip can be written as a **Promise** or as **Async/Await**.
 
 ### Using Promises
 
