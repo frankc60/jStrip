@@ -1,6 +1,6 @@
 # jStrip
 
-Pass a webpage uri with jQuery ([cheerio](https://www.npmjs.com/package/cheerio)) to jStrip and retrieve the result. The result is returned via a Promise or Async/Await, examples below.
+Pass a webpage uri with associated [jQuery](http://api.jquery.com/) to jStrip and retrieve the results. The results are returned via a Promise or Async/Await, examples below.
 
 ## Installing
 
