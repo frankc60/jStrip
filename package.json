@@ -1,6 +1,6 @@
 {
   "name": "jstrip",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "webpage crawler manipulation",
   "main": "app.js",
   "scripts": {
