@@ -1,16 +1,9 @@
 # jStrip
 
 ![npm](https://img.shields.io/npm/v/npm.svg) 
-![npm licence](https://img.shields.io/npm/l/express.svg)
-[![npm downloads per week](https://img.shields.io/npm/dw/localeval.svg)](https://www.npmjs.com/package/jstrip)
+[![GitHub license](https://img.shields.io/github/license/frankc60/jStrip.svg)](https://github.com/frankc60/jStrip/blob/master/LICENSE)
 [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/badges/shields.svg)](https://github.com/frankc60/jStrip)
-
-
-
-
-
-
-
+[![NPM](https://nodei.co/npm/jstrip.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/jstrip/)
 
 Pass a webpage uri with pure [jQuery](http://api.jquery.com/) to jStrip and retrieve the results. The results are returned as an object via a Promise or Async/Await, examples below.
 
@@ -103,5 +96,5 @@ We use [SemVer](http://semver.org/) for versioning.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/frankc60/jStrip/blob/master/LICENSE) file for details
 
