@@ -1,9 +1,6 @@
 // var assert = require('assert');
 const chai = require('chai');
 const jStrip = require('../jStrip');
-const coveralls = require('coveralls');
-
-coveralls.sendToCoveralls();
 
 describe('jStrip - promise', () => {
   it("should return 'Google' as title", (done) => {
