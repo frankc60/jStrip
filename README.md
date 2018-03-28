@@ -13,7 +13,7 @@ Start with installing **jStrip**.
 Install with npm.
 
 ```js
-npm i -S jStrip
+$ npm i -S jStrip
 ```
 
 Include **jStrip** into your code.
@@ -94,7 +94,7 @@ $ npm install
 $ npm test
 ```
 
-Automated CI test runs are available. [![Build Status](https://travis-ci.org/frankc60/jStrip.svg?branch=master)](https://travis-ci.org/frankc60/jStrip)
+Automated CI test runs are also available. [![Build Status](https://travis-ci.org/frankc60/jStrip.svg?branch=master)](https://travis-ci.org/frankc60/jStrip)
 
 ## Versioning
 
