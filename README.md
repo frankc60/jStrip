@@ -86,6 +86,16 @@ const fn = (async () => {
 })();
 ```
 
+## Tests
+To run the test suite, first install the dependencies, then run npm test:
+
+```js
+$ npm install
+$ npm test
+```
+
+Automated CI test runs are available. [![Build Status](https://travis-ci.org/frankc60/jStrip.svg?branch=master)](https://travis-ci.org/frankc60/jStrip)
+
 ## Versioning
 
 We use [SemVer](http://semver.org/) for versioning. 
