@@ -2,7 +2,7 @@
 
 [![NPM](https://nodei.co/npm/jstrip.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/jstrip/)<br/>
 [![GitHub license](https://img.shields.io/github/license/frankc60/jStrip.svg?longCache=true)](https://github.com/frankc60/jStrip/blob/master/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/frankc60/jStrip.svg)](https://github.com/frankc60/jStrip/issues)
+[![Downloads](http://img.shields.io/npm/dw/jstrip.svg)](https://www.npmjs.com/package/jstrip)
 [![Build Status](https://travis-ci.org/frankc60/jStrip.svg?branch=master)](https://travis-ci.org/frankc60/jStrip)
 [![npm version](https://badge.fury.io/js/jstrip.svg)](https://badge.fury.io/js/jstrip)
 [![Dependencies](https://david-dm.org/frankc60/jStrip.svg)](https://www.npmjs.com/package/jstrip)
