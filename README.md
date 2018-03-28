@@ -1,8 +1,7 @@
 # jStrip
 
 ![npm](https://img.shields.io/npm/v/npm.svg) 
-[![GitHub license](https://img.shields.io/github/license/frankc60/jStrip.svg)](https://github.com/frankc60/jStrip/blob/master/LICENSE)
-[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/badges/shields.svg)](https://github.com/frankc60/jStrip)
+[![GitHub license](https://img.shields.io/github/license/frankc60/jStrip.svg)](https://github.com/frankc60/jStrip/blob/master/LICENSE)<br/>
 [![NPM](https://nodei.co/npm/jstrip.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/jstrip/)
 
 Pass a webpage uri with pure [jQuery](http://api.jquery.com/) to jStrip and retrieve the results. The results are returned as an object via a Promise or Async/Await, examples below.
