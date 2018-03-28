@@ -4,7 +4,7 @@
   "description": "webpage crawler manipulation",
   "main": "jStrip.js",
   "scripts": {
-    "test": "JSCOV=1 mocha -R mocha-lcov-reporter > coverage/coverage.lcov"
+    "test": "mocha test"
   },
   "keywords": [
     "crawl",
