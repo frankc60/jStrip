@@ -1,11 +1,11 @@
 {
   "name": "jstrip",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "description": "webpage crawler manipulation",
   "main": "jStrip.js",
   "scripts": {
     "test": "mocha test",
-    "release" : "npm publish && git push"
+    "release": "npm publish && git push"
   },
   "keywords": [
     "crawl",
