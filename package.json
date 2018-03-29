@@ -5,7 +5,7 @@
   "main": "jStrip.js",
   "scripts": {
     "test": "mocha test",
-    "release": "npm publish && git push"
+    "release-patch": "npm version patch && npm publish && git push"
   },
   "keywords": [
     "crawl",
