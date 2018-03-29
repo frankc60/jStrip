@@ -4,7 +4,8 @@
   "description": "webpage crawler manipulation",
   "main": "jStrip.js",
   "scripts": {
-    "test": "mocha test"
+    "test": "mocha test",
+    "publish" : "npm publish && git push"
   },
   "keywords": [
     "crawl",
