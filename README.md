@@ -104,6 +104,9 @@ We use [SemVer](http://semver.org/) for versioning.
 
 * **Frank C** - [frankc60](https://github.com/frankc60)
 
+##Contributing
+If you have some suggestions or ideas please write to frankc60.
+
 ## License
 
 This project is licensed under the MIT License. [![GitHub license](https://img.shields.io/github/license/frankc60/jStrip.svg?longCache=true)](https://github.com/frankc60/jStrip/blob/master/LICENSE)
