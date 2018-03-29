@@ -1,3 +1,13 @@
+language: node_js
+
+sudo: required
+
+node_js:
+  - "stable"
+
+  script:
+  - npm test
+
 notifications:
   webhooks:
     urls:
@@ -7,9 +17,3 @@ notifications:
     on_start: change   # default: never
     on_cancel: always # default: always
     on_error: always # default: always
-language: node_js
-sudo: required
-node_js:
-  - "stable"
-script:
-  - npm test
