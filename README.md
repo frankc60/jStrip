@@ -107,7 +107,7 @@ We use [SemVer](http://semver.org/) for versioning.
 * **Frank C** - [frankc60](https://github.com/frankc60)
 
 ##Contributing
-If you have some suggestions or ideas please write to frankc60.
+If you have some suggestions or ideas drop me a line. [![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/jStrip_npm/Lobby)
 
 ## License
 
