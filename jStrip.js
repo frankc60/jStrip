@@ -29,13 +29,13 @@ const jStrip = async (uri, jquery) => {
   try {
     const body = await crawlpage.get(uri);
     const data = await crawlpage.jdom(body[0], jquery);
-    const x = {};
-    x.data = data;
-    x.timed = body[1];
-    x.uri = uri;
-    x.jquery = jquery;
-    x.statuscode = body[2];
-    return x;
+    return {
+      data,
+      timed: body[1],
+      uri,
+      jquery,
+      statuscode: body[2],
+    };
   } catch (err) {
     throw err;
   }
