@@ -1,7 +1,6 @@
 # jStrip
 
 [![NPM](https://nodei.co/npm/jstrip.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/jstrip/)<br/>
-[![GitHub license](https://img.shields.io/github/license/frankc60/jStrip.svg?longCache=true)](https://github.com/frankc60/jStrip/blob/master/LICENSE)
 [![Downloads](http://img.shields.io/npm/dw/jstrip.svg)](https://www.npmjs.com/package/jstrip)
 [![Build Status](https://travis-ci.org/frankc60/jStrip.svg?branch=master)](https://travis-ci.org/frankc60/jStrip)
 [![Dependencies](https://david-dm.org/frankc60/jStrip.svg)](https://www.npmjs.com/package/jstrip)
@@ -14,13 +13,13 @@ Start with installing **jStrip**.
 Install with npm.
 
 ```js
-$ npm i -S jStrip
+$ npm i -S jstrip
 ```
 
 Include **jStrip** into your code.
 
 ```js
-const jStrip = require('jStrip');
+const jStrip = require('jstrip');
 ```
 
 jStrip takes 2 String Parameters, comma delimited: **uri** and pure **jQuery**.
