@@ -106,16 +106,16 @@ We use [SemVer](http://semver.org/) for versioning.
 ## Get Involved
 ### Issues
 
-If you have an issue, either a bug or a feature you think would benefit your project let us know and we will do our best.
+If you have an issue, or a bug let us know and we will do our best.
 
-Create issues [here](https://github.com/frankc60/jStrip/issues) and follow the template.
+Create issues [here](https://github.com/frankc60/jStrip/issues).
+
+###Contributing
+If you have any questions, comments, suggestions or ideas, feel free to drop me a line. [![Join the chat at https://gitter.im/jStrip_npm/Lobby](https://badges.gitter.im/jStrip_npm/Lobby.svg)](https://gitter.im/jStrip_npm/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Authors
 
 * **Frank C** - [frankc60](https://github.com/frankc60)
-
-##Contributing
-If you have any questions, comments, suggestions or ideas feel free to drop me a line. [![Join the chat at https://gitter.im/jStrip_npm/Lobby](https://badges.gitter.im/jStrip_npm/Lobby.svg)](https://gitter.im/jStrip_npm/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## License
 
