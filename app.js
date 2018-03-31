@@ -17,7 +17,7 @@ jStrip('https://www.bing.com', "$('title').html()")
 // Using Async/Await
 const fn = (async () => {
   try {
-    const result = await jStrip('https://www.lloydsbank.com/', "$('title').html()");
+    const result = await jStrip('https://www.bbc.co.uk',"$('.top-stories').html()");
     await console.log(`async/await result: ${result.data}
       time taken: ${result.timed}
       uri: ${result.uri}
