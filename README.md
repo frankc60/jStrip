@@ -103,11 +103,13 @@ Automated CI test runs are also available. [![Build Status](https://travis-ci.or
 
 We use [SemVer](http://semver.org/) for versioning. 
 
-#Get Involved!
-###Issues
+## Get Involved
+
+### Issues
+
 If you have an issue, either a bug or a feature you think would benefit your project let us know and we will do our best.
 
-Create issues [![here]()](https://github.com/frankc60/jStrip/issues) and follow the template.
+Create issues [here](https://github.com/frankc60/jStrip/issues) and follow the template.
 
 ## Authors
 
