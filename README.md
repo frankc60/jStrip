@@ -88,14 +88,7 @@ const fn = (async () => {
 ```
 
 ## Tests
-To run the test suite, first install the dependencies, then run npm test:
-
-```js
-$ npm install
-$ npm test
-```
-
-Automated CI test runs are also available. [![Build Status](https://travis-ci.org/frankc60/jStrip.svg?branch=master)](https://travis-ci.org/frankc60/jStrip)
+Automated CI test builds are run with each update. [![Build Status](https://travis-ci.org/frankc60/jStrip.svg?branch=master)](https://travis-ci.org/frankc60/jStrip) [![Coverage Status](https://coveralls.io/repos/github/frankc60/jStrip/badge.svg)](https://coveralls.io/github/frankc60/jStrip)
 
 ## Versioning
 
