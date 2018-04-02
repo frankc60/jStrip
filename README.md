@@ -23,7 +23,7 @@ Include **jStrip** into your code.
 const jStrip = require('jstrip');
 ```
 
-jStrip takes 2 String Parameters, comma delimited: **uri** and pure **jQuery**.
+jStrip takes 2 String Parameters, comma delimited: **uri** and pure [jQuery](http://api.jquery.com/category/selectors/).
 For example:
 
 ```js
