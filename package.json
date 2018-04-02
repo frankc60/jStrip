@@ -4,7 +4,7 @@
   "description": "webpage crawler manipulation",
   "main": "jStrip.js",
   "scripts": {
-    "test": "mocha test",
+    "test": "nyc mocha test && nyc report --reporter=text-lcov > ./node_modules/.bin/coveralls",
     "release-patch": "npm version patch && npm publish && git push"
   },
   "keywords": [
@@ -17,10 +17,13 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "^4.1.2",
+    "coveralls": "^3.0.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.9.0",
-    "mocha": "^5.0.5"
+    "mocha": "^5.0.5",
+    "mocha-lcov-reporter": "^1.3.0",
+    "nyc": "^11.6.0"
   },
   "dependencies": {
     "jquery": "^3.3.1",
