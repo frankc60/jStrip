@@ -2,7 +2,7 @@
 
 [![NPM](https://nodei.co/npm/jstrip.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/jstrip/)<br/>
 [![Build Status](https://travis-ci.org/frankc60/jStrip.svg?branch=master)](https://travis-ci.org/frankc60/jStrip)
-[![Dependencies](https://david-dm.org/frankc60/jStrip.svg)](https://www.npmjs.com/package/jstrip)
+[![Dependencies](https://david-dm.org/frankc60/jStrip.svg)](https://www.npmjs.com/package/jstrip?activeTab=dependencies)
 [![Coverage Status](https://coveralls.io/repos/github/frankc60/jStrip/badge.svg)](https://coveralls.io/github/frankc60/jStrip)
 [![Join the chat at https://gitter.im/jStrip_npm/Lobby](https://badges.gitter.im/jStrip_npm/Lobby.svg)](https://gitter.im/jStrip_npm/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
