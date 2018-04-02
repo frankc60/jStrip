@@ -6,7 +6,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/frankc60/jStrip/badge.svg)](https://coveralls.io/github/frankc60/jStrip)
 [![Join the chat at https://gitter.im/jStrip_npm/Lobby](https://badges.gitter.im/jStrip_npm/Lobby.svg)](https://gitter.im/jStrip_npm/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Pass a webpage uri with a pure [jQuery](http://api.jquery.com/category/selectors/) selector to jStrip and retrieve the results. **jStrip** retrieves the web page - **uri** and uses the **jQuery** selector to reference the HTML DOM and select the contents before returning the results. The results are returned as an object via a Promise or Async/Await, examples below. 
+Pass a webpage uri with a pure [jQuery](http://api.jquery.com/category/selectors/) selector to jStrip and retrieve the results. **jStrip** retrieves the web page - **uri** and uses the **jQuery** selector to reference the HTML DOM, selecting the contents before returning the results. The results are returned as an object via a Promise or Async/Await, examples below. 
 
 ## Installing
 
