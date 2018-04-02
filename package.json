@@ -5,6 +5,7 @@
   "main": "jStrip.js",
   "scripts": {
     "test": "nyc mocha test && nyc report --reporter=text-lcov | coveralls",
+    "local-test" : "mocha test",
     "release-patch": "npm version patch && npm publish && git push"
   },
   "keywords": [

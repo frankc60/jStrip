@@ -12,6 +12,23 @@ describe('jStrip - promise', () => {
   });
 });
 
+describe('jStrip - promise - invalid uri', () => {
+  it("should contain 'Error'", (done) => {
+    jStrip('url', "$('title').html()")
+      .then((result) => {
+        //chai.expect(result.data).to.equal('Google');
+        //done();
+      })
+      .catch((e) => {
+       // console.log(e)
+        chai.expect(e);
+        done();    
+      });
+    
+  });
+});
+
+
 describe('jStrip - await', () => {
   it("should return 'Google' as title", async () => {
     let p = new Promise((resolve,reject) =>{ 
