@@ -1,9 +1,9 @@
 # jStrip
 
 [![NPM](https://nodei.co/npm/jstrip.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/jstrip/)<br/>
-[![Downloads](http://img.shields.io/npm/dw/jstrip.svg)](https://www.npmjs.com/package/jstrip)
 [![Build Status](https://travis-ci.org/frankc60/jStrip.svg?branch=master)](https://travis-ci.org/frankc60/jStrip)
 [![Dependencies](https://david-dm.org/frankc60/jStrip.svg)](https://www.npmjs.com/package/jstrip)
+[![Coverage Status](https://coveralls.io/repos/github/frankc60/jStrip/badge.svg)](https://coveralls.io/github/frankc60/jStrip)
 [![Join the chat at https://gitter.im/jStrip_npm/Lobby](https://badges.gitter.im/jStrip_npm/Lobby.svg)](https://gitter.im/jStrip_npm/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Pass a webpage uri and pure [jQuery](http://api.jquery.com/category/selectors/) to jStrip and retrieve the results. **jStrip** retrieves the web page - **uri** and uses the **jQuery** to reference the HTML DOM and select the contents before returning the results. The results are returned as an object via a Promise or Async/Await, examples below. 
