@@ -101,7 +101,8 @@ If you have an issue, or a bug let us know and we will do our best.
 
 Create issues [here](https://github.com/frankc60/jStrip/issues).
 
-###Contributing
+### Contributing
+
 If you have any questions, comments, suggestions or ideas, feel free to drop me a line. [![Join the chat at https://gitter.im/jStrip_npm/Lobby](https://badges.gitter.im/jStrip_npm/Lobby.svg)](https://gitter.im/jStrip_npm/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Authors
@@ -111,4 +112,3 @@ If you have any questions, comments, suggestions or ideas, feel free to drop me 
 ## License
 
 This project is licensed under the MIT License. [![GitHub license](https://img.shields.io/github/license/frankc60/jStrip.svg?longCache=true)](https://github.com/frankc60/jStrip/blob/master/LICENSE)
-
