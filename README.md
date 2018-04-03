@@ -6,7 +6,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/frankc60/jStrip/badge.svg)](https://coveralls.io/github/frankc60/jStrip)
 [![Join the chat at https://gitter.im/jStrip_npm/Lobby](https://badges.gitter.im/jStrip_npm/Lobby.svg)](https://gitter.im/jStrip_npm/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Pass a webpage uri and pure [jQuery](http://api.jquery.com/category/selectors/) to jStrip and retrieve the results. **jStrip** retrieves the web page - **uri** and uses the **jQuery** selector to reference the HTML DOM, selecting its contents before returning the results. The results are returned as an object via a Promise or Async/Await, examples below. 
+Pass a webpage's url and pure [jQuery](http://api.jquery.com/category/selectors/) to jStrip and retrieve the results. **jStrip** retrieves the web page - **url** and uses the **jQuery** selector to reference the HTML DOM, selecting its contents before returning the results. The results are returned as an object via a Promise or Async/Await, examples below. 
 
 ## Installing
 
@@ -23,7 +23,7 @@ Include **jStrip** into your code.
 const jStrip = require('jstrip');
 ```
 
-jStrip takes 2 String Parameters, comma delimited: **uri** and pure [jQuery](http://api.jquery.com/category/selectors/).
+jStrip takes 2 String Parameters, comma delimited: **url** and pure [jQuery](http://api.jquery.com/category/selectors/).
 For example:
 
 ```js
