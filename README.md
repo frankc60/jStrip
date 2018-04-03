@@ -95,6 +95,7 @@ Automated CI test builds are run with each update. [![Build Status](https://trav
 We use [SemVer](http://semver.org/) for versioning. 
 
 ## Get Involved
+
 ### Issues
 
 If you have an issue, or a bug let us know and we will do our best.
