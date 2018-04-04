@@ -21,7 +21,7 @@ const crawlpage = {
     await window.eval(`$('body').append('<jStrip id=\\'jStripSpecialTag${rnd}\\'>' + ${jquery}  + '</jStrip>');`);
     const rtn = await $(`jStrip#jStripSpecialTag${rnd}`).html();
     return rtn;
-  },
+  }
 };
 
 
@@ -47,4 +47,3 @@ const jStrip = async (uri, jquery) => {
 
 
 module.exports = jStrip;
-
