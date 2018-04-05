@@ -6,7 +6,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/frankc60/jStrip/badge.svg)](https://coveralls.io/github/frankc60/jStrip)
 [![Join the chat at https://gitter.im/jStrip_npm/Lobby](https://badges.gitter.im/jStrip_npm/Lobby.svg)](https://gitter.im/jStrip_npm/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Pass a webpage's url and pure [jQuery](http://api.jquery.com/category/selectors/) to jStrip and retrieve the results. **jStrip** retrieves the web page - **url** and uses the **jQuery** selector to reference the HTML DOM, selecting its contents before returning the results. The results are returned as an object via a Promise or Async/Await, examples below. 
+Pass a webpage's url and pure [jQuery](http://api.jquery.com/category/selectors/) to jStrip and retrieve the results. **jStrip** retrieves the web page - **url** and uses the **jQuery** selector to reference the HTML DOM, selecting its contents before returning the results. The results are returned as an object via a Promise or Async/Await, examples below.
 
 ## Installing
 
@@ -33,11 +33,13 @@ jStrip("http://www.google.com","$('title').html()");
 jStrip returns an **object**, with five properties:
 
 <pre>
+
 1. data:       the results from your jquery selector.
 2. timed:      milliseconds taken for uri retrieval.
 3. uri:        the uri of the page.
 4. jquery:     the jquery executed on the uri.
 5. statuscode: statusCode returned from uri.
+
 </pre>
 
 for example:
@@ -88,11 +90,12 @@ const fn = (async () => {
 ```
 
 ## Tests
+
 Automated CI test builds are run with each update. [![Build Status](https://travis-ci.org/frankc60/jStrip.svg?branch=master)](https://travis-ci.org/frankc60/jStrip) [![Coverage Status](https://coveralls.io/repos/github/frankc60/jStrip/badge.svg)](https://coveralls.io/github/frankc60/jStrip)
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. 
+We use [SemVer](http://semver.org/) for versioning.
 
 ## Get Involved
 
@@ -100,11 +103,12 @@ We use [SemVer](http://semver.org/) for versioning.
 
 If you have an issue, or a bug let us know and we will do our best.
 
-Create issues [here](https://github.com/frankc60/jStrip/issues).
+Create an issue [here](https://github.com/frankc60/jStrip/issues).
 
 ### Contributing
 
 If you have any questions, comments, suggestions or ideas, feel free to drop me a line. [![Join the chat at https://gitter.im/jStrip_npm/Lobby](https://badges.gitter.im/jStrip_npm/Lobby.svg)](https://gitter.im/jStrip_npm/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+We'd love to hear your suggestions and ideas!
 
 ## Authors
 
