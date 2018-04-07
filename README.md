@@ -14,7 +14,7 @@ Start with installing **jStrip**.
 Install with npm.
 
 ```js
-$ npm i -S jstrip
+> npm i -S jstrip
 ```
 
 Include **jStrip** into your code.

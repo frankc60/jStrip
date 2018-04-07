@@ -6,7 +6,6 @@ const { JSDOM } = jsdom;
 const crawlpage = {
 
   get: url => new Promise((resolve, reject) => {
-    // console.log(`crawling ${url}`);
     const start = Date.now();
     request(url, (error, response, body) => {
       if (error) reject(error);
@@ -23,7 +22,6 @@ const crawlpage = {
     return rtn;
   },
 };
-
 
 const jStrip = async (uri, jquery) => {
   try {
