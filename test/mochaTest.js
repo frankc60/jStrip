@@ -69,4 +69,21 @@ describe('jStrip - getData(), selector(), marker()', () => {
   });
 });
 
+const jStrip5 = new jStrip();
+
+describe('jStrip - getData(), selector(), marker()', () => {
+  it("should return 'Google' as title", async () => {
+      
+      const result = jStrip5.getData('https://www.google.com/').selector("title").pretty(true).replace("G","g").marker("m2").show();
+      
+
+      jStrip4.on("m2",()=> {
+
+        chai.expect(result.data).to.equal('google');
+
+      })
+    
+    
+  });
+});
 

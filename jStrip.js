@@ -137,7 +137,7 @@ class jStrip extends EventEmitter {
   //* **********************************************
   replace(reg, wth) {
     if (this.o.dataRetrieved == false) {
-      this.addToQueue(this.replace, areg, wth);
+      this.addToQueue(this.replace, reg, wth);
     } else {
       // console.log("marker: " + a);
       this.o.contents = (this.o.contents).replace(reg, wth);
