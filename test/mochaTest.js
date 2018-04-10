@@ -54,7 +54,7 @@ describe('jStrip - await', () => {
 const jStrip4 = new jStrip();
 
 describe('jStrip - getData(), selector(), marker()', () => {
-  it("should return 'Google' as title", async () => {
+  it("should return 'Google'", async () => {
       
       const result = jStrip4.getData('https://www.google.com/').selector("title").marker("m1");
       
@@ -71,8 +71,8 @@ describe('jStrip - getData(), selector(), marker()', () => {
 
 const jStrip5 = new jStrip();
 
-describe('jStrip - getData(), selector(), marker()', () => {
-  it("should return 'Google' as title", async () => {
+describe('jStrip - getData(), selector(), pretty(), replace(), marker()', () => {
+  it("should return 'google'", async () => {
       
       const result = jStrip5.getData('https://www.google.com/').selector("title").pretty(true).replace("G","g").marker("m2").show();
       
