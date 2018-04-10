@@ -2,9 +2,14 @@
 const chai = require('chai');
 const jStrip = require('../jStrip');
 
+const jStrip1 = new jStrip();
+const jStrip2 = new jStrip();
+const jStrip3 = new jStrip();
+
+
 describe('jStrip - promise', () => {
   it("should return 'Google' as title", (done) => {
-    jStrip('https://www.google.com/', "$('title').html()")
+    jStrip1.jStrip_('https://www.google.com/', "$('title').html()")
       .then((result) => {
         chai.expect(result.data).to.equal('Google');
         done();
@@ -14,7 +19,7 @@ describe('jStrip - promise', () => {
 
 describe('jStrip - promise - invalid uri', () => {
   it("should contain 'Error'", (done) => {
-    jStrip('url', "$('title').html()")
+    jStrip2.jStrip_('url', "$('title').html()")
       .then((result) => {
         //chai.expect(result.data).to.equal('Google');
         //done();
@@ -33,7 +38,7 @@ describe('jStrip - await', () => {
   it("should return 'Google' as title", async () => {
     let p = new Promise((resolve,reject) =>{ 
       try {
-      const result = jStrip('https://www.google.com/', "$('title').html()");
+      const result = jStrip3.jStrip_('https://www.google.com/', "$('title').html()");
       resolve(result);
       } catch(e) {
         reject(e);
