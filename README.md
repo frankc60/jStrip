@@ -6,23 +6,88 @@
 [![Coverage Status](https://coveralls.io/repos/github/frankc60/jStrip/badge.svg)](https://coveralls.io/github/frankc60/jStrip)
 [![Join the chat at https://gitter.im/jStrip_npm/Lobby](https://badges.gitter.im/jStrip_npm/Lobby.svg)](https://gitter.im/jStrip_npm/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Pass a webpage's url and pure [jQuery](http://api.jquery.com/category/selectors/) to jStrip and retrieve the results. **jStrip** retrieves the web page - **url** and uses the **jQuery** selector to reference the HTML DOM, selecting its contents before returning the results. The results are returned as an object via a Promise or Async/Await, examples below.
+jStrip let's you easily grab data from the web or text and apply multiple methods to change the data to your liking. jStrip returns the data Async, allowing for smooth operations. 
+
+**New** `v 2.0` now has chainable methods. With an **on()** method to capture async operations. Grab data from the web or use your own text. Easy to Use. Please read back as I'll be updating this readme file over the next week or so. To keep your `v 1.0` code working please read the Migration section below.
+
 
 ## Installing
 
 Start with installing **jStrip**.
 Install with npm.
 
-```js
-> npm i -S jstrip
+```sh
+$ npm i -S jstrip
 ```
 
-Include **jStrip** into your code.
+Include **jStrip** and create an instance.
 
 ```js
-const jStrip = require('jstrip');
+const jStrip = require('jstrip'); //top of file
+...
+let jStrip1 = new jStrip();
 ```
 
+## Chainable Methods
+jStrip allows you to add as many manipulation tools as you like by simply chaining the methods together.
+
+### First method - getData()
+The only requirement is to grab the data first before you can change it. start by using the getData() method.
+
+getData() can accept 2 values: a **URL** or **text**.
+```js
+jStrip1.getData("http://www.google.com")
+//or
+jStrip1.getData("my own string here")
+```
+
+### pretty(*true|false*)
+
+pretty() will format the data it is given. This is great for tidying html, xml or standard text.
+
+```js
+jStrip1.getData("hello   world").pretty(true)  // hello world
+```
+
+### selector(*jquery*)
+
+selector() grabs html from the data given. Check out jQuery selectors to see some of the many options available.
+
+```js
+jStrip1.getData("http://www.google.com").selector("title")  // Google
+```
+
+### show()
+show() displays the contents to the console output.
+
+## marker() and on()
+Grabbing html data from the web is not instant, so jStrip provides an **event handler** to tell you when it has all the data, Asynchronously.
+
+Set a marker (or many) in your jStrip call.
+```js
+jStrip1.getData("http://www.messyhtml.com").marker("marker1").pretty(true).marker("marker2")
+```
+display the markers asynchronously with **on()**
+```js
+jStrip1.on("marker1",(data) => {
+  console.log(`html $[data}`);  
+});
+
+jStrip1.on("marker2",(data) => {
+  console.log(`pretty html $[data}`);  
+});
+
+```
+
+
+## Migrating from Version 1 to Version 2
+To keep your version 1 code working under version 2, simply update your existing code with the following:
+- Create a seperate instance for each call, ```let jStrip-1 = new jStrip();```
+- Change your jStrip call from ```jStrip("<URL>","<jQuery>")``` to ```jStrip-1._jStrip("<URL>","<jQuery>")```
+That's all.
+You can still use version 2 features together.
+
+###Version 1.0 (*older version*)
 jStrip takes 2 String Parameters, comma delimited: **url** and pure [jQuery](http://api.jquery.com/category/selectors/).
 For example:
 
