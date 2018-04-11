@@ -58,15 +58,19 @@ jStrip1.getData("hello   world").pretty(true)  // hello world
 
 ### selector(*jquery*)
 
-selector() grabs html from the data given. Check out jQuery selectors to see some of the many options available.
+selector() grabs html from the data given. Check out the many available [jQuery selectors](https://api.jquery.com/category/selectors/) you can use.
 
 ```js
-jStrip1.getData("http://www.google.com").selector("title")  // Google
+jStrip1.getData("http://www.google.com").selector("div span:first-child")
 ```
 
 ### show()
 
 show() displays the contents to the console output.
+
+```js
+jStrip1.getData("hello world").show()   //hello world
+```
 
 ## marker() and on()
 
@@ -78,20 +82,20 @@ Set a marker (or many) in your jStrip call, name it anything.
 jStrip1.getData("http://www.messyhtml.com").marker("marker1").pretty(true).marker("marker2")
 ```
 
-display the markers asynchronously with **on()**. Call the instance of jStrip and the named marker used.
+Display the markers asynchronously with **on()**. Call the instance of jStrip and the named marker used.
 
 ```js
 jStrip1.on("marker1",(data) => {
-  console.log(`html $[data}`);  
+  console.log(`html $[data}`);
 });
 
 jStrip1.on("marker2",(data) => {
-  console.log(`pretty html $[data}`);  
+  console.log(`pretty html $[data}`);
 });
 
 ```
 
-## Migrating from Version 1 to Version 2
+# Migrating from Version 1 to Version 2
 
 To keep your version 1 code working under version 2, simply update your existing code with the following:
 
