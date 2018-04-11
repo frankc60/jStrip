@@ -103,24 +103,27 @@ describe('jStrip - getData("text"), pretty(), replace(), marker()', () => {
   });
 });
 
-/*
+
 const jStrip7 = new jStrip();
 
-describe('jStrip - getData("text"), pretty(), marker(), replace(), marker()', () => {
-  it("should return 'hello people'", async (done) => {
-    const result = jStrip6.getData('hello     world').pretty(true).marker('m4').replace('world', 'people')
+describe('jStrip - getData(bad url), pretty(), marker(), replace(), marker()', () => {
+  it("should return 'Error'",  (done) => {
+    
+    jStrip7.getData("http://getstatuscode.com/500").pretty(true).marker('m4').replace('world', 'people')
 .marker('m5');
 
     jStrip7.on('m5', (e) => {
-      console.log("m5 = " + e)
-      chai.expect(e).to.equal('hello people');
+      //console.log("m5 = " + e.data)
+      chai.expect(e.data).to.have.string('Error:');
 
       done();
 
     });
-  });
+  }).timeout(25000);
 });
 
+
+/*
 const jStrip8 = new jStrip();
 
 describe('jStrip - getData(dummy url)', () => {
