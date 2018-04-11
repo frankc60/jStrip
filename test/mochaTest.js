@@ -114,7 +114,7 @@ describe('jStrip - getData("text"), pretty(), marker(), replace(), marker()', ()
 const jStrip8 = new jStrip();
 
 describe('jStrip - getData(dummy url)', () => {
-  it("should return 'hello world' and 'hello people'", async () => {
+  it("should return 'blank'", async () => {
     const result = jStrip8.getData('http://s').pretty(true).marker('m4').replace('world', 'people')
 .marker('m5');
 
@@ -126,6 +126,22 @@ describe('jStrip - getData(dummy url)', () => {
       chai.expect(f).to.equal('hello world');
     });
     
+
+  });
+});
+
+const jStrip9 = new jStrip();
+
+describe('jStrip - data not ready', () => {
+  it("should return a blank", async () => {
+    const result = jStrip9.pretty(true).show().marker("mm");
+
+    chai.expect(result).to.not.equal("");
+
+    jStrip9.on('mm', (f) => {
+      chai.expect(f).to.equal('hello world');
+    });
+
 
   });
 });
