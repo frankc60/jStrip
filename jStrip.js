@@ -59,7 +59,7 @@ class jStrip extends EventEmitter {
   //* **********************************************
   //* **********************************************
   getData(data) {
-    if (this.o.dataRetrieved == false) {
+    if (this.o.dataRetrieved === false) {
       // this.addToQueue(this.getData, data);
 
       this.on('dataReceived', (d) => {
@@ -78,7 +78,7 @@ class jStrip extends EventEmitter {
       if (urlRegex.test(data)) {
         // success
         request(options, (error, response, body) => {
-          if (error) body = (error + response && response.statusCode);
+          if (error) { body = (`${error} ${response && response.statusCode}`); }
           this.emit('dataReceived', {
             data: body,
           });
@@ -113,7 +113,7 @@ class jStrip extends EventEmitter {
   //* **********************************************
   //* **********************************************
   show(a) {
-    if (this.o.dataRetrieved == false) {
+    if (this.o.dataRetrieved === false) {
       this.addToQueue(this.show, a);
     } else {
       console.log(this.o.contents);
@@ -123,7 +123,7 @@ class jStrip extends EventEmitter {
   //* **********************************************
   //* **********************************************
   marker(a) {
-    if (this.o.dataRetrieved == false) {
+    if (this.o.dataRetrieved === false) {
       this.addToQueue(this.marker, a);
     } else {
       // console.log("marker: " + a);
@@ -136,7 +136,7 @@ class jStrip extends EventEmitter {
   //* **********************************************
   //* **********************************************
   replace(reg, wth) {
-    if (this.o.dataRetrieved == false) {
+    if (this.o.dataRetrieved === false) {
       this.addToQueue(this.replace, reg, wth);
     } else {
       // console.log("marker: " + a);
@@ -147,11 +147,10 @@ class jStrip extends EventEmitter {
   //* **********************************************
   //* **********************************************
   pretty(bol = true) {
-    if (this.o.dataRetrieved == false) {
+    if (this.o.dataRetrieved === false) {
       this.addToQueue(this.pretty, bol);
-    } else if(bol === true) {
-        this.o.contents = prettyHtml(this.o.contents);
-      
+    } else if (bol === true) {
+      this.o.contents = prettyHtml(this.o.contents);
     }
     return this;
   }
@@ -159,9 +158,9 @@ class jStrip extends EventEmitter {
   //* **********************************************
   processQueue() {
     const that = this;
-    let remove;
+    // let remove;
     const r = this.o;
-    for (const [fn, arg] of r) { 
+    for (const [fn, arg] of r) {
       fn[0].apply(that, arg);
     }
   }
@@ -217,53 +216,3 @@ class jStrip extends EventEmitter {
 
 
 module.exports = jStrip;
-
-/*
-const request = require('request');
-const jsdom = require('jsdom');
-
-const { JSDOM } = jsdom;
-
-const crawlpage = {
-
-  get: url => new Promise((resolve, reject) => {
-    const start = Date.now();
-    request(url, (error, response, body) => {
-      if (error) reject(error);
-      resolve([body, (Date.now() - start), response && response.statusCode]);
-    });
-  }),
-  jdom: async (body, jquery) => {
-    const dom = await new JSDOM(body, { runScripts: 'outside-only' });
-    const window = await dom.window.document.defaultView;
-    const $ = await require('jquery')(window);
-    const rnd = await Math.floor((Math.random() * 1000) + 1);
-    await window.eval(`$('body').append('<jStrip id=\\'jStripSpecialTag${rnd}\\'>' + ${jquery}  + '</jStrip>');`);
-    const rtn = await $(`jStrip#jStripSpecialTag${rnd}`).html();
-    return rtn;
-  },
-};
-
-const jStrip = async (uri, jquery) => {
-  try {
-    const body = await crawlpage.get(uri);
-    const data = await crawlpage.jdom(body[0], jquery);
-    return {
-      data,
-      timed: body[1],
-      uri,
-      jquery,
-      statuscode: body[2],
-    };
-  } catch (err) {
-    throw err;
-  }
-};
-
-// EXAMPLE USAGE:
-// jStrip('https://www.bbc.co.uk', "$('title').html()");
-// jStrip('https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function', "$('title').html()");
-
-
-module.exports = jStrip;
- */

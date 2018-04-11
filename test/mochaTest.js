@@ -115,7 +115,7 @@ const jStrip8 = new jStrip();
 
 describe('jStrip - getData(dummy url)', () => {
   it("should return 'blank'", async () => {
-    const result = jStrip8.getData('http://s').pretty(true).marker('m4').replace('world', 'people')
+    const result = jStrip8.getData('http://s123s.dds').pretty(true).marker('m4').replace('world', 'people')
 .marker('m5');
 
     jStrip8.on('m4', (f) => {
@@ -123,7 +123,7 @@ describe('jStrip - getData(dummy url)', () => {
     });
 
     jStrip8.on('no_exists', (f) => {
-      chai.expect(f).to.equal('hello world');
+      chai.expect(f).to.equal('');
     });
     
 
@@ -133,8 +133,8 @@ describe('jStrip - getData(dummy url)', () => {
 const jStrip9 = new jStrip();
 
 describe('jStrip - data not ready', () => {
-  it("should return a blank", async () => {
-    const result = jStrip9.pretty(true).show().marker("mm");
+  it("should return a blank",  () => {
+    const result = jStrip9.show().pretty(true).show().marker("mm");
 
     chai.expect(result).to.not.equal("");
 
