@@ -50,10 +50,10 @@ class jStrip extends EventEmitter {
   }
   //* **********************************************
   //* **********************************************
-  addToQueue(f, d) {
+  addToQueue(f, ...d) {
     this.o.push([
       [f],
-      [d],
+      [...d],
     ]);
   }
   //* **********************************************
@@ -160,8 +160,8 @@ class jStrip extends EventEmitter {
     const that = this;
     // let remove;
     const r = this.o;
-    for (const [fn, arg] of r) {
-      fn[0].apply(that, arg);
+    for (const [fn, ...arg] of r) {
+      fn[0].apply(that, ...arg);
     }
   }
   //* **********************************************
