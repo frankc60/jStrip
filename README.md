@@ -95,7 +95,7 @@ jStrip1.on("marker2",(data) => {
 
 ```
 
-# Migrating from Version 1 to Version 2
+## Migrating from Version 1 to Version 2
 
 To keep your version 1 code working under version 2, simply update your existing code with the following:
 
