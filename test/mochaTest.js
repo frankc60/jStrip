@@ -114,7 +114,7 @@ describe('jStrip - getData(bad url), pretty(), marker(), replace(), marker()', (
 
     jStrip7.on('m5', (e) => {
       //console.log("m5 = " + e.data)
-      chai.expect(e.data).to.have.string('Error:');
+      chai.expect(e.data).to.have.string("Error:","denied");
 
       done();
 
