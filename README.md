@@ -93,14 +93,13 @@ jStrip1.on("marker1",(data) => {
 jStrip1.on("marker2",(data) => {
   console.log(`pretty html $[data}`);
 });
-
 ```
 
 ## Migrating from Version 1 to Version 2
 
 To keep your version 1 code working under version 2, simply update your existing code with the following:
 
-- Create a seperate instance for each call, 
+- Create a seperate instance for each call,
 
 ```js
 let jStrip-1 = new jStrip(); //version 2
