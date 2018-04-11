@@ -99,13 +99,13 @@ jStrip1.on("marker2",(data) => {
 
 To keep your version 1 code working under version 2, simply update your existing code with the following:
 
-- Create a seperate instance for each call,
+- Create a seperate instance for each call, with the **new** operator.
 
 ```js
 let jStrip-1 = new jStrip(); //version 2
 ```
 
-- Change your jStrip call from: 
+- Change your jStrip call from:
 
 ```js
 jStrip("<URL>","<jQuery>")  //vesrion 1
