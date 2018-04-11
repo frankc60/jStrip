@@ -78,7 +78,7 @@ class jStrip extends EventEmitter {
       if (urlRegex.test(data)) {
         // success
         request(options, (error, response, body) => {
-          if (error) reject(error + response && response.statusCode);
+          if (error) body = (error + response && response.statusCode);
           this.emit('dataReceived', {
             data: body,
           });
@@ -149,11 +149,9 @@ class jStrip extends EventEmitter {
   pretty(bol = true) {
     if (this.o.dataRetrieved == false) {
       this.addToQueue(this.pretty, bol);
-    } else {
-      // console.log("marker: " + a);
-      if (bol === true) {
+    } else if(bol === true) {
         this.o.contents = prettyHtml(this.o.contents);
-      }
+      
     }
     return this;
   }

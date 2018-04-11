@@ -59,9 +59,9 @@ describe('jStrip - getData(), selector(), marker()', () => {
       const result = jStrip4.getData('https://www.google.com/').selector("title").marker("m1");
       
 
-      jStrip4.on("m1",()=> {
+      jStrip4.on("m1",(t)=> {
 
-        chai.expect(result.data).to.equal('Google');
+        chai.expect(t).to.equal('Google');
 
       })
     
@@ -77,9 +77,9 @@ describe('jStrip - getData(), selector(), pretty(), replace(), marker(), show()'
       const result = jStrip5.getData('https://www.google.com/').selector("title").pretty(true).replace("G","g").marker("m2").show();
       
 
-      jStrip5.on("m2",()=> {
+      jStrip5.on("m2",(q)=> {
 
-        chai.expect(result.data).to.equal('google');
+        chai.expect(q).to.equal('google');
 
       })
     
@@ -95,9 +95,9 @@ describe('jStrip - getData("text"), pretty(), replace(), marker()', () => {
       const result = jStrip6.getData('hello     world').pretty(true).replace("hello","hi").marker("m3");
       
 
-      jStrip6.on("m3",()=> {
+      jStrip6.on("m3",(e)=> {
 
-        chai.expect(result.data).to.equal('hi world');
+        chai.expect(e).to.equal('hi world');
 
       })
     
@@ -112,18 +112,29 @@ describe('jStrip - getData("text"), pretty(), marker(), replace(), marker()', ()
       
       const result = jStrip6.getData('hello     world').pretty(true).marker("m4").replace("world","people").marker("m5");
       
-      jStrip7.on("m4",()=> {
+      jStrip7.on("m4",(f)=> {
 
-        chai.expect(result.data).to.equal('hello world');
-
-      })
-    
-      jStrip7.on("m5",()=> {
-
-        chai.expect(result.data).to.equal('hello people');
+        chai.expect(f).to.equal('hello world');
 
       })
     
+      jStrip7.on("m5",(e)=> {
+
+        chai.expect(e).to.equal('hello people');
+
+
+        let bb = jStrip7.show();
+        chai.expect(bb).to.equal('hello people');
+  
+
+      })
+    
+    
+jStrip7.on("xxx",() => {
+// non-existing event
+
+})
+
     
   });
 });
