@@ -8,7 +8,7 @@
 
 jStrip let's you easily grab data from the web or text and apply multiple methods to change the data to your liking. jStrip returns the data Async, allowing for smooth operations. 
 
-**New** `v 2.0` now has chainable methods. With an **on()** method to capture async operations. Grab data from the web or use your own text. Easy to Use. Please read back as I'll be updating this readme file over the next week or so. To keep your `v 1.0` code working please read the Migration section below.
+**New** `v 2.0` now has chainable methods. With an **on()** method to capture async operations. Grab data from the web or use your own text. Easy to Use. I will updating this readme file over the next week or so with new *features*. To keep your `v 1.0` code working as before, please read the Migration section below.
 
 
 ## Installing
@@ -29,7 +29,12 @@ let jStrip1 = new jStrip();
 ```
 
 ## Chainable Methods
-jStrip allows you to add as many manipulation tools as you like by simply chaining the methods together.
+jStrip allows you to append as many manipulation tools as you like by simply chaining the methods together by a dot delimiter. For Example:
+´´´js
+jStrip4.getData('https://www.timeanddate.com/worldclock/fullscreen.html?n=264').selector("div#rs1").marker("marker2").selector("#i_time").marker("marker3")
+jStrip4.pretty(true).show();
+
+´´´
 
 ### First method - getData()
 The only requirement is to grab the data first before you can change it. start by using the getData() method.
@@ -61,13 +66,13 @@ jStrip1.getData("http://www.google.com").selector("title")  // Google
 show() displays the contents to the console output.
 
 ## marker() and on()
-Grabbing html data from the web is not instant, so jStrip provides an **event handler** to tell you when it has all the data, Asynchronously.
+Grabbing html data from the web is not instant, so jStrip provides an **event handler** to tell you when it has all it's data ready, Asynchronously.
 
-Set a marker (or many) in your jStrip call.
+Set a marker (or many) in your jStrip call, name it anything.
 ```js
 jStrip1.getData("http://www.messyhtml.com").marker("marker1").pretty(true).marker("marker2")
 ```
-display the markers asynchronously with **on()**
+display the markers asynchronously with **on()**. Call the instance of jStrip and the named marker used.
 ```js
 jStrip1.on("marker1",(data) => {
   console.log(`html $[data}`);  
@@ -82,17 +87,29 @@ jStrip1.on("marker2",(data) => {
 
 ## Migrating from Version 1 to Version 2
 To keep your version 1 code working under version 2, simply update your existing code with the following:
-- Create a seperate instance for each call, ```let jStrip-1 = new jStrip();```
-- Change your jStrip call from ```jStrip("<URL>","<jQuery>")``` to ```jStrip-1._jStrip("<URL>","<jQuery>")```
-That's all.
-You can still use version 2 features together.
+- Create a seperate instance for each call, 
+```js
+let jStrip-1 = new jStrip(); //version 2
+```
+- Change your jStrip call from: 
+```js
+jStrip("<URL>","<jQuery>")  //vesrion 1
+```
+ to 
+ ```js
+ jStrip-1._jStrip("<URL>","<jQuery>") //version 2
+ ```
 
-###Version 1.0 (*older version*)
+That's all!
+
+You can still use version 2 features together with Version 1.
+
+###Version 1.0 (*the following is the features of version 1*)
 jStrip takes 2 String Parameters, comma delimited: **url** and pure [jQuery](http://api.jquery.com/category/selectors/).
 For example:
 
 ```js
-jStrip("http://www.google.com","$('title').html()");
+jStrip2("http://www.google.com","$('title').html()");
 ```
 
 jStrip returns an **object**, with five properties:
@@ -125,7 +142,7 @@ jStrip can be written as a **Promise** or as **Async/Await**.
 
 ```js
 // Using Promise
-jStrip('https://www.bing.com', "$('title').html()")
+jStrip2('https://www.bing.com', "$('title').html()")
   .then((result) => {
     console.log(`promise result: ${result.data}
       time taken: ${result.timed}
@@ -143,7 +160,7 @@ jStrip('https://www.bing.com', "$('title').html()")
 // Using Async/Await
 const fn = (async () => {
   try {
-    const result = await jStrip('https://www.youtube.com', "$('title').html()");
+    const result = await jStrip2('https://www.youtube.com', "$('title').html()");
     await console.log(`async/await result: ${result.data}
       time taken: ${result.timed}
       uri: ${result.uri}
