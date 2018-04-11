@@ -29,7 +29,7 @@ let jStrip1 = new jStrip();
 
 ## Chainable Methods
 
-jStrip allows you to append as many manipulation tools as you like by simply chaining the methods together by a dot delimiter. For Example:
+jStrip allows you to append as many manipulation tools as you like by simply chaining the methods together with a dot delimiter. For Example:
 
 ```js
 jStrip4.getData('https://www.timeanddate.com/worldclock/fullscreen.html?n=264').selector("div#rs1").marker("marker2").selector("#i_time").marker("marker3")
@@ -38,7 +38,7 @@ jStrip4.pretty(true).show();
 
 ### First method - getData()
 
-The only requirement is to grab the data first before you can change it. start by using the getData() method.
+The only requirement is to first grab the data before changing it. Start by using the getData() method.
 
 getData() can accept 2 values: a **URL** or **text**.
 
@@ -53,12 +53,12 @@ jStrip1.getData("my own string of text here!")
 pretty() will format the data it is given. This is great for tidying html, xml or standard text.
 
 ```js
-jStrip1.getData("hello   world").pretty(true)  // hello world
+jStrip1.getData("hello    world").pretty(true)  // hello world (removed extra spaces)
 ```
 
 ### selector(*jquery*)
 
-selector() grabs html from the data given. Check out the many available [jQuery selectors](https://api.jquery.com/category/selectors/) you can use.
+selector() lets you grabs html from the data. Check out the many available [jQuery selectors](https://api.jquery.com/category/selectors/) you can use.
 
 ```js
 jStrip1.getData("http://www.google.com").selector("div span:first-child")
@@ -76,13 +76,14 @@ jStrip1.getData("hello world").show()   //hello world
 
 Grabbing html data from the web is not instant, so jStrip provides an **event handler** to tell you when it has all it's data ready, Asynchronously.
 
-Set a marker (or many) in your jStrip call, name it anything.
+Set a marker (or many) in your jStrip call, simply by using the **marker()** method and naming it anything.
 
 ```js
 jStrip1.getData("http://www.messyhtml.com").marker("marker1").pretty(true).marker("marker2")
 ```
 
-Display the markers asynchronously with **on()**. Call the instance of jStrip and the named marker used.
+Display the markers asynchronously with the **on()** method. This should be placed before the jStrip marker is set.
+Two parameters are needed, the named marker to trigger on and a function to execute.
 
 ```js
 jStrip1.on("marker1",(data) => {
