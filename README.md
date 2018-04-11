@@ -10,7 +10,6 @@ jStrip let's you easily grab data from the web or text and apply multiple method
 
 **New** `v 2.0` now has chainable methods. With an **on()** method to capture async operations. Grab data from the web or use your own text. Easy to Use. I will updating this readme file over the next week or so with new *features*. To keep your `v 1.0` code working as before, please read the Migration section below.
 
-
 ## Installing
 
 Start with installing **jStrip**.
@@ -29,6 +28,7 @@ let jStrip1 = new jStrip();
 ```
 
 ## Chainable Methods
+
 jStrip allows you to append as many manipulation tools as you like by simply chaining the methods together by a dot delimiter. For Example:
 
 ´´´js
@@ -38,13 +38,15 @@ jStrip4.pretty(true).show();
 ´´´
 
 ### First method - getData()
+
 The only requirement is to grab the data first before you can change it. start by using the getData() method.
 
 getData() can accept 2 values: a **URL** or **text**.
+
 ```js
 jStrip1.getData("http://www.google.com")
 //or
-jStrip1.getData("my own string here")
+jStrip1.getData("my own string of text here!")
 ```
 
 ### pretty(*true|false*)
@@ -64,16 +66,21 @@ jStrip1.getData("http://www.google.com").selector("title")  // Google
 ```
 
 ### show()
+
 show() displays the contents to the console output.
 
 ## marker() and on()
+
 Grabbing html data from the web is not instant, so jStrip provides an **event handler** to tell you when it has all it's data ready, Asynchronously.
 
 Set a marker (or many) in your jStrip call, name it anything.
+
 ```js
 jStrip1.getData("http://www.messyhtml.com").marker("marker1").pretty(true).marker("marker2")
 ```
+
 display the markers asynchronously with **on()**. Call the instance of jStrip and the named marker used.
+
 ```js
 jStrip1.on("marker1",(data) => {
   console.log(`html $[data}`);  
@@ -85,8 +92,8 @@ jStrip1.on("marker2",(data) => {
 
 ```
 
-
 ## Migrating from Version 1 to Version 2
+
 To keep your version 1 code working under version 2, simply update your existing code with the following:
 
 - Create a seperate instance for each call, 
@@ -112,6 +119,7 @@ That's all!
 You can still use version 2 features together with Version 1.
 
 ### Version 1.0 (*the following is the features of version 1*)
+
 jStrip takes 2 String Parameters, comma delimited: **url** and pure [jQuery](http://api.jquery.com/category/selectors/).
 For example:
 
@@ -201,7 +209,7 @@ We'd love to hear your suggestions and ideas!
 
 ## Authors
 
-* **Frank C** - [frankc60](https://github.com/frankc60)
+- **Frank C** - [frankc60](https://github.com/frankc60)
 
 ## License
 
