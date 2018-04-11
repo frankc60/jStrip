@@ -78,7 +78,7 @@ class jStrip extends EventEmitter {
       if (urlRegex.test(data)) {
         // success
         request(options, (error, response, body) => {
-          if (error) { body = (`${error} ${response && response.statusCode}`); }
+       //   if (error) { body = (`${error} ${response && response.statusCode}`); }
           this.emit('dataReceived', {
             data: body,
           });
@@ -101,7 +101,7 @@ class jStrip extends EventEmitter {
       const dom = (new JSDOM(this.o.contents));
 
 
-      if (typeof dom.window !== 'object') throw ('problem with dom');
+      // if (typeof dom.window !== 'object') throw ('problem with dom');
 
       // console.log(this.o.contents);
 
@@ -149,7 +149,7 @@ class jStrip extends EventEmitter {
   pretty(bol = true) {
     if (this.o.dataRetrieved === false) {
       this.addToQueue(this.pretty, bol);
-    } else if (bol === true) {
+    } else { // if (bol === true) {
       this.o.contents = prettyHtml(this.o.contents);
     }
     return this;

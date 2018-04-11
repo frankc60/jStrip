@@ -123,27 +123,25 @@ describe('jStrip - getData(bad url), pretty(), marker(), replace(), marker()', (
 });
 
 
-/*
+
 const jStrip8 = new jStrip();
 
-describe('jStrip - getData(dummy url)', () => {
-  it("should return 'blank'", async (done) => {
-    const result = jStrip8.getData('http://s123s.dds').pretty(true).marker('m4').replace('world', 'people')
-.marker('m5');
+describe('jStrip - selector()', () => {
+  it("should return 'undefined'", (done) => {
+    
 
     jStrip8.on('m4', (f) => {
-      chai.expect(f).to.equal('hello world');
-    });
-
-    jStrip8.on('no_exists', (f) => {
-      chai.expect(f).to.equal('');
+      chai.expect(f.data).to.be.an('undefined');
       done();
     });
-    
+
+    jStrip8.getData('<html><body>hello world</htm2l>').selector("title").marker('m4').show();
 
   });
 });
 
+
+/*
 const jStrip9 = new jStrip();
 
 describe('jStrip - data not ready', () => {
