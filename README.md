@@ -6,7 +6,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/frankc60/jStrip/badge.svg)](https://coveralls.io/github/frankc60/jStrip)
 [![Join the chat at https://gitter.im/jStrip_npm/Lobby](https://badges.gitter.im/jStrip_npm/Lobby.svg)](https://gitter.im/jStrip_npm/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-jStrip let's you easily grab data from the web or text and apply multiple methods to change the data to your liking. jStrip returns the data Async, allowing for smooth operations. 
+jStrip let's you easily grab data from the web or text and apply multiple methods to change the data to your liking. jStrip returns the data Async, allowing for smooth operations.
 
 **New** `v 2.0` now has chainable methods. With an **on()** method to capture async operations. Grab data from the web or use your own text. Easy to Use. I will updating this readme file over the next week or so with new *features*. To keep your `v 1.0` code working as before, please read the Migration section below.
 
@@ -30,6 +30,7 @@ let jStrip1 = new jStrip();
 
 ## Chainable Methods
 jStrip allows you to append as many manipulation tools as you like by simply chaining the methods together by a dot delimiter. For Example:
+
 ´´´js
 jStrip4.getData('https://www.timeanddate.com/worldclock/fullscreen.html?n=264').selector("div#rs1").marker("marker2").selector("#i_time").marker("marker3")
 jStrip4.pretty(true).show();
@@ -87,15 +88,21 @@ jStrip1.on("marker2",(data) => {
 
 ## Migrating from Version 1 to Version 2
 To keep your version 1 code working under version 2, simply update your existing code with the following:
+
 - Create a seperate instance for each call, 
+
 ```js
 let jStrip-1 = new jStrip(); //version 2
 ```
+
 - Change your jStrip call from: 
+
 ```js
 jStrip("<URL>","<jQuery>")  //vesrion 1
 ```
- to 
+
+ to
+
  ```js
  jStrip-1._jStrip("<URL>","<jQuery>") //version 2
  ```
@@ -104,7 +111,7 @@ That's all!
 
 You can still use version 2 features together with Version 1.
 
-###Version 1.0 (*the following is the features of version 1*)
+### Version 1.0 (*the following is the features of version 1*)
 jStrip takes 2 String Parameters, comma delimited: **url** and pure [jQuery](http://api.jquery.com/category/selectors/).
 For example:
 
