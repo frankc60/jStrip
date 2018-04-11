@@ -71,13 +71,13 @@ describe('jStrip - getData(), selector(), marker()', () => {
 
 const jStrip5 = new jStrip();
 
-describe('jStrip - getData(), selector(), pretty(), replace(), marker()', () => {
+describe('jStrip - getData(), selector(), pretty(), replace(), marker(), show()', () => {
   it("should return 'google'", async () => {
       
       const result = jStrip5.getData('https://www.google.com/').selector("title").pretty(true).replace("G","g").marker("m2").show();
       
 
-      jStrip4.on("m2",()=> {
+      jStrip5.on("m2",()=> {
 
         chai.expect(result.data).to.equal('google');
 
@@ -87,3 +87,43 @@ describe('jStrip - getData(), selector(), pretty(), replace(), marker()', () => 
   });
 });
 
+const jStrip6 = new jStrip();
+
+describe('jStrip - getData("text"), pretty(), replace(), marker()', () => {
+  it("should return 'hi world'", async () => {
+      
+      const result = jStrip6.getData('hello     world').pretty(true).replace("hello","hi").marker("m3");
+      
+
+      jStrip6.on("m3",()=> {
+
+        chai.expect(result.data).to.equal('hi world');
+
+      })
+    
+    
+  });
+});
+
+const jStrip7 = new jStrip();
+
+describe('jStrip - getData("text"), pretty(), marker(), replace(), marker()', () => {
+  it("should return 'hello world' and 'hello people'", async () => {
+      
+      const result = jStrip6.getData('hello     world').pretty(true).marker("m4").replace("world","people").marker("m5");
+      
+      jStrip7.on("m4",()=> {
+
+        chai.expect(result.data).to.equal('hello world');
+
+      })
+    
+      jStrip7.on("m5",()=> {
+
+        chai.expect(result.data).to.equal('hello people');
+
+      })
+    
+    
+  });
+});
