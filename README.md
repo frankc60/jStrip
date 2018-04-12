@@ -90,7 +90,7 @@ Set a marker (or many) in your jStrip call, simply by using the **marker()** met
 jStrip1.getData("http://www.messyhtml.com").marker("marker1").pretty().marker("marker2")
 ```
 
-Display the markers asynchronously with the **on()** method. This should be placed before the jStrip marker is set.
+Display the markers asynchronously with the **on()** method. 
 Two parameters are needed, the named marker to trigger on and a function to execute.
 jStrip returns an object, with a property 'data' containing the content.
 
@@ -103,6 +103,7 @@ jStrip1.on("marker2",(d) => {
   console.log(`pretty html ${d.data}`);
 });
 ```
+*The **on()** event handler should be placed before the **marker()** is set.
 
 ## Migrating from Version 1 to Version 2
 
