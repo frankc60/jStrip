@@ -55,9 +55,9 @@ jStrip4.getData('https://goo.gl/e234y2').selector("div#rs1")
 
 ### First method - .getData()
 
-The only requirement is to first grab the data. Start by using the **.getData()** method.
+The only requirement is to first grab the data. Start by using the `.getData()` method.
 
-getData() accepts 2 data types: a **URL** or **text**.
+`getData()` accepts 2 data types: a **URL** or **text**.
 
 ```js
 jStrip1.getData("http://www.google.com")
@@ -67,7 +67,7 @@ jStrip1.getData("my own string of text here!")
 
 ### .show()
 
-show() displays the contents to the console. Great for seeing the results, see **.marker() and .on()** below to add an event handler.
+`show()` displays the contents to the console. Great for seeing the results, see **.marker() and .on()** below to add an event handler.
 
 ```js
 jStrip1.getData("hello world").show()   //hello world
@@ -94,8 +94,8 @@ jStrip1.getData("http://www.news.com")
 
 ### .replace(*/regex/, "text"*)
 
-Use regular expression to replace content. **regex** is a [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions). 
-**text** is a quoted string.
+Use regular expression to replace content. **/regex/** is a [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) to search for. 
+**"text"** is the replacement string.
 
 ```js
 jStrip5.getData('hello world').replace(/hello/,"hi there")
@@ -118,6 +118,8 @@ jStrip1.getData("have  a   nice   day").marker("marker1")
 Display the markers asynchronously with the **on()** event handler method.
 Two parameters are needed, the named marker() to trigger on followed with a function.
 jStrip returns an object to the function, with a property 'data' containing the content.
+
+####.on(*marker name*, *function(returned data)*)
 
 ```js
 jStrip1.on("marker1",(d) => {  //       first marker
