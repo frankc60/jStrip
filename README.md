@@ -50,7 +50,7 @@ jStrip1.getData("my own string of text here!")
 
 ### .show()
 
-show() displays the contents to the console.
+show() displays the contents to the console. Great for seeing the results, see *.marker() and .on()* below to add an event handler.
 
 ```js
 jStrip1.getData("hello world").show()   //hello world
@@ -61,7 +61,7 @@ jStrip1.getData("hello world").show()   //hello world
 pretty() will format the data it is given. This is great for tidying html, xml or standard text.
 
 ```js
-jStrip1.getData("hello    world").pretty()  // hello world (removed extra spaces)
+jStrip1.getData("hello    world").pretty().show();  // hello world (removed extra spaces)
 ```
 
 ### .selector(*jquery*)
@@ -69,7 +69,7 @@ jStrip1.getData("hello    world").pretty()  // hello world (removed extra spaces
 selector() lets you grabs html from the data. Check out the many available [jQuery selectors](https://api.jquery.com/category/selectors/) you can use.
 
 ```js
-jStrip1.getData("http://www.google.com").selector("div span:first-child")
+jStrip1.getData("http://www.news.com").selector("div#top li:nth-child(2)").show(); //2nd li tag inside div with id 'top'
 ```
 
 ### .replace(*/regex/, "string"*)
@@ -91,7 +91,7 @@ Set a marker (or many) in your jStrip call, simply by using the **marker()** met
 jStrip1.getData("http://www.messyhtml.com").marker("marker1").pretty().marker("marker2")
 ```
 
-Display the markers asynchronously with the **on()** event handler method. 
+Display the markers asynchronously with the **on()** event handler method.
 Two parameters are needed, the named marker to trigger on and a function to execute.
 jStrip returns an object, with a property 'data' containing the content.
 
