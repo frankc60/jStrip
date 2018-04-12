@@ -108,6 +108,8 @@ Grabbing html data from the web is not instant, so jStrip provides an **event ha
 
 Set a marker (or many) in your jStrip call, simply by using the **marker()** method and naming it anything.
 
+####.marker(*eventname*)
+
 ```js
 jStrip1.getData("have  a   nice   day").marker("marker1")
     .pretty().marker("marker2"); //  2 markers
