@@ -1,10 +1,6 @@
-// chainingAsyncQeue
 const jsdom = require('jsdom');
 
-const {
-  JSDOM,
-} = jsdom;
-// const $ = require("jquery")
+const { JSDOM } = jsdom;
 const prettyHtml = require('pretty');
 const request = require('request');
 
@@ -28,10 +24,10 @@ class EventEmitter {
   on(eventName, fn) {
     if (!this.events[eventName]) {
       this.events[eventName] = [];
-      this.events[eventName].push(fn);
-    } else {
-      this.events[eventName].push(fn);
     }
+    
+    this.events[eventName].push(fn);
+    
     const that = this;
     return function a() { that.events[eventName] = that.events[eventName].filter(eventFn => fn !== eventFn); };
   }
@@ -144,9 +140,9 @@ class jStrip extends EventEmitter {
   }
   //* **********************************************
   //* **********************************************
-  pretty(bol = true) {
+  pretty(true) {
     if (this.o.dataRetrieved === false) {
-      this.addToQueue(this.pretty, bol);
+      this.addToQueue(this.pretty, true);
     } else { // if (bol === true) {
       this.o.contents = prettyHtml(this.o.contents);
     }
