@@ -104,19 +104,20 @@ Grabbing html data from the web is not instant, so jStrip provides an **event ha
 Set a marker (or many) in your jStrip call, simply by using the **marker()** method and naming it anything.
 
 ```js
-jStrip1.getData("have  a   nice   day").marker("marker1").pretty().marker("marker2")
+jStrip1.getData("have  a   nice   day").marker("marker1")
+    .pretty().marker("marker2"); //  2 markers
 ```
 
 Display the markers asynchronously with the **on()** event handler method.
-Two parameters are needed, the named marker() to trigger on and a function to execute.
-jStrip returns an object, with a property 'data' containing the content.
+Two parameters are needed, the named marker() to trigger on followed with a function.
+jStrip returns an object to the function, with a property 'data' containing the content.
 
 ```js
-jStrip1.on("marker1",(d) => {
+jStrip1.on("marker1",(d) => {  //  first marker
   console.log(`html ${d.data}`);
 });
 
-jStrip1.on("marker2",(d) => {
+jStrip1.on("marker2",(d) => {  //  second marker
   console.log(`pretty html ${d.data}`);
 });
 ```
