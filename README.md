@@ -48,8 +48,8 @@ let jStrip1 = new jStrip();
 jStrip allows you to append as many filters as you like by simply chaining the methods together with a dot delimiter. For example:
 
 ```js
-jStrip4.getData('https://www.timeanddate.com/worldclock/fullscreen.html?n=264').selector("div#rs1").marker("marker2").selector("#i_time").marker("marker3")
-jStrip4.pretty().show(); //displays current time in new zealand
+jStrip4.getData('https://www.timeanddate.com/worldclock/fullscreen.html?n=264').selector("div#rs1")
+    .selector("#i_time").show();  //displays current time in new zealand
 ```
 
 ### First method - .getData()
