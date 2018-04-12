@@ -126,16 +126,19 @@ describe('jStrip - getData(bad url), pretty(), marker(), replace(), marker()', (
 
 const jStrip8 = new jStrip();
 
-describe('jStrip - selector()', () => {
+describe('jStrip - multiple event handler calls', () => {
   it("should return 'undefined'", (done) => {
     
+    jStrip8.on('m4', (f) => {
+      
+    });
 
     jStrip8.on('m4', (f) => {
       chai.expect(f.data).to.be.an('undefined');
       done();
     });
 
-    jStrip8.getData('<html><body>hello world</htm2l>').selector("title").marker('m4').show();
+    jStrip8.getData('hello world').pretty(false).marker('m4').show();
 
   });
 });
