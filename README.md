@@ -75,7 +75,7 @@ jStrip1.getData("hello world").show()   //hello world
 
 ### .pretty()
 
-pretty() will format the data it is given. This is great for tidying html, xml or standard text.
+`pretty()` will format the data it is given. This is great for tidying html, xml or standard text.
 
 ```js
 jStrip1.getData("hello    world")
@@ -84,7 +84,7 @@ jStrip1.getData("hello    world")
 
 ### .selector(*jquery*)
 
-selector() lets you grabs html from the data. Check out the many available [jQuery selectors](https://api.jquery.com/category/selectors/) you can use.
+`selector()` lets you grabs html from the data with **jQuery** functionality. Check out the many available [jQuery selectors](https://api.jquery.com/category/selectors/) you can use.
 
 ```js
 jStrip1.getData("http://www.news.com")
