@@ -28,9 +28,10 @@ class EventEmitter {
   on(eventName, fn) {
     if (!this.events[eventName]) {
       this.events[eventName] = [];
+      this.events[eventName].push(fn);
+    } else {
+      this.events[eventName].push(fn);
     }
-
-    this.events[eventName].push(fn);
     const that = this;
     return function a() { that.events[eventName] = that.events[eventName].filter(eventFn => fn !== eventFn); };
   }
