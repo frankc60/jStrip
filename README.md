@@ -97,70 +97,41 @@ jStrip1.on("marker2",(data) => {
 
 ## Migrating from Version 1 to Version 2
 
-To keep your version 1 code working under version 2, simply update your existing code with the following:
+To keep your `v 1.0` code working under `v 2`, make these two simple updates to your existing code:
 
-- Create a seperate instance for each call, with the **new** operator.
+- Create a seperate instance for each jStrip call, with the **new** operator.
 
 ```js
-let jStrip-1 = new jStrip(); //version 2
+let jStripInstance1 = new jStrip(); //version 2
 ```
 
-- Change your jStrip call from:
+- Call the _jStrip() method:
 
 ```js
-jStrip("<URL>","<jQuery>")  //vesrion 1
+jStrip("<URL>","<jQuery>")  //older version 1 way
 ```
 
  to
 
  ```js
- jStrip-1._jStrip("<URL>","<jQuery>") //version 2
+ jStripInstance1._jStrip("<URL>","<jQuery>") //new version 2 way
  ```
 
 That's all!
 
-You can still use version 2 features together with Version 1.
+You can still use `Version 1` features together with all `Version 2`.
 
-### Version 1.0 (*the following is the features of version 1*)
 
-jStrip takes 2 String Parameters, comma delimited: **url** and pure [jQuery](http://api.jquery.com/category/selectors/).
-For example:
+## _jStrip("url","jquery")
 
-```js
-jStrip2("http://www.google.com","$('title').html()");
-```
-
-jStrip returns an **object**, with five properties:
-
-<pre>
-
-1. data:       the results from your jquery selector.
-2. timed:      milliseconds taken for uri retrieval.
-3. uri:        the uri of the page.
-4. jquery:     the jquery executed on the uri.
-5. statuscode: statusCode returned from uri.
-
-</pre>
-
-for example:
-
-```js
-{
-  data:  "Sunny with light winds.",
-  timed: 1238,
-  uri: "http://www.my-weather.co.nz/132443",
-  jquery: "$('div#weatherDesc').html()",
-  statuscode: 200
-}
-```
-
-jStrip can be written as a **Promise** or as **Async/Await**.
+This is from `version 1`, but you can still use it as below. 
+_jStrip() can be written as a **Promise** or as **Async/Await**.
 
 ### Using Promises
 
 ```js
 // Using Promise
-jStrip2('https://www.bing.com', "$('title').html()")
+jStripInstance1._jStrip('https://www.bing.com', "$('title').html()")
   .then((result) => {
     console.log(`promise result: ${result.data}
       time taken: ${result.timed}
@@ -178,7 +149,7 @@ jStrip2('https://www.bing.com', "$('title').html()")
 // Using Async/Await
 const fn = (async () => {
   try {
-    const result = await jStrip2('https://www.youtube.com', "$('title').html()");
+    const result = await jStripInstance1._jStrip('https://www.youtube.com', "$('title').html()");
     await console.log(`async/await result: ${result.data}
       time taken: ${result.timed}
       uri: ${result.uri}
