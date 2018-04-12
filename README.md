@@ -57,7 +57,7 @@ jStrip4.getData('https://goo.gl/e234y2').selector("div#rs1")
 
 The only requirement is to first grab the data. Start by using the **.getData()** method.
 
-getData() will accept 2 types: a **URL** or **text**.
+getData() accepts 2 data types: a **URL** or **text**.
 
 ```js
 jStrip1.getData("http://www.google.com")
@@ -67,7 +67,7 @@ jStrip1.getData("my own string of text here!")
 
 ### .show()
 
-show() displays the contents to the console. Great for seeing the results, see ".marker() and .on()" below to add an event handler.
+show() displays the contents to the console. Great for seeing the results, see **.marker() and .on()** below to add an event handler.
 
 ```js
 jStrip1.getData("hello world").show()   //hello world
