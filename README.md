@@ -33,7 +33,7 @@ jStrip allows you to append as many manipulation tools as you like by simply cha
 
 ```js
 jStrip4.getData('https://www.timeanddate.com/worldclock/fullscreen.html?n=264').selector("div#rs1").marker("marker2").selector("#i_time").marker("marker3")
-jStrip4.pretty(true).show();
+jStrip4.pretty().show();
 ```
 
 ### First method - getData()
