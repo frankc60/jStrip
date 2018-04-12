@@ -26,9 +26,9 @@ class EventEmitter {
   }
 
   on(eventName, fn) {
-    // if (!this.events[eventName]) {
-    //   this.events[eventName] = [];
-    // }
+    if (!this.events[eventName]) {
+      this.events[eventName] = [];
+    }
 
     this.events[eventName].push(fn);
     const that = this;
@@ -58,7 +58,7 @@ class jStrip extends EventEmitter {
   //* **********************************************
   //* **********************************************
   getData(data) {
-    console.log('getData - ' + this.o.dataRetrieved);
+    console.log(`getData - ${  this.o.dataRetrieved}`);
     if (this.o.dataRetrieved === false) {
       this.on('dataReceived', (d) => {
         this.o.contents = d.data;
