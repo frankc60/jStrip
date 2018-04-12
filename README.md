@@ -53,7 +53,7 @@ jStrip1.getData("my own string of text here!")
 pretty() will format the data it is given. This is great for tidying html, xml or standard text.
 
 ```js
-jStrip1.getData("hello    world").pretty(true)  // hello world (removed extra spaces)
+jStrip1.getData("hello    world").pretty()  // hello world (removed extra spaces)
 ```
 
 ### selector(*jquery*)
@@ -77,7 +77,7 @@ Use regular expression to replace content. **regex** is a [regular expression](h
 **string** is quoted text.
 
 ```js
-jStrip5.getData('hello world').selector('title').pretty(true).replace(/hello/,"hi there").show() // hi there world
+jStrip5.getData('hello world').selector('title').replace(/hello/,"hi there").show() // hi there world
 ```
 
 ## marker() and on()
@@ -87,7 +87,7 @@ Grabbing html data from the web is not instant, so jStrip provides an **event ha
 Set a marker (or many) in your jStrip call, simply by using the **marker()** method and naming it anything.
 
 ```js
-jStrip1.getData("http://www.messyhtml.com").marker("marker1").pretty(true).marker("marker2")
+jStrip1.getData("http://www.messyhtml.com").marker("marker1").pretty().marker("marker2")
 ```
 
 Display the markers asynchronously with the **on()** method. This should be placed before the jStrip marker is set.
