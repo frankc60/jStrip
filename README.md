@@ -94,7 +94,7 @@ jStrip1.getData("http://www.news.com")
 
 ### .replace(*/regex/, "text"*)
 
-Use regular expression to replace content. **/regex/** is a [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) to search for. 
+Use regular expression to replace content. **regex** is a [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) to search for.
 **"text"** is the replacement string.
 
 ```js
@@ -108,7 +108,7 @@ Grabbing html data from the web is not instant, so jStrip provides an **event ha
 
 Set a marker (or many) in your jStrip call, simply by using the **marker()** method and naming it anything.
 
-####.marker(*eventname*)
+#### .marker(*eventname*)
 
 ```js
 jStrip1.getData("have  a   nice   day").marker("marker1")
@@ -119,7 +119,7 @@ Display the markers asynchronously with the **on()** event handler method.
 Two parameters are needed, the named marker() to trigger on followed with a function.
 jStrip returns an object to the function, with a property 'data' containing the content.
 
-####.on(*marker name*, *function(returned data)*)
+#### .on(*marker name*, *function(returned data)*)
 
 ```js
 jStrip1.on("marker1",(d) => {  //       first marker
@@ -130,6 +130,7 @@ jStrip1.on("marker2",(d) => {  //       second marker
   console.log(`pretty html ${d.data}`);  // have a nice day
 });
 ```
+
 - The **on()** event handler(s) should be placed before the **marker()** is set.
 
 ## Migrating from Version 1 to Version 2
