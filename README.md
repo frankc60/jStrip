@@ -10,7 +10,7 @@ jStrip let's you easily grab data from the web or text and apply multiple filter
 
 **New** `v 2.0` now comes with chainable methods and event handlers.  New features being added regularly. To keep your `v 1.0` code working as before, please read the Migration section below.
 
-#### Example
+## Example
 
 Create a index.js file:
 
@@ -29,7 +29,7 @@ jStrip1.pretty().show();
 
 ```
 
-#### Install
+### Install
 
 Install **jstrip** with npm:
 
