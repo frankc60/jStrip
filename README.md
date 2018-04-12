@@ -77,7 +77,8 @@ jStrip1.getData("hello world").show()   //hello world
 pretty() will format the data it is given. This is great for tidying html, xml or standard text.
 
 ```js
-jStrip1.getData("hello    world").pretty().show();  // hello world (removed extra spaces)
+jStrip1.getData("hello    world")
+    .pretty().show();  // hello world (removes extra spaces)
 ```
 
 ### .selector(*jquery*)
@@ -85,7 +86,9 @@ jStrip1.getData("hello    world").pretty().show();  // hello world (removed extr
 selector() lets you grabs html from the data. Check out the many available [jQuery selectors](https://api.jquery.com/category/selectors/) you can use.
 
 ```js
-jStrip1.getData("http://www.news.com").selector("div#top li:nth-child(2)").show(); //2nd li tag inside div with id 'top'
+jStrip1.getData("http://www.news.com")
+    .selector("div#top li:nth-child(2)")
+    .show(); //2nd li tag inside div with id 'top'
 ```
 
 ### .replace(*/regex/, "text"*)
@@ -94,7 +97,8 @@ Use regular expression to replace content. **regex** is a [regular expression](h
 **text** is a quoted string.
 
 ```js
-jStrip5.getData('hello world').replace(/hello/,"hi there").show() // hi there world
+jStrip5.getData('hello world').replace(/hello/,"hi there")
+     .show() // hi there world
 ```
 
 ## Async Event Handlers .marker() and .on()
