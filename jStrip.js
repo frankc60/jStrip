@@ -31,9 +31,9 @@ class EventEmitter {
     }
 
     this.events[eventName].push(fn);
-    return () => {
-      this.events[eventName] = this.events[eventName].filter(eventFn => fn !== eventFn);
-    };
+    const that = this;
+    return function a() { that.events[eventName] = that.events[eventName].filter(eventFn => fn !== eventFn); }
+    
   }
 }
 //* ******************************************************************************************
