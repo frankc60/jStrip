@@ -48,7 +48,7 @@ jStrip1.getData("http://www.google.com")
 jStrip1.getData("my own string of text here!")
 ```
 
-### pretty(*true|false*)
+### pretty()
 
 pretty() will format the data it is given. This is great for tidying html, xml or standard text.
 
@@ -70,6 +70,14 @@ show() displays the contents to the console output.
 
 ```js
 jStrip1.getData("hello world").show()   //hello world
+```
+### replace(*regex, string*)
+
+Use regular expression to replace content. **regex** is a [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions). 
+**string** is quoted text.
+
+```js
+jStrip5.getData('hello world').selector('title').pretty(true).replace(/hello/,"hi there").show() // hi there world
 ```
 
 ## marker() and on()
@@ -97,12 +105,12 @@ jStrip1.on("marker2",(data) => {
 
 ## Migrating from Version 1 to Version 2
 
-To keep your `v 1.0` code working under `v 2`, make these two simple updates to your existing code:
+To keep your `v 1.0` code working with `v 2`, make these two simple updates to your existing code:
 
 - Create a seperate instance for each jStrip call, with the **new** operator.
 
 ```js
-let jStripInstance1 = new jStrip(); //version 2
+let jStripInstance1 = new jStrip(); //new version 2 way
 ```
 
 - Call the _jStrip() method:
@@ -124,7 +132,6 @@ You can still use `Version 1` features together with all `Version 2`.
 
 ## _jStrip("url","jquery")
 
-This is from `version 1`, but you can still use it as below. 
 _jStrip() can be written as a **Promise** or as **Async/Await**.
 
 ### Using Promises
