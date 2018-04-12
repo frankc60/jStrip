@@ -139,7 +139,7 @@ describe('jStrip - selector()', () => {
 
   });
 });
-
+/* 
  const jStrip9 = new jStrip();
 
 describe('jStrip - non event', () => {
@@ -153,4 +153,4 @@ describe('jStrip - non event', () => {
     jStrip8.getData('hello').marker('m4').getData("sssss").marker("m5").show();
 
   });
-}); 
+});  */
