@@ -118,12 +118,12 @@ Two parameters are needed, the named marker() to trigger on followed with a func
 jStrip returns an object to the function, with a property 'data' containing the content.
 
 ```js
-jStrip1.on("marker1",(d) => {  //  first marker
-  console.log(`html ${d.data}`);
+jStrip1.on("marker1",(d) => {  //       first marker
+  console.log(`html ${d.data}`); //   have  a   nice   day
 });
 
-jStrip1.on("marker2",(d) => {  //  second marker
-  console.log(`pretty html ${d.data}`);
+jStrip1.on("marker2",(d) => {  //       second marker
+  console.log(`pretty html ${d.data}`);  // have a nice day
 });
 ```
 - The **on()** event handler(s) should be placed before the **marker()** is set.
