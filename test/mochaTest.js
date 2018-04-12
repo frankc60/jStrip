@@ -127,14 +127,14 @@ describe('jStrip - getData(bad url), pretty(), marker(), replace(), marker()', (
 const jStrip8 = new jStrip();
 
 describe('jStrip - multiple event handler calls', () => {
-  it("should return 'undefined'", (done) => {
+  it("should return 'hello world'", (done) => {
     
-    jStrip8.on('m4', (f) => {
-      
+    jStrip8.on('m4', (d) => {
+      console.log(d.data);
     });
 
     jStrip8.on('m4', (f) => {
-      chai.expect(f.data).to.be.an('undefined');
+      chai.expect(f.data).to.equal('hello world');
       done();
     });
 
@@ -142,6 +142,23 @@ describe('jStrip - multiple event handler calls', () => {
 
   });
 });
+
+const jStrip9 = new jStrip();
+
+describe('jStrip - pretty call before data ready', () => {
+  it("should return 'hello world'", (done) => {
+    
+    jStrip8.on('m4', (f) => {
+      chai.expect(f.data).to.equal('hello world');
+      done();
+    });
+
+    jStrip8.pretty(true).getData('hello world').pretty(false).marker('m4')
+      .show();
+
+  });
+});
+
 /* 
  const jStrip9 = new jStrip();
 

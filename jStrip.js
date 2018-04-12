@@ -59,7 +59,6 @@ class jStrip extends EventEmitter {
   //* **********************************************
   //* **********************************************
   getData(data) {
-    console.log(`getData - ${  this.o.dataRetrieved}`);
     if (this.o.dataRetrieved === false) {
       this.on('dataReceived', (d) => {
         this.o.contents = d.data;
