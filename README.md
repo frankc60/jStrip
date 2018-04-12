@@ -77,7 +77,7 @@ Use regular expression to replace content. **regex** is a [regular expression](h
 **string** is quoted text.
 
 ```js
-jStrip5.getData('hello world').selector('title').replace(/hello/,"hi there").show() // hi there world
+jStrip5.getData('hello world').replace(/hello/,"hi there").show() // hi there world
 ```
 
 ## marker() and on()
