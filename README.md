@@ -29,18 +29,18 @@ let jStrip1 = new jStrip();
 
 ## Chainable Methods
 
-jStrip allows you to append as many manipulation tools as you like by simply chaining the methods together with a dot delimiter. For Example:
+jStrip allows you to append as many filters as you like by simply chaining the methods together with a dot delimiter. For example:
 
 ```js
 jStrip4.getData('https://www.timeanddate.com/worldclock/fullscreen.html?n=264').selector("div#rs1").marker("marker2").selector("#i_time").marker("marker3")
-jStrip4.pretty().show();
+jStrip4.pretty().show(); //displays current time in new zealand
 ```
 
-### First method - getData()
+### First method - .getData()
 
-The only requirement is to first grab the data before changing it. Start by using the getData() method.
+The only requirement is to first grab the data, before changing it. Start by using the .getData() method.
 
-getData() can accept 2 values: a **URL** or **text**.
+getData() will accept 2 types: a **URL** or **text**.
 
 ```js
 jStrip1.getData("http://www.google.com")
@@ -48,7 +48,15 @@ jStrip1.getData("http://www.google.com")
 jStrip1.getData("my own string of text here!")
 ```
 
-### pretty()
+### .show()
+
+show() displays the contents to the console.
+
+```js
+jStrip1.getData("hello world").show()   //hello world
+```
+
+### .pretty()
 
 pretty() will format the data it is given. This is great for tidying html, xml or standard text.
 
@@ -56,7 +64,7 @@ pretty() will format the data it is given. This is great for tidying html, xml o
 jStrip1.getData("hello    world").pretty()  // hello world (removed extra spaces)
 ```
 
-### selector(*jquery*)
+### .selector(*jquery*)
 
 selector() lets you grabs html from the data. Check out the many available [jQuery selectors](https://api.jquery.com/category/selectors/) you can use.
 
@@ -64,14 +72,7 @@ selector() lets you grabs html from the data. Check out the many available [jQue
 jStrip1.getData("http://www.google.com").selector("div span:first-child")
 ```
 
-### show()
-
-show() displays the contents to the console output.
-
-```js
-jStrip1.getData("hello world").show()   //hello world
-```
-### replace(*regex, string*)
+### .replace(*/regex/, "string"*)
 
 Use regular expression to replace content. **regex** is a [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions). 
 **string** is quoted text.
@@ -80,7 +81,7 @@ Use regular expression to replace content. **regex** is a [regular expression](h
 jStrip5.getData('hello world').replace(/hello/,"hi there").show() // hi there world
 ```
 
-## marker() and on()
+## .marker() and .on()
 
 Grabbing html data from the web is not instant, so jStrip provides an **event handler** to tell you when it has all it's data ready, Asynchronously.
 
@@ -90,7 +91,7 @@ Set a marker (or many) in your jStrip call, simply by using the **marker()** met
 jStrip1.getData("http://www.messyhtml.com").marker("marker1").pretty().marker("marker2")
 ```
 
-Display the markers asynchronously with the **on()** method. 
+Display the markers asynchronously with the **on()** event handler method. 
 Two parameters are needed, the named marker to trigger on and a function to execute.
 jStrip returns an object, with a property 'data' containing the content.
 
