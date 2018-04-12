@@ -54,7 +54,7 @@ jStrip4.pretty().show(); //displays current time in new zealand
 
 ### First method - .getData()
 
-The only requirement is to first grab the data, before changing it. Start by using the .getData() method.
+The only requirement is to first grab the data. Start by using the **.getData()** method.
 
 getData() will accept 2 types: a **URL** or **text**.
 
