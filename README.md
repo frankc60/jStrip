@@ -29,7 +29,7 @@ jStrip1.pretty().show();
 
 ### Install
 
-Install **jstrip** with npm:
+Install **jstrip** with [npm](https://www.npmjs.com/):
 
 ```sh
 $ npm i -S jstrip
@@ -97,7 +97,7 @@ Use regular expression to replace content. **regex** is a [regular expression](h
 jStrip5.getData('hello world').replace(/hello/,"hi there").show() // hi there world
 ```
 
-## .marker() and .on()
+## Async Event Handlers .marker() and .on()
 
 Grabbing html data from the web is not instant, so jStrip provides an **event handler** to tell you when it has all it's data ready, and send it asynchronously without blocking.
 
