@@ -138,7 +138,7 @@ To keep your `v 1.0` code working with `v 2`, make these two simple updates to y
 let jStripInstance1 = new jStrip(); //new version 2 way
 ```
 
-- Call the _jStrip() method:
+- Replace your jStrip call with _jStrip():
 
 ```js
 jStrip("<URL>","<jQuery>")  //older version 1 way
