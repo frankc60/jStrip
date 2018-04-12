@@ -49,7 +49,8 @@ jStrip allows you to append as many filters as you like by simply chaining the m
 
 ```js
 jStrip4.getData('https://goo.gl/e234y2').selector("div#rs1")
-    .selector("#i_time").show();  //displays current time in new zealand
+    .selector("#i_time").pretty()
+    .show();  //displays current time in new zealand
 ```
 
 ### First method - .getData()
