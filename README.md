@@ -21,7 +21,7 @@ jStrip1.on("marker3", (d) => {
   console.log(`current time in nz is: ${d.data}`);
 });
 
-jStrip1.getData('https://www.timeanddate.com/worldclock/fullscreen.html?n=264').selector("div#rs1")
+jStrip1.getData('https://goo.gl/e234y2').selector("div#rs1")
   .marker("marker2").selector("#i_time").marker("marker3");
 jStrip1.pretty().show(); 
 
@@ -48,7 +48,7 @@ let jStrip1 = new jStrip();
 jStrip allows you to append as many filters as you like by simply chaining the methods together with a dot delimiter. For example:
 
 ```js
-jStrip4.getData('https://www.timeanddate.com/worldclock/fullscreen.html?n=264').selector("div#rs1")
+jStrip4.getData('https://goo.gl/e234y2').selector("div#rs1")
     .selector("#i_time").show();  //displays current time in new zealand
 ```
 
