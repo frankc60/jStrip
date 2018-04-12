@@ -8,12 +8,30 @@
 
 jStrip let's you easily grab data from the web or text and apply multiple filters to change the data to your liking, before returning it to you asynchronously.
 
-**New** `v 2.0` now has chainable methods and event handlers.  New features being added regularly. To keep your `v 1.0` code working as before, please read the Migration section below.
+**New** `v 2.0` now comes with chainable methods and event handlers.  New features being added regularly. To keep your `v 1.0` code working as before, please read the Migration section below.
 
-## Installing
+#### Example
 
-Start with installing **jStrip**.
-Install with npm.
+Create a index.js file:
+
+```js
+require "jstrip";
+
+let jStrip1 = new jStrip();
+
+jStrip1.on("marker3", (data) => {
+  console.log(`current time in nz is: ${d.data}`);
+});
+
+jStrip1.getData('https://www.timeanddate.com/worldclock/fullscreen.html?n=264').selector("div#rs1")
+  .marker("marker2").selector("#i_time").marker("marker3")
+jStrip1.pretty().show(); 
+
+```
+
+#### Install
+
+Install **jstrip** with npm:
 
 ```sh
 $ npm i -S jstrip
