@@ -140,22 +140,17 @@ describe('jStrip - selector()', () => {
   });
 });
 
+ const jStrip9 = new jStrip();
 
-/*
-const jStrip9 = new jStrip();
-
-describe('jStrip - data not ready', () => {
-  it("should return a blank",  (done) => {
-    const result = jStrip9.show().pretty(true).show().marker("mm");
-
-    chai.expect(result).to.not.equal("");
-
-    jStrip9.on('mm', (f) => {
-      chai.expect(f).to.equal('hello world');
+describe('jStrip - non event', () => {
+  it("should create a new event", (done) => {
+    
+    jStrip9.on('m5', (f) => {
+      chai.expect(f.data).to.be.an('undefined');
       done();
     });
 
+    jStrip8.getData('hello').marker('m4').getData("sssss").marker("m5").show();
 
   });
-});
-*/
+}); 

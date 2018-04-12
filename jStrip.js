@@ -26,14 +26,13 @@ class EventEmitter {
   }
 
   on(eventName, fn) {
-    if (!this.events[eventName]) {
-      this.events[eventName] = [];
-    }
+    // if (!this.events[eventName]) {
+    //   this.events[eventName] = [];
+    // }
 
     this.events[eventName].push(fn);
     const that = this;
     return function a() { that.events[eventName] = that.events[eventName].filter(eventFn => fn !== eventFn); };
-    
   }
 }
 //* ******************************************************************************************
@@ -59,9 +58,8 @@ class jStrip extends EventEmitter {
   //* **********************************************
   //* **********************************************
   getData(data) {
+    console.log('getData - ' + this.o.dataRetrieved);
     if (this.o.dataRetrieved === false) {
-      // this.addToQueue(this.getData, data);
-
       this.on('dataReceived', (d) => {
         this.o.contents = d.data;
         this.o.dataRetrieved = true;
@@ -78,7 +76,7 @@ class jStrip extends EventEmitter {
       if (urlRegex.test(data)) {
         // success
         request(options, (error, response, body) => {
-       //   if (error) { body = (`${error} ${response && response.statusCode}`); }
+          //   if (error) { body = (`${error} ${response && response.statusCode}`); }
           this.emit('dataReceived', {
             data: body,
           });
