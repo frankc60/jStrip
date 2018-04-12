@@ -140,7 +140,7 @@ class jStrip extends EventEmitter {
   }
   //* **********************************************
   //* **********************************************
-  pretty(true) {
+  pretty() {
     if (this.o.dataRetrieved === false) {
       this.addToQueue(this.pretty, true);
     } else { // if (bol === true) {
