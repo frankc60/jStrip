@@ -92,14 +92,15 @@ jStrip1.getData("http://www.messyhtml.com").marker("marker1").pretty().marker("m
 
 Display the markers asynchronously with the **on()** method. This should be placed before the jStrip marker is set.
 Two parameters are needed, the named marker to trigger on and a function to execute.
+jStrip returns an object, with a property 'data' containing the content.
 
 ```js
-jStrip1.on("marker1",(data) => {
-  console.log(`html $[data}`);
+jStrip1.on("marker1",(d) => {
+  console.log(`html ${d.data}`);
 });
 
-jStrip1.on("marker2",(data) => {
-  console.log(`pretty html $[data}`);
+jStrip1.on("marker2",(d) => {
+  console.log(`pretty html ${d.data}`);
 });
 ```
 
