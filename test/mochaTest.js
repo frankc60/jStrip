@@ -133,12 +133,16 @@ describe('jStrip - multiple event handler calls', () => {
       console.log(d.data);
     });
 
-    jStrip8.on('m4', (f) => {
+    jStrip8.on('m4', (d) => {
+      console.log(d.data+ " again!");
+    });
+
+    jStrip8.on('m5', (f) => {
       chai.expect(f.data).to.equal('hello world');
       done();
     });
 
-    jStrip8.getData('hello world').pretty(false).marker('m4').show();
+    jStrip8.getData('hello world').pretty(false).marker('m4').show().marker("m5");
 
   });
 });
