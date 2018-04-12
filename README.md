@@ -50,7 +50,7 @@ jStrip1.getData("my own string of text here!")
 
 ### .show()
 
-show() displays the contents to the console. Great for seeing the results, see **.marker() and .on()** below to add an event handler.
+show() displays the contents to the console. Great for seeing the results, see .marker() and .on() below to add an event handler.
 
 ```js
 jStrip1.getData("hello world").show()   //hello world
