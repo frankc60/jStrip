@@ -121,7 +121,7 @@ jStrip1.on("marker2",(d) => {  //  second marker
   console.log(`pretty html ${d.data}`);
 });
 ```
-- The **on()** event handler should be placed before the **marker()** is set.
+- The **on()** event handler(s) should be placed before the **marker()** is set.
 
 ## Migrating from Version 1 to Version 2
 
