@@ -121,7 +121,7 @@ jStrip1.on("marker2",(d) => {  //  second marker
   console.log(`pretty html ${d.data}`);
 });
 ```
-*The **on()** event handler should be placed before the **marker()** is set.
+- The **on()** event handler should be placed before the **marker()** is set.
 
 ## Migrating from Version 1 to Version 2
 
@@ -152,7 +152,7 @@ You can still use `Version 1` features together with all `Version 2`.
 
 ## _jStrip("url","jquery")
 
-_jStrip() can be written as a **Promise** or as **Async/Await**.
+_jStrip() returns data via a **Promise** or as **Async/Await**.
 
 ### Using Promises
 
