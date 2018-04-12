@@ -15,7 +15,7 @@ jStrip let's you easily grab data from the web or text and apply multiple filter
 Create a index.js file:
 
 ```js
-require "jstrip";
+const jStrip = require "jstrip";
 
 let jStrip1 = new jStrip();
 
