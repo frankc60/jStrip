@@ -53,7 +53,7 @@ jStrip4.getData('https://goo.gl/e234y2').selector("div#rs1")
     .show();  //displays current time in new zealand
 ```
 
-### First method - .getData(*url*|*text*)
+### First method - .getData(*url* | *text*)
 
 The only requirement is to first grab the data. Start by using the `.getData()` method.
 
@@ -160,7 +160,7 @@ That's all!
 You can still use `Version 1` features together with all `Version 2`.
 
 
-## _jStrip("url","jquery")
+## _jStrip( *"url", "jquery"* )
 
 _jStrip() returns data via a **Promise** or as **Async/Await**.
 
