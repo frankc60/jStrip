@@ -53,11 +53,11 @@ jStrip4.getData('https://goo.gl/e234y2').selector("div#rs1")
     .show();  //displays current time in new zealand
 ```
 
-### First method - .getData(*url|text*)
+### First method - .getData(*url*|*text*)
 
 The only requirement is to first grab the data. Start by using the `.getData()` method.
 
-`getData()` accepts 2 string types: a **URL** or **text**.
+`getData()` accepts 2 string types: a **"url"** or **"text"**.
 
 ```js
 jStrip1.getData("http://www.google.com")
