@@ -45,7 +45,7 @@ let jStrip1 = new jStrip();
 
 ## Chainable Methods
 
-jStrip allows you to append as many filters as you like by simply chaining the methods together with a dot delimiter. For example:
+jStrip allows you to append as many filters as you like by simply chaining methods together with a dot delimiter. For example:
 
 ```js
 jStrip4.getData('https://goo.gl/e234y2').selector("div#rs1")
@@ -53,11 +53,11 @@ jStrip4.getData('https://goo.gl/e234y2').selector("div#rs1")
     .show();  //displays current time in new zealand
 ```
 
-### First method - .getData()
+### First method - .getData(*url|text*)
 
 The only requirement is to first grab the data. Start by using the `.getData()` method.
 
-`getData()` accepts 2 data types: a **URL** or **text**.
+`getData()` accepts 2 string types: a **URL** or **text**.
 
 ```js
 jStrip1.getData("http://www.google.com")
