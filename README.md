@@ -106,7 +106,7 @@ jStrip5.getData('hello world').replace(/hello/,"hi there")
 
 Grabbing html data from the web is not instant, so jStrip provides an **event handler** to tell you when it has all it's data ready, and send it asynchronously without blocking.
 
-Set a marker (or many) in your jStrip call, simply by using the **marker()** method and naming it anything.
+Set a **marker** (or many) in your jStrip call, simply by using the **marker()** method and giving it a unique name.
 
 #### .marker(*eventname*)
 

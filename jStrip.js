@@ -28,8 +28,8 @@ class EventEmitter {
     
     this.events[eventName].push(fn);
     
-    const that = this;
-    return function a() { that.events[eventName] = that.events[eventName].filter(eventFn => fn !== eventFn); };
+    //const that = this;
+    return (function () { this.events[eventName] = this.events[eventName].filter(eventFn => fn !== eventFn); }).bind(this);
   }
 }
 //* ******************************************************************************************
