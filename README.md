@@ -8,7 +8,7 @@
 
 jStrip let's you easily grab data from the web or text and apply multiple filters to change the data to your liking, before it's returned asynchronously.
 
-**New** `v 2.0` now comes with chainable methods and event handlers.  New features being added regularly. *To keep your `v 1.0` code working as before, please read the Migration section below.*
+**New** `v 2.x` now comes with chainable methods and event handlers.  New features being added regularly. *To keep your `v 1.x` code working as before, please read the Migration section below.*
 
 ## Example
 
@@ -143,7 +143,7 @@ jStrip1.on("marker2",(d) => {  //       second marker
 
 ## Migrating from Version 1 to Version 2
 
-To keep your `v 1.0` code working with `v 2`, make these two simple updates to your existing code:
+To keep your `v 1.x` code working with `v 2.x`, make these two simple updates to your existing code:
 
 - Create a seperate instance for each jStrip call, with the **new** operator.
 
