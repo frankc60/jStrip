@@ -163,18 +163,18 @@ describe('jStrip - pretty call before data ready', () => {
   });
 });
 
-/* 
- const jStrip9 = new jStrip();
 
-describe('jStrip - non event', () => {
-  it("should create a new event", (done) => {
+ const jStrip10 = new jStrip();
+
+describe('jStrip - remotehtml()', () => {
+  it("should return hello world without html elements", (done) => {
     
-    jStrip9.on('m5', (f) => {
-      chai.expect(f.data).to.be.an('undefined');
+    jStrip10.on('m5', (f) => {
+      chai.expect(f.data).to.equal('hello world');
       done();
     });
 
-    jStrip8.getData('hello').marker('m4').getData("sssss").marker("m5").show();
+    jStrip10.getData('<b>hello</b> <i>world</i>').removehtml().marker("m5").show();
 
   });
-});  */
+});  

@@ -150,6 +150,16 @@ class jStrip extends EventEmitter {
   }
   //* **********************************************
   //* **********************************************
+  removehtml() {
+    if (this.o.dataRetrieved === false) {
+      this.addToQueue(this.removehtml, true);
+    } else { 
+      this.o.contents = (this.o.contents).replace(/<(?:.|\n)*?>/gm, '');
+    }
+    return this;
+  };
+  //* **********************************************
+  //* **********************************************
   processQueue() {
     const that = this;
     // let remove;

@@ -92,14 +92,22 @@ jStrip1.getData("http://www.news.com")
     .show(); //2nd li tag inside div with id 'top'
 ```
 
-### .replace(*/regex/, "text"*)
+### .replace(*pattern*, *text*)
 
-Use regular expression to replace content. **regex** is a [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) to search for.
-**"text"** is the replacement string.
+Use a [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) or string pattern to search the jStrip content, followed by the replacement string.
 
 ```js
-jStrip5.getData('hello world').replace(/hello/,"hi there")
-     .show() // hi there world
+jStrip5.getData('hello world').replace(/hello/,"ki ora")
+     .show() // ki ora world
+```
+
+### .removehtml()
+
+html elements are stripped out.
+
+```js
+jStrip5.getData('<h1hello</h1> <p>world</p>').removehtml()
+     .show() // hello world
 ```
 
 ## Async Event Handlers .marker() and .on()
