@@ -25,10 +25,10 @@ class jStripEmitter {
     if (!this.events[eventName]) {
       this.events[eventName] = [];
     }
-    
+
     this.events[eventName].push(fn);
-    
-    //const that = this;
+
+    // const that = this;
     return (function () { this.events[eventName] = this.events[eventName].filter(eventFn => fn !== eventFn); }).bind(this);
   }
 }
@@ -51,6 +51,19 @@ class jStrip extends jStripEmitter {
       [f],
       [...d],
     ]);
+  }
+  //* **********************************************
+  //* **********************************************
+  processQueue() {
+    const that = this;
+    // let remove;
+    const r = this.o;
+    // let i = 0;
+    for (const [fn, ...arg] of r) {
+      fn[0].apply(that, ...arg);
+    //  const ndx = r.splice(i, 1); // clear queue memory after running
+    //  i++;
+    }
   }
   //* **********************************************
   //* **********************************************
@@ -147,20 +160,10 @@ class jStrip extends jStripEmitter {
   removehtml() {
     if (this.o.dataRetrieved === false) {
       this.addToQueue(this.removehtml, true);
-    } else { 
+    } else {
       this.o.contents = (this.o.contents).replace(/<(?:.|\n)*?>/gm, '');
     }
     return this;
-  };
-  //* **********************************************
-  //* **********************************************
-  processQueue() {
-    const that = this;
-    // let remove;
-    const r = this.o;
-    for (const [fn, ...arg] of r) {
-      fn[0].apply(that, ...arg);
-    }
   }
   //* **********************************************
   //* **********************************************

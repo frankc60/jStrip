@@ -165,8 +165,7 @@ jStrip("<URL>","<jQuery>")  //older version 1 way
 
 That's all!
 
-You can still use `Version 1` features together with all `Version 2`.
-
+You can still use `Version 1` features together with `Version 2`.
 
 ## _jStrip( *"url", "jquery"* )
 
