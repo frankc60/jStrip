@@ -178,3 +178,19 @@ describe('jStrip - remotehtml()', () => {
 
   });
 });  
+
+
+const jStrip11 = new jStrip();
+
+describe('jStrip - remotehtml() - url', () => {
+  it("should return hello world without html elements", (done) => {
+    
+    jStrip11.on('m5', (f) => {
+      chai.expect(f.data).to.equal('Google');
+      done();
+    });
+
+    jStrip11.getData('https://www.google.com').selector("title").removehtml().marker("m5").show();
+
+  });
+});  
