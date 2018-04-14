@@ -34,7 +34,7 @@ describe('jStrip - promise - invalid uri', () => {
 
 
 describe('jStrip - await', () => {
-  it("should return 'Google' as title",  (done) => {
+  it("should return 'Google' as title", (done) => {
     const p = new Promise((resolve, reject) => {
       try {
         const result = jStrip3.jStrip_('https://www.google.com/', "$('title').html()");
@@ -45,43 +45,39 @@ describe('jStrip - await', () => {
     });
 
     p.then((result) => {
-      chai.expect(result.data).to.equal("Google");
+      chai.expect(result.data).to.equal('Google');
       done();
-    })
+    });
   });
 });
 
 
-// version 2.0 
+// version 2.0
 const jStrip4 = new jStrip();
 
 describe('jStrip - getData(), selector(), marker()', () => {
   it("should return 'Google'", (done) => {
-
     jStrip4.on('m1', (t) => {
       chai.expect(t.data).to.equal('Google');
       done();
     });
 
-    jStrip4.getData("https://www.google.com").selector('title').marker('m1').show();
-
+    jStrip4.getData('https://www.google.com').selector('title').marker('m1').show();
   });
 });
-
 
 
 const jStrip5 = new jStrip();
 
 describe('jStrip - getData(), selector(), pretty(), replace(), marker(), show()', () => {
-  it("should return 'google'",  (done) => {
-    
-
+  it("should return 'google'", (done) => {
     jStrip5.on('m2', (q) => {
       chai.expect(q.data).to.equal('google');
       done();
     });
-    jStrip5.getData('https://www.google.com/').selector('title').pretty(true).replace(/G/,"g").marker('m2').show();
-
+    jStrip5.getData('https://www.google.com/').selector('title').pretty(true).replace(/G/, 'g')
+.marker('m2')
+.show();
   });
 });
 
@@ -90,16 +86,14 @@ const jStrip6 = new jStrip();
 
 describe('jStrip - getData("text"), pretty(), replace(), marker()', () => {
   it("should return 'hi world'", (done) => {
-    
-
     jStrip6.on('m3', (e) => {
-     // console.log("e.data:" + e.data)
+      // console.log("e.data:" + e.data)
       chai.expect(e.data).to.equal('hi world');
       done();
     });
 
-    jStrip6.getData('hello     world').pretty(true).replace('hello', 'hi').marker('m3').show();
-
+    jStrip6.getData('hello     world').pretty(true).replace('hello', 'hi').marker('m3')
+.show();
   });
 });
 
@@ -107,34 +101,30 @@ describe('jStrip - getData("text"), pretty(), replace(), marker()', () => {
 const jStrip7 = new jStrip();
 
 describe('jStrip - getData(bad url), pretty(), marker(), replace(), marker()', () => {
-  it("should return 'Error'",  (done) => {
-    
-    jStrip7.getData("http://getstatuscode.com/500").pretty(true).marker('m4').replace('world', 'people')
-.marker('m5');
-
+  it("should return 'Error'", (done) => {
+    jStrip7.getData('http://getstatuscode.com/500').pretty(true).marker('m4')
+      .replace('world', 'people')
+      .marker('m5');
     jStrip7.on('m5', (e) => {
-      //console.log("m5 = " + e.data)
-      chai.expect(e.data).to.have.string("denied");
+      // console.log("m5 = " + e.data)
+      chai.expect(e.data).to.have.string('denied');
 
       done();
-
     });
   }).timeout(25000);
 });
-
 
 
 const jStrip8 = new jStrip();
 
 describe('jStrip - multiple event handler calls', () => {
   it("should return 'hello world'", (done) => {
-    
     jStrip8.on('m4', (d) => {
       console.log(d.data);
     });
 
     jStrip8.on('m4', (d) => {
-      console.log(d.data+ " again!");
+      console.log(`${d.data } again!`);
     });
 
     jStrip8.on('m5', (f) => {
@@ -142,8 +132,8 @@ describe('jStrip - multiple event handler calls', () => {
       done();
     });
 
-    jStrip8.getData('hello world').pretty(false).marker('m4').show().marker("m5");
-
+    jStrip8.getData('hello world').pretty(false).marker('m4').show()
+.marker('m5');
   });
 });
 
@@ -151,7 +141,6 @@ const jStrip9 = new jStrip();
 
 describe('jStrip - pretty call before data ready', () => {
   it("should return 'hello world'", (done) => {
-    
     jStrip8.on('m4', (f) => {
       chai.expect(f.data).to.equal('hello world');
       done();
@@ -159,38 +148,35 @@ describe('jStrip - pretty call before data ready', () => {
 
     jStrip8.pretty(true).getData('hello world').pretty(false).marker('m4')
       .show();
-
   });
 });
 
 
- const jStrip10 = new jStrip();
+// removehtml()
+const jStrip10 = new jStrip();
 
 describe('jStrip - remotehtml()', () => {
-  it("should return hello world without html elements", (done) => {
-    
+  it('should return hello world without html elements', (done) => {
     jStrip10.on('m5', (f) => {
       chai.expect(f.data).to.equal('hello world');
       done();
     });
 
-    jStrip10.getData('<b>hello</b> <i>world</i>').removehtml().marker("m5").show();
-
+    jStrip10.getData('<b>hello</b> <i>world</i>').removehtml().marker('m5').show();
   });
-});  
+});
 
-
-const jStrip11 = new jStrip();
+const jStrip11 = new jStrip(); // by loading url, let's cache be tested of .method()
 
 describe('jStrip - remotehtml() - url', () => {
-  it("should return hello world without html elements", (done) => {
-    
+  it('should return hello world without html elements', (done) => {
     jStrip11.on('m5', (f) => {
       chai.expect(f.data).to.equal('Google');
       done();
     });
 
-    jStrip11.getData('https://www.google.com').selector("title").removehtml().marker("m5").show();
-
+    jStrip11.getData('https://www.google.com').selector('title').removehtml().marker('m5')
+      .show();
   });
-});  
+});
+

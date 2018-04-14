@@ -7,7 +7,7 @@ const request = require('request');
 //* ******************************************************************************************
 //* ******************************************************************************************
 //* ******************************************************************************************
-class EventEmitter {
+class jStripEmitter {
   constructor() {
     this.events = {};
   }
@@ -35,7 +35,7 @@ class EventEmitter {
 //* ******************************************************************************************
 //* ******************************************************************************************
 //* ******************************************************************************************
-class jStrip extends EventEmitter {
+class jStrip extends jStripEmitter {
   constructor() {
     super();
 
@@ -91,14 +91,8 @@ class jStrip extends EventEmitter {
     if (this.o.dataRetrieved == false) {
       this.addToQueue(this.selector, j);
     } else {
-      // console.log("select(" + selector + ")");
       const dom = (new JSDOM(this.o.contents));
-
-
       // if (typeof dom.window !== 'object') throw ('problem with dom');
-
-      // console.log(this.o.contents);
-
       const $ = require('jquery')(dom.window);
       this.o.contents = $(j).html();
     }
@@ -106,9 +100,9 @@ class jStrip extends EventEmitter {
   }
   //* **********************************************
   //* **********************************************
-  show(a) {
+  show() {
     if (this.o.dataRetrieved === false) {
-      this.addToQueue(this.show, a);
+      this.addToQueue(this.show, true);
     } else {
       console.log(this.o.contents);
     }
