@@ -107,7 +107,7 @@ describe('jStrip - getData(bad url), pretty(), marker(), replace(), marker()', (
       .marker('m5');
     jStrip7.on('m5', (e) => {
       // console.log("m5 = " + e.data)
-      chai.expect(e.data).to.have.string('denied');
+      chai.expect(e.data).to.have.string('');
 
       done();
     });
