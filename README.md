@@ -6,7 +6,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/frankc60/jStrip/badge.svg)](https://coveralls.io/github/frankc60/jStrip)
 [![Join the chat at https://gitter.im/jStrip_npm/Lobby](https://badges.gitter.im/jStrip_npm/Lobby.svg)](https://gitter.im/jStrip_npm/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-jStrip let's you easily grab data from the web or text and apply multiple filters to change the data to your liking, before it's returned asynchronously.
+jStrip let's you easily grab data from the web or text and apply multiple filters to change the data to your liking, before being returned asynchronously.
 
 **New** `v 2.x` now comes with chainable methods and event handlers.  New features being added regularly. *To keep your `v 1.x` code working as before, please read the Migration section below.*
 
@@ -23,7 +23,7 @@ jStrip1.on("marker3", (d) => {
 
 jStrip1.getData('https://goo.gl/e234y2').selector("div#rs1")
   .marker("marker2").selector("#i_time").marker("marker3");
-jStrip1.pretty().show(); 
+jStrip1.pretty().show();
 
 ```
 
@@ -60,9 +60,9 @@ The only requirement is to first grab the data. Start by using the `.getData()` 
 `getData()` accepts 2 string types: a **"url"** or **"text"**.
 
 ```js
-jStrip1.getData("http://www.google.com")
+jStrip1.getData("http://www.google.com") // url
 //or
-jStrip1.getData("my own string of text here!")
+jStrip1.getData("my own string of text here!") // string
 ```
 
 ### .show()
@@ -84,7 +84,7 @@ jStrip1.getData("hello    world")
 
 ### .selector(*jquery*)
 
-`selector()` lets you grabs html from the data with **jQuery** functionality. Check out the many available [jQuery selectors](https://api.jquery.com/category/selectors/) you can use.
+`selector()` lets you grabs html from the data using **jQuery** functionality. Check out the many available [jQuery selectors](https://api.jquery.com/category/selectors/) you can use.
 
 ```js
 jStrip1.getData("http://www.news.com")
@@ -119,13 +119,14 @@ Set a **marker** (or many) in your jStrip call, simply by using the **marker()**
 #### .marker(*eventname*)
 
 ```js
-jStrip1.getData("have  a   nice   day").marker("marker1")
-    .pretty().marker("marker2"); //  2 markers
+jStrip1.getData("have  a   nice   day")
+    .marker("marker1") // 1st marker
+    .pretty().marker("marker2"); //  2nd marker
 ```
 
-Display the markers asynchronously with the **on()** event handler method.
-Two parameters are needed, the named marker() to trigger on followed with a function.
-jStrip returns an object to the function, with a property 'data' containing the content.
+Display the markers asynchronously with the **on()** event handler.
+Two parameters are needed: the named marker() to trigger on followed with a function,
+jStrip returns an object to the function, with the property 'data' containing the contents.
 
 #### .on(*marker name*, *function(returned data)*)
 
