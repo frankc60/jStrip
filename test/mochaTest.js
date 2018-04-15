@@ -180,3 +180,55 @@ describe('jStrip - remotehtml() - url', () => {
   });
 });
 
+// removehtml()
+const jStrip12 = new jStrip();
+const jStrip13 = new jStrip();
+
+describe('jStrip - uppercase()', () => {
+  it('should return hello world in UPPER-case', (done) => {
+    jStrip12.on('m5', (f) => {
+      chai.expect(f.data).to.equal('HELLO WORLD');
+      done();
+    });
+
+    jStrip12.getData('hello world').uppercase().marker('m5').show();
+  });
+
+  it('should return google in UPPER-case', (done) => {
+    jStrip13.on('m5', (f) => {
+      chai.expect(f.data).to.equal('GOOGLE');
+      done();
+    });
+
+    jStrip13.getData('http://www.google.com').selector("title").uppercase().marker('m5').show();
+  });
+
+
+
+});
+
+const jStrip14 = new jStrip(); // by loading url, let's cache be tested of .method()
+const jStrip15 = new jStrip();
+
+describe('jStrip - lowercase()', () => {
+  it('should return HELLO WORLD in lower-case', (done) => {
+    jStrip14.on('m5', (f) => {
+      chai.expect(f.data).to.equal('hello world');
+      done();
+    });
+
+    jStrip14.getData('HELLO WORLD').lowercase().marker('m5')
+      .show();
+  });
+
+  it('should return Google in lower-case', (done) => {
+    jStrip15.on('m5', (f) => {
+      chai.expect(f.data).to.equal('google');
+      done();
+    });
+
+    jStrip15.getData('https://www.google.com').selector("title").lowercase().marker('m5')
+      .show();
+  });
+
+});
