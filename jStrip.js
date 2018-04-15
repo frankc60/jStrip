@@ -167,6 +167,26 @@ class jStrip extends jStripEmitter {
   }
   //* **********************************************
   //* **********************************************
+  uppercase() {
+    if (this.o.dataRetrieved === false) {
+      this.addToQueue(this.uppercase, true);
+    } else {
+      this.o.contents = (this.o.contents).toUpperCase();
+    }
+    return this;
+  }
+  //* **********************************************
+  //* **********************************************
+  lowercase() {
+    if (this.o.dataRetrieved === false) {
+      this.addToQueue(this.lowercase, true);
+    } else {
+      this.o.contents = (this.o.contents).toLowerCase();
+    }
+    return this;
+  }
+  //* **********************************************
+  //* **********************************************
   async jStrip_(uri, jquery) {
     try {
       const options = {
