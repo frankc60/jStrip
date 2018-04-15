@@ -110,6 +110,24 @@ jStrip5.getData('<h1hello</h1> <p>world</p>').removehtml()
      .show() // hello world
 ```
 
+### .uppercase()
+
+convert string contents to upper case.
+
+```js
+jStrip5.getData('hello world').uppercase()
+     .show() // HELLO WORLD
+```
+
+### .lowercase()
+
+convert string contents to lower case.
+
+```js
+jStrip5.getData('HELLO WORLD').lowercase()
+     .show() // hello world
+```
+
 ## Async Event Handlers .marker() and .on()
 
 Grabbing html data from the web is not instant, so jStrip provides an **event handler** to tell you when it has all it's data ready, and send it asynchronously without blocking.
