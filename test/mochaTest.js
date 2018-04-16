@@ -76,8 +76,8 @@ describe('jStrip - getData(), selector(), pretty(), replace(), marker(), show()'
       done();
     });
     jStrip5.getData('https://www.google.com/').selector('title').pretty(true).replace(/G/, 'g')
-.marker('m2')
-.show();
+      .marker('m2')
+      .show();
   });
 });
 
@@ -93,7 +93,7 @@ describe('jStrip - getData("text"), pretty(), replace(), marker()', () => {
     });
 
     jStrip6.getData('hello     world').pretty(true).replace('hello', 'hi').marker('m3')
-.show();
+      .show();
   });
 });
 
@@ -124,7 +124,7 @@ describe('jStrip - multiple event handler calls', () => {
     });
 
     jStrip8.on('m4', (d) => {
-      console.log(`${d.data } again!`);
+      console.log(`${d.data} again!`);
     });
 
     jStrip8.on('m5', (f) => {
@@ -133,7 +133,7 @@ describe('jStrip - multiple event handler calls', () => {
     });
 
     jStrip8.getData('hello world').pretty(false).marker('m4').show()
-.marker('m5');
+      .marker('m5');
   });
 });
 
@@ -200,11 +200,9 @@ describe('jStrip - uppercase()', () => {
       done();
     });
 
-    jStrip13.getData('http://www.google.com').selector("title").uppercase().marker('m5').show();
+    jStrip13.getData('http://www.google.com').selector('title').uppercase().marker('m5')
+.show();
   });
-
-
-
 });
 
 const jStrip14 = new jStrip(); // by loading url, let's cache be tested of .method()
@@ -227,10 +225,9 @@ describe('jStrip - lowercase()', () => {
       done();
     });
 
-    jStrip15.getData('https://www.google.com').selector("title").lowercase().marker('m5')
+    jStrip15.getData('https://www.google.com').selector('title').lowercase().marker('m5')
       .show();
   });
-
 });
 
 
@@ -247,7 +244,7 @@ describe('jStrip - json=type', () => {
     jStrip16.getData('{"name": "jStrip", "awesome": "true"}').marker('m5')
       .show();
   });
-/* 
+/*
   it('should return Google in lower-case', (done) => {
     jStrip17.on('m5', (f) => {
       chai.expect(f.data).to.equal('google');
@@ -257,5 +254,22 @@ describe('jStrip - json=type', () => {
     jStrip17.getData('https://www.google.com').selector("title").lowercase().marker('m5')
       .show();
   }); */
+});
 
+const jStrip18 = new jStrip();
+
+describe('jStrip - http instance timeout', () => {
+  it('should equal 10000 (default)', (done) => {
+    const x = jStrip18.timeout;
+
+    chai.expect(x).to.equal(10000);
+    done();
+  });
+  it('set to 8000, and display new value', (done) => {
+    jStrip18.timeout = 8000;
+    const x = jStrip18.timeout;
+
+    chai.expect(x).to.equal(8000);
+    done();
+  });
 });

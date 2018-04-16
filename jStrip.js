@@ -33,7 +33,6 @@ class jStripEmitter {
     const that = this;
     return (that.events[eventName].filter(eventFn => fn !== eventFn));
   }
-  
 }
 //* ******************************************************************************************
 //* ******************************************************************************************
@@ -48,6 +47,18 @@ class jStrip extends jStripEmitter {
     this.o.timeout = 10000;
     this.o.tmp = '';
     this.o.type = undefined;
+  }
+  //* **********************************************
+  //* **********************************************
+  // Getter
+  get timeout() {
+    return this.o.timeout;
+  }
+ //* **********************************************
+  //* **********************************************
+  // Setter
+  set timeout(n) {
+    this.o.timeout = n;
   }
   //* **********************************************
   //* **********************************************
@@ -99,11 +110,13 @@ class jStrip extends jStripEmitter {
     const that = this;
     // let remove;
     const r = this.o;
-     let i = 0;
+    // let i = 0;
     for (const [fn, ...arg] of r) {
       fn[0].apply(that, ...arg);
       //  const ndx = r.splice(i, 1); // clear queue memory after running
-        i++;
+      // i++;
+      // console.log(`i=${i}`);
+      // delete r[fn][0];
     }
   }
   //* **********************************************
