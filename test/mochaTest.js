@@ -232,3 +232,30 @@ describe('jStrip - lowercase()', () => {
   });
 
 });
+
+
+const jStrip16 = new jStrip(); // by loading url, let's cache be tested of .method()
+const jStrip17 = new jStrip();
+
+describe('jStrip - json=type', () => {
+  it('should return type = json', (done) => {
+    jStrip16.on('m5', (f) => {
+      chai.expect(f.type).to.equal('json');
+      done();
+    });
+
+    jStrip16.getData('{"name": "jStrip", "awesome": "true"}').marker('m5')
+      .show();
+  });
+/* 
+  it('should return Google in lower-case', (done) => {
+    jStrip17.on('m5', (f) => {
+      chai.expect(f.data).to.equal('google');
+      done();
+    });
+
+    jStrip17.getData('https://www.google.com').selector("title").lowercase().marker('m5')
+      .show();
+  }); */
+
+});

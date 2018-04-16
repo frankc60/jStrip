@@ -1,6 +1,8 @@
 const jsdom = require('jsdom');
 
-const { JSDOM } = jsdom;
+const {
+  JSDOM,
+} = jsdom;
 const prettyHtml = require('pretty');
 const request = require('request');
 
@@ -12,11 +14,11 @@ class jStripEmitter {
     this.events = {};
   }
 
-  emit(eventName, data) {
+  emit(eventName, ...data) {
     const event = this.events[eventName];
     if (event) {
       event.forEach((fn) => {
-        fn.call(null, data);
+        fn.call(null, ...data)
       });
     }
   }
@@ -29,7 +31,9 @@ class jStripEmitter {
     this.events[eventName].push(fn);
 
     // const that = this;
-    return (function () { this.events[eventName] = this.events[eventName].filter(eventFn => fn !== eventFn); }).bind(this);
+    return (function () {
+      this.events[eventName] = this.events[eventName].filter(eventFn => fn !== eventFn);
+    }).bind(this);
   }
 }
 //* ******************************************************************************************
@@ -43,19 +47,48 @@ class jStrip extends jStripEmitter {
     this.o.dataRetrieved = false;
     this.o.contents = '';
     this.o.timeout = 10000;
+    this.o.tmp = '';
+    this.o.type = undefined;
   }
   //* **********************************************
   //* **********************************************
-  static IsStringJson(str) {
+  static isJson(str) {
     try {
-        JSON.parse(str);
+      JSON.parse(str);
+      return true;
     } catch (e) {
-        return false;
+     // console.log("not  json " + e)
+      return false;
     }
-    return true;
+    
   }
 
+  static isUrl(str) {
+    const urlRegex = new RegExp('^(http[s]?:\\/\\/(www\\.)?|ftp:\\/\\/(www\\.)?|www\\.){1}([0-9A-Za-z-\\.@:%_\+~#=]+)+((\\.[a-zA-Z]{2,3})+)(/(.)*)?(\\?(.)*)?');
 
+    if (urlRegex.test(str)) return true;
+
+    return false;
+  }
+
+ /*  prettyJson(events, t = 0) {
+    // for (i in events) {
+    // for (const i of Object.keys(events)) {
+    let that = this;
+    function pJson(events, t = 0) {
+      Object.keys(events).forEach((i) => {
+      //   console.log(i, events[i]);
+        if (typeof events[i] === 'object') {
+          that.o.tmp += `${'\t'.repeat(t)}**${i}**`;
+          this.pJson(events[i], (t + 1));
+        } else {
+          that.o.tmp += `${'\t'.repeat(t)}${i} * ${events[i]}`;
+        }
+      });
+    }
+    return this.o.tmp;
+  }
+ */
   addToQueue(f, ...d) {
     this.o.push([
       [f],
@@ -71,8 +104,8 @@ class jStrip extends jStripEmitter {
     // let i = 0;
     for (const [fn, ...arg] of r) {
       fn[0].apply(that, ...arg);
-    //  const ndx = r.splice(i, 1); // clear queue memory after running
-    //  i++;
+      //  const ndx = r.splice(i, 1); // clear queue memory after running
+      //  i++;
     }
   }
   //* **********************************************
@@ -81,24 +114,16 @@ class jStrip extends jStripEmitter {
     if (this.o.dataRetrieved === false) {
       this.on('dataReceived', (d) => {
         this.o.contents = d.data;
+        this.o.type = d.type;
         this.o.dataRetrieved = true;
         this.processQueue();
       });
 
-      if (jStrip.IsStringJson(data)) {
-        console.log("data is JSON format.");
-        this.emit('dataReceived', {
-          data,
-          type: "json"
-        });
-        return this;
-      }
 
+      // const urlRegex = new RegExp('^(http[s]?:\\/\\/(www\\.)?|ftp:\\/\\/(www\\.)?|www\\.){1}([0-9A-Za-z-\\.@:%_\+~#=]+)+((\\.[a-zA-Z]{2,3})+)(/(.)*)?(\\?(.)*)?');
 
-      
-      const urlRegex = new RegExp('^(http[s]?:\\/\\/(www\\.)?|ftp:\\/\\/(www\\.)?|www\\.){1}([0-9A-Za-z-\\.@:%_\+~#=]+)+((\\.[a-zA-Z]{2,3})+)(/(.)*)?(\\?(.)*)?');
-
-      if (urlRegex.test(data)) {
+      if (jStrip.isUrl(data)) {
+        // if (urlRegex.test(data)) {
         const options = {
           url: data,
           timeout: this.o.timeout,
@@ -108,13 +133,20 @@ class jStrip extends jStripEmitter {
           //   if (error) { body = (`${error} ${response && response.statusCode}`); }
           this.emit('dataReceived', {
             data: body,
-            type: "url"
+            type: 'url',
           });
         });
-      } else { // not a url
+      } else if (jStrip.isJson(data)) {
+        //console.log('data is JSON format.');
         this.emit('dataReceived', {
           data,
-          type: "string"
+          type: 'json',
+        });
+       // return this;
+      } else { //isString
+        this.emit('dataReceived', {
+          data,
+          type: 'string',
         });
       }
     }
@@ -152,6 +184,7 @@ class jStrip extends jStripEmitter {
       // console.log("marker: " + a);
       this.emit(a, {
         data: this.o.contents,
+        type: this.o.type,
       });
     }
     return this;
@@ -172,9 +205,12 @@ class jStrip extends jStripEmitter {
   pretty() {
     if (this.o.dataRetrieved === false) {
       this.addToQueue(this.pretty, true);
-    } else { // if (bol === true) {
+   /*  } else if (this.o.contents.type == 'json') {
+      this.o.contents = this.prettyJson(this.o.contents); */
+    } else {
       this.o.contents = prettyHtml(this.o.contents);
     }
+
     return this;
   }
   //* **********************************************
@@ -207,6 +243,8 @@ class jStrip extends jStripEmitter {
     }
     return this;
   }
+  //* **********************************************
+  //* **********************************************
   //* **********************************************
   //* **********************************************
   async jStrip_(uri, jquery) {
