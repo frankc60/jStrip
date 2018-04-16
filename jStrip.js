@@ -46,6 +46,16 @@ class jStrip extends jStripEmitter {
   }
   //* **********************************************
   //* **********************************************
+  static IsStringJson(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+  }
+
+
   addToQueue(f, ...d) {
     this.o.push([
       [f],
@@ -75,24 +85,36 @@ class jStrip extends jStripEmitter {
         this.processQueue();
       });
 
-      const options = {
-        url: data,
-        timeout: this.o.timeout,
-      };
+      if (jStrip.IsStringJson(data)) {
+        console.log("data is JSON format.");
+        this.emit('dataReceived', {
+          data,
+          type: "json"
+        });
+        return this;
+      }
 
+
+      
       const urlRegex = new RegExp('^(http[s]?:\\/\\/(www\\.)?|ftp:\\/\\/(www\\.)?|www\\.){1}([0-9A-Za-z-\\.@:%_\+~#=]+)+((\\.[a-zA-Z]{2,3})+)(/(.)*)?(\\?(.)*)?');
 
       if (urlRegex.test(data)) {
+        const options = {
+          url: data,
+          timeout: this.o.timeout,
+        };
         // success
         request(options, (error, response, body) => {
           //   if (error) { body = (`${error} ${response && response.statusCode}`); }
           this.emit('dataReceived', {
             data: body,
+            type: "url"
           });
         });
       } else { // not a url
         this.emit('dataReceived', {
           data,
+          type: "string"
         });
       }
     }
