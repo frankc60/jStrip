@@ -99,11 +99,11 @@ class jStrip extends jStripEmitter {
     const that = this;
     // let remove;
     const r = this.o;
-    // let i = 0;
+     let i = 0;
     for (const [fn, ...arg] of r) {
       fn[0].apply(that, ...arg);
       //  const ndx = r.splice(i, 1); // clear queue memory after running
-      //  i++;
+        i++;
     }
   }
   //* **********************************************

@@ -144,13 +144,17 @@ jStrip1.getData("have  a   nice   day")
 
 Display the markers asynchronously with the **on()** event handler.
 Two parameters are needed: the named marker() to trigger on followed with a function,
-jStrip returns an object to the function, with the property 'data' containing the contents.
+jStrip returns an object to the function, with 2 properties:
+- data  - containing the content
+- type  - datatype (string|url|json)
 
 #### .on(*marker name*, *function(returned data)*)
 
 ```js
 jStrip1.on("marker1",(d) => {  //       first marker
   console.log(`html ${d.data}`); //   have  a   nice   day
+  console.log(`datatype ${d.type}`); //  string
+  
 });
 
 jStrip1.on("marker2",(d) => {  //       second marker
