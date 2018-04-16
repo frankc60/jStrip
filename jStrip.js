@@ -18,7 +18,7 @@ class jStripEmitter {
     const event = this.events[eventName];
     if (event) {
       event.forEach((fn) => {
-        fn.call(null, ...data)
+        fn.call(null, ...data);
       });
     }
   }
@@ -30,11 +30,10 @@ class jStripEmitter {
 
     this.events[eventName].push(fn);
 
-    // const that = this;
-    return (function () {
-      this.events[eventName] = this.events[eventName].filter(eventFn => fn !== eventFn);
-    }).bind(this);
+    const that = this;
+    return (that.events[eventName].filter(eventFn => fn !== eventFn));
   }
+  
 }
 //* ******************************************************************************************
 //* ******************************************************************************************
@@ -57,10 +56,9 @@ class jStrip extends jStripEmitter {
       JSON.parse(str);
       return true;
     } catch (e) {
-     // console.log("not  json " + e)
+      // console.log("not  json " + e)
       return false;
     }
-    
   }
 
   static isUrl(str) {
@@ -71,7 +69,7 @@ class jStrip extends jStripEmitter {
     return false;
   }
 
- /*  prettyJson(events, t = 0) {
+  /*  prettyJson(events, t = 0) {
     // for (i in events) {
     // for (const i of Object.keys(events)) {
     let that = this;
@@ -137,13 +135,13 @@ class jStrip extends jStripEmitter {
           });
         });
       } else if (jStrip.isJson(data)) {
-        //console.log('data is JSON format.');
+        // console.log('data is JSON format.');
         this.emit('dataReceived', {
           data,
           type: 'json',
         });
-       // return this;
-      } else { //isString
+        // return this;
+      } else { // isString
         this.emit('dataReceived', {
           data,
           type: 'string',
@@ -205,7 +203,7 @@ class jStrip extends jStripEmitter {
   pretty() {
     if (this.o.dataRetrieved === false) {
       this.addToQueue(this.pretty, true);
-   /*  } else if (this.o.contents.type == 'json') {
+      /*  } else if (this.o.contents.type == 'json') {
       this.o.contents = this.prettyJson(this.o.contents); */
     } else {
       this.o.contents = prettyHtml(this.o.contents);
