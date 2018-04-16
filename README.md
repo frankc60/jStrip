@@ -64,6 +64,12 @@ jStrip1.getData("http://www.google.com") // url
 //or
 jStrip1.getData("my own string of text here!") // string
 ```
+If you use a **url** the default timeout for the http/s request is 10000 milli-seconds. You can change this per instance by changing the timeout property.
+
+```js
+jStrip1.timeout = 15000;
+console.log(jStrip1.timeout); // 15000 - 15 seconds
+```
 
 ### .show()
 
