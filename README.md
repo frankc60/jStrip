@@ -19,7 +19,7 @@ let jStrip1 = new jStrip();
 
 jStrip1.on("marker1", (d) => {
   console.log(`current time in nz is: ${d.data}`);
-  console.log(`data type: ${d.type}`);  // url
+  console.log(`url: ${d.url}`); // https://goo.gl/e234y2
 });
 
 jStrip1.getData('https://goo.gl/e234y2').selector("div#rs1")
@@ -151,9 +151,10 @@ jStrip1.getData("have  a   nice   day")
 
 Display the markers asynchronously with the **on()** event handler.
 Two parameters are needed: the named marker() to trigger on followed with a function,
-jStrip returns an object to the function, with 2 properties:
+jStrip returns an object to the function, with 3 properties:
 - data  - containing the content
 - type  - datatype (*string* | *url* | *json*)
+- url   - url address used, if type is 'url', otherwise equals undefined.
 
 #### .on(*marker name*, *function(returned data)*)
 

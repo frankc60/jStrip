@@ -47,6 +47,7 @@ class jStrip extends jStripEmitter {
     this.o.timeout = 10000;
     this.o.tmp = '';
     this.o.type = undefined;
+    this.o.url = undefined;
   }
   //* **********************************************
   //* **********************************************
@@ -132,8 +133,10 @@ class jStrip extends jStripEmitter {
       this.on('dataReceived', (d) => {
         this.o.contents = d.data;
         this.o.type = d.type;
+        if(d.url) this.o.url = d.url;
         this.o.dataRetrieved = true;
         this.processQueue();
+     
       });
 
 
@@ -151,6 +154,7 @@ class jStrip extends jStripEmitter {
           this.emit('dataReceived', {
             data: body,
             type: 'url',
+            url: data,
           });
         });
       } else if (jStrip.isJson(data)) {
@@ -202,6 +206,7 @@ class jStrip extends jStripEmitter {
       this.emit(a, {
         data: this.o.contents,
         type: this.o.type,
+        url: this.o.url,
       });
     }
     return this;

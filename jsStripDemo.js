@@ -137,6 +137,7 @@ let jStrip1 = new jStrip();
 jStrip1.on("marker3", (d) => {
   console.log(`current time in nz is: ${d.data}`);
   console.log(`data type: ${d.type}`);
+  console.log(`url: ${d.url}`);
   
 });
 
