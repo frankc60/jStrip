@@ -273,3 +273,30 @@ describe('jStrip - http instance timeout', () => {
     done();
   });
 });
+
+
+const jStrip19 = new jStrip();
+
+describe('jStrip - data type is pure json object', () => {
+  it('should not execute - yet (future version)', (done) => {
+   
+    jStrip19.on("m5", (d) => {
+
+      console.log("19 - " + d.type + d.data)
+
+      chai.expect(d).to.equal(10000);
+      done();
+
+    })
+
+
+    jStrip19.getData({"name": "jStrip", "awesome": "true"}).marker('m5')
+    .show();
+    
+    let k = 1;
+    chai.expect(k).to.equal(1);
+      done();
+
+  });
+ 
+});

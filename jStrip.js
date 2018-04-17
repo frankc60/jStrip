@@ -62,9 +62,9 @@ class jStrip extends jStripEmitter {
   }
   //* **********************************************
   //* **********************************************
-  static isJson(str) {
+  static isJson(data) {
     try {
-      JSON.parse(str);
+      JSON.parse(data);
       return true;
     } catch (e) {
       // console.log("not  json " + e)
@@ -72,17 +72,17 @@ class jStrip extends jStripEmitter {
     }
   }
 
-  static isUrl(str) {
+  static isUrl(data) {
     const urlRegex = new RegExp('^(http[s]?:\\/\\/(www\\.)?|ftp:\\/\\/(www\\.)?|www\\.){1}([0-9A-Za-z-\\.@:%_\+~#=]+)+((\\.[a-zA-Z]{2,3})+)(/(.)*)?(\\?(.)*)?');
 
-    if (urlRegex.test(str)) return true;
+    if (urlRegex.test(data)) return true;
 
     return false;
   }
 
-  static isString(str) {
+  static isString(data) {
 
-    if (typeof str === "string") return true;
+    if (typeof data === "string") return true;
 
     return false;
   }
@@ -161,7 +161,7 @@ class jStrip extends jStripEmitter {
           type: 'json',
         });
         // return this;
-      } else { // if(isString(data))
+      } else if(jStrip.isString(data)) { 
         this.emit('dataReceived', {
           data,
           type: 'string',
