@@ -19,6 +19,7 @@ let jStrip1 = new jStrip();
 
 jStrip1.on("marker3", (d) => {
   console.log(`current time in nz is: ${d.data}`);
+  console.log(`data type: ${d.type}`);  // url
 });
 
 jStrip1.getData('https://goo.gl/e234y2').selector("div#rs1")
