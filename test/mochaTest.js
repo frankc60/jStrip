@@ -201,7 +201,7 @@ describe('jStrip - uppercase()', () => {
     });
 
     jStrip13.getData('http://www.google.com').selector('title').uppercase().marker('m5')
-.show();
+      .show();
   });
 });
 
@@ -276,27 +276,36 @@ describe('jStrip - http instance timeout', () => {
 
 
 const jStrip19 = new jStrip();
+const jStrip20 = new jStrip();
+
 
 describe('jStrip - data type is pure json object', () => {
-  it('should not execute - yet (future version)', (done) => {
-   
-    jStrip19.on("m5", (d) => {
+  it('should recognise type as json (future version)', (done) => {
+    jStrip19.on('m5', (d) => {
+      console.log('19 - ' + d.type + d.data);
 
-      console.log("19 - " + d.type + d.data)
+      chai.expect(d.type).to.equal("json");
+      done();
+    });
+
+
+    jStrip19.getData({ name: 'jStrip', awesome: 'true' }).marker('m5');
+  });
+
+
+  it('should error - not json obj - yet (future version)', (done) => {
+    jStrip20.on('m5', (d) => {
+      console.log('20 - ' + d.type , d.data);
 
       chai.expect(d).to.equal(10000);
       done();
+    });
 
-    })
 
+    jStrip20.getData(function(){console.log("ss");}).marker('m5');
 
-    jStrip19.getData({"name": "jStrip", "awesome": "true"}).marker('m5')
-    .show();
-    
-    let k = 1;
-    chai.expect(k).to.equal(1); //it shouldn't execute, so on() is never called, and thus this k=1 will execute and pass.
-      done();
-
+    const k = 1;
+    chai.expect(k).to.equal(1); // it shouldn't execute, so on() is never called, and thus this k=1 will execute and pass.
+    done();
   });
- 
 });

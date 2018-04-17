@@ -72,14 +72,16 @@ class jStrip extends jStripEmitter {
       // console.log("not  json " + e)
       try {
         const obj = JSON.parse(JSON.stringify(data)); // if json in raw format.
-        //console.log("obj: " + obj)
-        if (obj && typeof obj === "object") {
+        // console.log("obj: " + obj)z
+        if (obj && typeof obj === 'object') {
           return true;
-      } else { return false; }
+        }
+        return false;
+
 
       } catch (er) {
         // console.log("not  json " + er)
-        return false;
+        //return false;
       }
     }
   }
@@ -98,7 +100,7 @@ class jStrip extends jStripEmitter {
     return false;
   }
 
-  prettyJson(strEvents, t = 0) {
+  /*  prettyJson(strEvents, t = 0) {
     // for (i in events) {
     // for (const i of Object.keys(events)) {
     const events = JSON.parse(strEvents);
@@ -120,7 +122,7 @@ class jStrip extends jStripEmitter {
     let tmpData = this.o.tmp;
     this.o.tmp = "";
     return tmpData;
-  }
+  } */
 
   addToQueue(f, ...d) {
     this.o.push([
@@ -174,7 +176,7 @@ class jStrip extends jStripEmitter {
           });
         });
       } else if (jStrip.isJson(data)) {
-         console.log('data is JSON format.');
+      //   console.log('data is JSON format.');
         this.emit('dataReceived', {
           data: JSON.stringify(data),
           type: 'json',
@@ -245,9 +247,9 @@ class jStrip extends jStripEmitter {
       this.addToQueue(this.pretty, true);
       /*  } else if (this.o.contents.type == 'json') {
       this.o.contents = this.prettyJson(this.o.contents); */
-    } else if (this.o.type === 'json') {
+    /* }  else if (this.o.type === 'json') {
       console.log("type:" + this.o.type)
-      this.o.contents = this.prettyJson(this.o.contents);
+      this.o.contents = this.prettyJson(this.o.contents); */
     } else {
       this.o.contents = prettyHtml(this.o.contents);
     }
