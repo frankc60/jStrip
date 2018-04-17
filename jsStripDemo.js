@@ -43,7 +43,7 @@ jStrip6.getData('<b>tttt</b><u>yyyy</u>').pretty().show();
 jStrip6.removehtml().show();
 //* *****************************************************************
  */
-const objjson2 = JSON.stringify({
+const objjson2 = {
   'Meta Data': {
     '1. Information': 'Daily Prices and Volumes for Digital Currency',
     '2. Digital Currency Code': 'BTC',
@@ -67,19 +67,21 @@ const objjson2 = JSON.stringify({
       '6. market cap (USD)': '3860452.01704299',
     },
   },
-});
+};
 
 
 const jStrip7 = new jStrip();
 
 jStrip7.on('m1', (d) => {
-  const e = d.data;
 
-  console.log('aa : ' + JSON.stringify(d.data));
+let x = JSON.parse(d.data);
+
+console.log("a " + x)
+  console.log(`aa : ${(d.data)}`);
   console.log('aa type: ' + JSON.stringify(d.type));
 });
 
-jStrip7.getData(objjson2).pretty().marker('m1'); 
+jStrip7.getData(objjson2).marker('m1'); 
 let ss = 66;
 
 console.log(ss);
@@ -115,7 +117,8 @@ let d = new jStrip();
 d.getData("hello     world"); //if not url, then data is used as the original contents.
 
 d.show().replace(/hello/, "hi").show(); 
-d.pretty(true).show();
+d.pretty().show();
+
 
 d.getData("next one here").show()  //ignoreed, as getData already executed.
 

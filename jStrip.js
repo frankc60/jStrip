@@ -55,7 +55,7 @@ class jStrip extends jStripEmitter {
   get timeout() {
     return this.o.timeout;
   }
- //* **********************************************
+  //* **********************************************
   //* **********************************************
   // Setter
   set timeout(n) {
@@ -63,13 +63,24 @@ class jStrip extends jStripEmitter {
   }
   //* **********************************************
   //* **********************************************
+
   static isJson(data) {
     try {
-      JSON.parse(data);
+      JSON.parse(data); // if json data is already stringified (in quotes)
       return true;
     } catch (e) {
       // console.log("not  json " + e)
-      return false;
+      try {
+        const obj = JSON.parse(JSON.stringify(data)); // if json in raw format.
+        //console.log("obj: " + obj)
+        if (obj && typeof obj === "object") {
+          return true;
+      } else { return false; }
+
+      } catch (er) {
+        // console.log("not  json " + er)
+        return false;
+      }
     }
   }
 
@@ -87,24 +98,30 @@ class jStrip extends jStripEmitter {
     return false;
   }
 
-  /*  prettyJson(events, t = 0) {
+  prettyJson(strEvents, t = 0) {
     // for (i in events) {
     // for (const i of Object.keys(events)) {
-    let that = this;
+    const events = JSON.parse(strEvents);
+    const that = this;
     function pJson(events, t = 0) {
+     // console.log("pjson1")
       Object.keys(events).forEach((i) => {
-      //   console.log(i, events[i]);
+     //   console.log("pjson2")
+    //    console.log(i, events[i]);
         if (typeof events[i] === 'object') {
-          that.o.tmp += `${'\t'.repeat(t)}**${i}**`;
-          this.pJson(events[i], (t + 1));
+          that.o.tmp += `${'\t'.repeat(t)}**${i}**\n`;
+          pJson(events[i], (t + 1));
         } else {
-          that.o.tmp += `${'\t'.repeat(t)}${i} * ${events[i]}`;
+          that.o.tmp += `${'\t'.repeat(t)}${i} = ${events[i]}\n`;
         }
       });
     }
-    return this.o.tmp;
+    pJson(events);
+    let tmpData = this.o.tmp;
+    this.o.tmp = "";
+    return tmpData;
   }
- */
+
   addToQueue(f, ...d) {
     this.o.push([
       [f],
@@ -133,10 +150,9 @@ class jStrip extends jStripEmitter {
       this.on('dataReceived', (d) => {
         this.o.contents = d.data;
         this.o.type = d.type;
-        if(d.url) this.o.url = d.url;
+        if (d.url) this.o.url = d.url;
         this.o.dataRetrieved = true;
         this.processQueue();
-     
       });
 
 
@@ -158,13 +174,13 @@ class jStrip extends jStripEmitter {
           });
         });
       } else if (jStrip.isJson(data)) {
-        // console.log('data is JSON format.');
+         console.log('data is JSON format.');
         this.emit('dataReceived', {
-          data,
+          data: JSON.stringify(data),
           type: 'json',
         });
         // return this;
-      } else if (jStrip.isString(data)) { 
+      } else if (jStrip.isString(data)) {
         this.emit('dataReceived', {
           data,
           type: 'string',
@@ -229,6 +245,9 @@ class jStrip extends jStripEmitter {
       this.addToQueue(this.pretty, true);
       /*  } else if (this.o.contents.type == 'json') {
       this.o.contents = this.prettyJson(this.o.contents); */
+    } else if (this.o.type === 'json') {
+      console.log("type:" + this.o.type)
+      this.o.contents = this.prettyJson(this.o.contents);
     } else {
       this.o.contents = prettyHtml(this.o.contents);
     }
