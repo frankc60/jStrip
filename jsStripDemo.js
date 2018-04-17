@@ -141,5 +141,5 @@ jStrip1.on("marker3", (d) => {
 });
 
 jStrip1.getData('https://goo.gl/e234y2').selector("div#rs1")
-  .marker("marker2").selector("#i_time").marker("marker3");
+  .selector("#i_time").marker("marker3");
 jStrip1.pretty().show();
