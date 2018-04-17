@@ -294,7 +294,7 @@ describe('jStrip - data type is pure json object', () => {
     .show();
     
     let k = 1;
-    chai.expect(k).to.equal(1);
+    chai.expect(k).to.equal(1); //it shouldn't execute, so on() is never called, and thus this k=1 will execute and pass.
       done();
 
   });

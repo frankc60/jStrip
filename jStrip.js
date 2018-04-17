@@ -81,8 +81,7 @@ class jStrip extends jStripEmitter {
   }
 
   static isString(data) {
-
-    if (typeof (data) === "string") return true;
+    if (typeof (data) === 'string') return true;
 
     return false;
   }
