@@ -80,6 +80,13 @@ class jStrip extends jStripEmitter {
     return false;
   }
 
+  static isString(str) {
+
+    if (typeof str === "string") return true;
+
+    return false;
+  }
+
   /*  prettyJson(events, t = 0) {
     // for (i in events) {
     // for (const i of Object.keys(events)) {
@@ -154,7 +161,7 @@ class jStrip extends jStripEmitter {
           type: 'json',
         });
         // return this;
-      } else { // isString
+      } else { // if(isString(data))
         this.emit('dataReceived', {
           data,
           type: 'string',
