@@ -130,3 +130,16 @@ f.on("mark99", (a) => {
 });
 
 f.getData(htmlSample).selector("li").marker("mark99").show();
+
+
+let jStrip1 = new jStrip();
+
+jStrip1.on("marker3", (d) => {
+  console.log(`current time in nz is: ${d.data}`);
+  console.log(`data type: ${d.type}`);
+  
+});
+
+jStrip1.getData('https://goo.gl/e234y2').selector("div#rs1")
+  .marker("marker2").selector("#i_time").marker("marker3");
+jStrip1.pretty().show();
