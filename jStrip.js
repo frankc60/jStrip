@@ -82,7 +82,7 @@ class jStrip extends jStripEmitter {
 
   static isString(data) {
 
-    if (typeof data === "string") return true;
+    if (typeof (data) === "string") return true;
 
     return false;
   }
@@ -161,7 +161,7 @@ class jStrip extends jStripEmitter {
           type: 'json',
         });
         // return this;
-      } else if(jStrip.isString(data)) { 
+      } else if (jStrip.isString(data)) { 
         this.emit('dataReceived', {
           data,
           type: 'string',
