@@ -160,12 +160,12 @@ jStrip returns an object to the function, with 3 properties:
 
 ```js
 jStrip1.on("marker1",(d) => {  //       first marker
-  console.log(`html ${d.data}`); //   have  a   nice   day
-  console.log(`datatype ${d.type}`); //  string
-  console.log(`url ${d.url}`); //  undefined
+  console.log(`html ${d.data}`); //     have  a   nice   day
+  console.log(`datatype ${d.type}`); // string
+  console.log(`url ${d.url}`); //       undefined
 });
 
-jStrip1.on("marker2",(d) => {  //       second marker
+jStrip1.on("marker2",(d) => {  //           second marker
   console.log(`pretty html ${d.data}`);  // have a nice day
 });
 ```
