@@ -136,14 +136,15 @@ class jStrip extends jStripEmitter {
     const that = this;
     // let remove;
     const r = this.o;
-    // let i = 0;
+    var i = 0;
     for (const [fn, ...arg] of r) {
       fn[0].apply(that, ...arg);
-      //  const ndx = r.splice(i, 1); // clear queue memory after running
-      // i++;
-      // console.log(`i=${i}`);
-      // delete r[fn][0];
+      i++;
     }
+   // console.log("o: " + JSON.stringify(this.o))
+    this.o.splice(0,i);
+    //console.log("i:" + i)
+    //console.log("o: " + JSON.stringify(this.o))
   }
   //* **********************************************
   //* **********************************************

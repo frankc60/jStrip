@@ -73,21 +73,20 @@ const objjson2 = {
 const jStrip7 = new jStrip();
 
 jStrip7.on('m1', (d) => {
+  const x = JSON.parse(d.data);
 
-let x = JSON.parse(d.data);
-
-console.log("a " + x)
+  console.log(`a ${x}`);
   console.log(`aa : ${(d.data)}`);
-  console.log('aa type: ' + JSON.stringify(d.type));
+  console.log(`aa type: ${JSON.stringify(d.type)}`);
 });
 
-jStrip7.getData(objjson2).marker('m1'); 
-let ss = 66;
+jStrip7.getData(objjson2).marker('m1');
+const ss = 66;
 
 console.log(ss);
 
 
-let htmlSample = `
+const htmlSample = `
 <html>
   <head>
     <title>Enter a title, displayed at the top of the window.</title>
@@ -112,38 +111,43 @@ let htmlSample = `
 </html>
 `;
 
-let d = new jStrip();
+const d = new jStrip();
 
-d.getData("hello     world"); //if not url, then data is used as the original contents.
+d.getData('hello     world'); // if not url, then data is used as the original contents.
 
-d.show().replace(/hello/, "hi").show(); 
+d.show().replace(/hello/, 'hi').show();
 d.pretty().show();
 
 
-d.getData("next one here").show()  //ignoreed, as getData already executed.
+d.getData('next one here').show(); // ignoreed, as getData already executed.
 
-let e = new jStrip();
-e.getData(htmlSample).selector("li").show();
+const e = new jStrip();
+e.getData(htmlSample).selector('li').show();
 
-let f = new jStrip();
+const f = new jStrip();
 
-// if using a marker for instint data, need to put the on() before getting the data and marking! 
-f.on("mark99", (a) => {
-  console.log("need to define before setting the marker, otherwise may have already been called**limm: " + a.data);
+// if using a marker for instint data, need to put the on() before getting the data and marking!
+f.on('mark99', (a) => {
+  console.log(`need to define before setting the marker, otherwise may have already been called**limm: ${a.data}`);
 });
 
-f.getData(htmlSample).selector("li").marker("mark99").show();
+f.getData(htmlSample).selector('li').marker('mark99').show();
 
 
-let jStrip1 = new jStrip();
+const jStrip1 = new jStrip();
 
-jStrip1.on("marker3", (d) => {
+jStrip1.on('marker3', (d) => {
   console.log(`current time in nz is: ${d.data}`);
   console.log(`data type: ${d.type}`);
   console.log(`url: ${d.url}`);
-  
 });
 
-jStrip1.getData('https://goo.gl/e234y2').selector("div#rs1")
-  .selector("#i_time").marker("marker3");
+jStrip1.getData('https://goo.gl/e234y2').selector('div#rs1')
+  .selector('#i_time').marker('marker3');
 jStrip1.pretty().show();
+
+const jStrip18 = new jStrip();
+
+
+// jStrip18.getData("http://www.google.com").pretty().selector("head").show();
+
