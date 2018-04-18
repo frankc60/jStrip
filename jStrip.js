@@ -71,6 +71,7 @@ class jStrip extends jStripEmitter {
     } catch (e) {
       // console.log("not  json " + e)
       try {
+        //add json featues!
         const obj = JSON.parse(JSON.stringify(data)); // if json in raw format.
         // console.log("obj: " + obj)z
         if (obj && typeof obj === 'object') {
