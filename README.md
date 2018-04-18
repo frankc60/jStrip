@@ -137,7 +137,7 @@ jStrip5.getData('HELLO WORLD').lowercase()
 
 ## Async Event Handlers .marker() and .on()
 
-Grabbing html data from the web is not instant, so jStrip provides an **event handler** to tell you when it has all it's data ready, and send it asynchronously without blocking.
+Grabbing data from the web is not instant, so jStrip **caches** the filters and provides an **event handler** to tell you when it has all it's data ready, and send it asynchronously without blocking.
 
 Set a **marker** (or many) in your jStrip call, simply by using the **marker()** method and giving it a unique name.
 
