@@ -244,7 +244,18 @@ describe('jStrip - json=type', () => {
     jStrip16.getData('{"name": "jStrip", "awesome": "true"}').marker('m5')
       .show();
   });
-/*
+
+  it('should return type = json', (done) => {
+    jStrip17.on('m5', (f) => {
+      chai.expect(f.type).to.equal('json');
+      done();
+    });
+
+    jStrip17.getData({ name: 'jStrip', awesome: 'true' }).marker('m5').uppercase()
+      .show();
+  });
+
+  /*
   it('should return Google in lower-case', (done) => {
     jStrip17.on('m5', (f) => {
       chai.expect(f.data).to.equal('google');
@@ -284,7 +295,7 @@ describe('jStrip - data type is pure json object', () => {
     jStrip19.on('m5', (d) => {
       console.log('19 - ' + d.type + d.data);
 
-      chai.expect(d.type).to.equal("json");
+      chai.expect(d.type).to.equal('json');
       done();
     });
 
@@ -302,7 +313,7 @@ describe('jStrip - data type is pure json object', () => {
     });
 
 
-    jStrip20.getData(function(){console.log("ss");}).marker('m5');
+    jStrip20.getData(function(){console.log('ss');}).marker('m5');
 
     const k = 1;
     chai.expect(k).to.equal(1); // it shouldn't execute, so on() is never called, and thus this k=1 will execute and pass.

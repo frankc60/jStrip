@@ -71,18 +71,16 @@ class jStrip extends jStripEmitter {
     } catch (e) {
       // console.log("not  json " + e)
       try {
-        //add json featues!
+        // add json featues!
         const obj = JSON.parse(JSON.stringify(data)); // if json in raw format.
         // console.log("obj: " + obj)z
         if (obj && typeof obj === 'object') {
           return true;
         }
         return false;
-
-
       } catch (er) {
         // console.log("not  json " + er)
-        //return false;
+        // return false;
       }
     }
   }
@@ -137,15 +135,15 @@ class jStrip extends jStripEmitter {
     const that = this;
     // let remove;
     const r = this.o;
-    var i = 0;
+    let i = 0;
     for (const [fn, ...arg] of r) {
       fn[0].apply(that, ...arg);
       i++;
     }
-   // console.log("o: " + JSON.stringify(this.o))
-    this.o.splice(0,i);
-    //console.log("i:" + i)
-    //console.log("o: " + JSON.stringify(this.o))
+    // console.log("o: " + JSON.stringify(this.o))
+    this.o.splice(0, i);
+    // console.log("i:" + i)
+    // console.log("o: " + JSON.stringify(this.o))
   }
   //* **********************************************
   //* **********************************************
@@ -159,8 +157,6 @@ class jStrip extends jStripEmitter {
         this.processQueue();
       });
 
-
-      // const urlRegex = new RegExp('^(http[s]?:\\/\\/(www\\.)?|ftp:\\/\\/(www\\.)?|www\\.){1}([0-9A-Za-z-\\.@:%_\+~#=]+)+((\\.[a-zA-Z]{2,3})+)(/(.)*)?(\\?(.)*)?');
 
       if (jStrip.isUrl(data)) {
         // if (urlRegex.test(data)) {
@@ -196,7 +192,7 @@ class jStrip extends jStripEmitter {
   //* **********************************************
   //* **********************************************
   selector(j) {
-    if (this.o.dataRetrieved == false) {
+    if (this.o.dataRetrieved === false) {
       this.addToQueue(this.selector, j);
     } else {
       const dom = (new JSDOM(this.o.contents));
