@@ -86,6 +86,31 @@ jStrip1.getData("hello world").show()   //hello world
 jStrip1.getData("hello    world")
     .pretty().show();  // hello world (removes extra spaces)
 ```
+### .jpretty()
+
+Tidy up json data, passed into jStrip. This presents the json format in a clear display, and helps you identify the path to the content required.
+
+```js
+const jStrip18 = new jStrip();
+
+jStrip18.on('m1', (d) => {
+
+  let pJson = JSON.parse(d.data); // need to parse the json before accessing it's properties
+  console.log(`data type: ${d.type}`);
+  console.log(`Bitcoin-USD rate: ${pJson.bpi.USD.rate}`);
+});
+
+jStrip18.getData("https://api.coindesk.com/v1/bpi/currentprice/gbp.json").marker("m1").jpretty().show();
+```
+
+.jpretty() outputs the json in a dot delimited layout of key = value, making it easy to identify the fields.
+
+```
+{}.bpi.USD.code = USD
+{}.bpi.USD.rate = 8,262.8113
+{}.bpi.USD.description = United States Dollar
+{}.bpi.USD.rate_float = 8262.8113
+```
 
 ### .selector(*jquery*)
 

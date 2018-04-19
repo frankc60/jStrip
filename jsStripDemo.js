@@ -148,6 +148,15 @@ jStrip1.pretty().show();
 
 const jStrip18 = new jStrip();
 
+jStrip18.on('m1', (d) => {
 
-jStrip18.getData("https://api.coindesk.com/v1/bpi/currentprice/gbp.json").show();
+  let t = JSON.parse(d.data);
+  console.log(`current time in nz is: ${d.data}`);
+  console.log(`data type: ${d.type}`);
+  console.log(`dd: ${t.bpi.USD.rate}`);
+});
+
+
+
+jStrip18.getData("https://api.coindesk.com/v1/bpi/currentprice/gbp.json").marker("m1").jpretty().show();
 
