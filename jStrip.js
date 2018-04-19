@@ -1,4 +1,5 @@
 const jsdom = require('jsdom');
+const jPretty = require('./jPretty');
 
 const {
   JSDOM,
@@ -151,7 +152,9 @@ class jStrip extends jStripEmitter {
     if (this.o.dataRetrieved === false) {
       this.on('dataReceived', (d) => {
         this.o.contents = d.data;
-        this.o.type = d.type;
+        if (jStrip.isJson(d.data)) { this.o.type = 'json'; } else {
+          this.o.type = d.type; // need to check again, incase url is now json
+        }
         if (d.url) this.o.url = d.url;
         this.o.dataRetrieved = true;
         this.processQueue();
@@ -254,6 +257,18 @@ class jStrip extends jStripEmitter {
 
     return this;
   }
+  //* **********************************************
+  //* **********************************************
+  jpretty() {
+    if (this.o.dataRetrieved === false) {
+      this.addToQueue(this.jpretty, true);
+    } else {
+      this.o.contents = jPretty(this.o.contents);
+    }
+
+    return this;
+  }
+
   //* **********************************************
   //* **********************************************
   removehtml() {

@@ -293,7 +293,7 @@ const jStrip20 = new jStrip();
 describe('jStrip - data type is pure json object', () => {
   it('should recognise type as json (future version)', (done) => {
     jStrip19.on('m5', (d) => {
-      console.log('19 - ' + d.type + d.data);
+      console.log(`19 - ${d.type}${d.data}`);
 
       chai.expect(d.type).to.equal('json');
       done();
@@ -306,17 +306,93 @@ describe('jStrip - data type is pure json object', () => {
 
   it('should error - not json obj - yet (future version)', (done) => {
     jStrip20.on('m5', (d) => {
-      console.log('20 - ' + d.type , d.data);
+      console.log(`20 - ${d.type}`, d.data);
 
       chai.expect(d).to.equal(10000);
       done();
     });
 
 
-    jStrip20.getData(function(){console.log('ss');}).marker('m5');
+    jStrip20.getData(() => { console.log('ss'); }).marker('m5');
 
     const k = 1;
     chai.expect(k).to.equal(1); // it shouldn't execute, so on() is never called, and thus this k=1 will execute and pass.
     done();
+  });
+});
+
+const jStrip21 = new jStrip();
+const jStrip22 = new jStrip();
+const jStrip23 = new jStrip();
+const jStrip24 = new jStrip();
+
+describe('jStrip - json content', () => {
+  it('jPretty() - tidy json output to console', (done) => {
+    jStrip21.on('m5', (d) => {
+      console.log(`21 - ${d.type}, ${d.data}`);
+
+      chai.expect(d.data).to.equal('{}.name = jStrip\n');
+      done();
+    });
+
+
+    jStrip21.getData({ name: 'jStrip' }).jpretty().marker('m5').show();
+  });
+
+
+  it('should return json as input', (done) => {
+    jStrip22.on('m5', (d) => {
+      console.log(`22 - ${d.type}, ${d.data}`);
+
+      chai.expect(d.data).to.equal('{"name":"jStrip","awesome":"true"}');
+      done();
+    });
+
+
+    jStrip22.getData({ name: 'jStrip', awesome: 'true' }).marker('m5').show();
+  });
+
+  it('jPretty() - parse in a more complex json object', (done) => {
+    jStrip23.on('m5', (d) => {
+      console.log(`21 - ${d.type}, ${d.data}`);
+
+      chai.expect(d.data).to.equal('{}.a = 1\n{}.b = 2\n{}.c.ca = 3\n{}.c.cb = 4\n{}.c.cc[0] = 5\n{}.c.cc[1] = 6\n{}.c.cc[2] = 7\n{}.c.cc[3] = 8\n{}.c.cd.cda[0] = 55\n{}.c.cd.cda[1] = 66\n{}.c.cd.cda[2] = 77\n{}.c.cd.cdb = a\n{}.d[0] = 9\n{}.d[1] = 10\n{}.d[2] = 11\n{}.items.[0].id = Open\n{}.items.[1].id = OpenNew\n{}.items.[1].label = Open New\n{}.items.[2].id = ZoomIn\n{}.items.[2].label = Zoom In\n');
+      done();
+    });
+
+    const jsonData = {
+      'a': 1,
+      'b': 2,
+      'c': {
+        'ca': 3,
+        'cb': 4,
+        'cc': [5, 6, 7, 8],
+        'cd': {
+          'cda': [55,66,77],
+          'cdb' : 'a'
+        }
+      },
+      'd': [9, 10, 11],
+      "items": [
+        {"id": "Open"},
+        {"id": "OpenNew", "label": "Open New"},
+        {"id": "ZoomIn", "label": "Zoom In"}
+      ]
+      };
+
+
+    jStrip23.getData(jsonData).jpretty().marker('m5').show();
+  });
+
+  it('jPretty() - grab json from the web', (done) => {
+    jStrip24.on('m5', (d) => {
+      // console.log(`21 - ${d.type}, ${d.data}`);
+
+      chai.expect(d.type).to.equal('json');
+      done();
+    });
+
+
+    jStrip24.getData('https://api.coindesk.com/v1/bpi/currentprice/gbp.json').marker('m5').jpretty().show();
   });
 });

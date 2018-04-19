@@ -149,5 +149,5 @@ jStrip1.pretty().show();
 const jStrip18 = new jStrip();
 
 
-// jStrip18.getData("http://www.google.com").pretty().selector("head").show();
+jStrip18.getData("https://api.coindesk.com/v1/bpi/currentprice/gbp.json").show();
 
