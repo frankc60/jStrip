@@ -17,13 +17,13 @@ const jStrip = require("jstrip");
 
 let jStrip1 = new jStrip();
 
-jStrip1.on("marker1", (d) => {
+jStrip1.on("nzTime", (d) => {
   console.log(`current time in nz is: ${d.data}`);
   console.log(`url: ${d.url}`); // https://goo.gl/e234y2
 });
 
 jStrip1.getData('https://goo.gl/e234y2').selector("div#rs1")
-  .selector("#i_time").marker("marker1");
+  .selector("#i_time").marker("nzTime");
 ```
 
 ### Install
