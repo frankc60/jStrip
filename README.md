@@ -6,7 +6,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/frankc60/jStrip/badge.svg)](https://coveralls.io/github/frankc60/jStrip)
 [![Join the chat at https://gitter.im/jStrip_npm/Lobby](https://badges.gitter.im/jStrip_npm/Lobby.svg)](https://gitter.im/jStrip_npm/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-jStrip let's you easily grab data from the web or from text and apply multiple filters to change the data to your liking, before it's returned asynchronously.
+jStrip let's you easily grab data from the web or from text and apply multiple filters to change the data to your liking, it then gets returned to you asynchronously.
 
 **New** `v 2.x` now comes with chainable methods and event handlers.  New features being added regularly. *To keep your `v 1.x` code working as before, please read the Migration section below.*
 
@@ -24,8 +24,6 @@ jStrip1.on("marker1", (d) => {
 
 jStrip1.getData('https://goo.gl/e234y2').selector("div#rs1")
   .selector("#i_time").marker("marker1");
-jStrip1.pretty().show();
-
 ```
 
 ### Install
