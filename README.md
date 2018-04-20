@@ -6,9 +6,9 @@
 [![Coverage Status](https://coveralls.io/repos/github/frankc60/jStrip/badge.svg)](https://coveralls.io/github/frankc60/jStrip)
 [![Join the chat at https://gitter.im/jStrip_npm/Lobby](https://badges.gitter.im/jStrip_npm/Lobby.svg)](https://gitter.im/jStrip_npm/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-jStrip let's you easily grab data from the web or from text and apply multiple filters to change the data to your liking, it then gets returned to you asynchronously.
+jStrip let's you easily grab data from the web or from text and apply multiple filters to change the data to your liking, it then gets returned to you asynchronously. jStrip also works with `json` formats.
 
-**New** `v 2.x` now comes with chainable methods and event handlers.  New features being added regularly. *To keep your `v 1.x` code working as before, please read the Migration section below.*
+Since `v 2.x` chainable methods and event handlers have been added, with new features being added regularly. *To keep your `v 1.x` code working as before, please read the Migration section below.*
 
 ## Example
 
@@ -88,29 +88,33 @@ jStrip1.getData("hello    world")
 ```
 ### .jpretty()
 
-Tidy up json data, passed into jStrip. This presents the json format in a clear display, and helps you identify the path to the content required.
+Tidy up `json` data, passed into jStrip. `jpretty()` outputs the `json` format into an easy to read layout.
 
 ```js
 const jStrip18 = new jStrip();
 
 jStrip18.on('m1', (d) => {
 
-  let pJson = JSON.parse(d.data); // need to parse the json before accessing it's properties
-  console.log(`data type: ${d.type}`);
+  let pJson = JSON.parse(d.data); // need to parse the json before
+  console.log(`data type: ${d.type}`);//  accessing it's properties
   console.log(`Bitcoin-USD rate: ${pJson.bpi.USD.rate}`);
-});
+}); //          .bpi.USD.rate is easy seen from jpretty output
 
-jStrip18.getData("https://api.coindesk.com/v1/bpi/currentprice/gbp.json").marker("m1").jpretty().show();
+jStrip18.getData("https://api.coindesk.com/v1/bpi/currentprice/gbp.json")
+    .marker("m1").jpretty().show();
 ```
 
-.jpretty() outputs the json in a dot delimited layout of key = value, making it easy to identify the fields.
+`jpretty()` console output of json:
 
-```
+```sh
 {}.bpi.USD.code = USD
 {}.bpi.USD.rate = 8,262.8113
 {}.bpi.USD.description = United States Dollar
 {}.bpi.USD.rate_float = 8262.8113
 ```
+
+`jpretty()` outputs the `json` in a dot delimited layout of key = value, making it easy to identify its fields and values. **Note** that `jpretty()` changes the json into a different format, so any property access using the object must be performed beforehand, as in the example above.
+
 
 ### .selector(*jquery*)
 
