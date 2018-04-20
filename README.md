@@ -52,11 +52,11 @@ jStrip4.getData('https://goo.gl/e234y2').selector("div#rs1")
     .show();  //displays current time in new zealand
 ```
 
-### First method - .getData(*url* | *text* | *json*)
+### First method - .getData( *url* | *text* | *json* )
 
 The only requirement is to first grab the data. Start by using the `.getData()` method.
 
-`getData()` accepts 3 string types: a **"url"**, **"text"** or **json**. If a **url** returns `json`, the type will be **json**.
+`getData()` accepts 3 string types: a **"url"**, **"text"** or **json**. If a **url** returns `json`, the type will become **json**.
 
 ```js
 jStrip1.getData("http://www.google.com") // url
@@ -64,10 +64,13 @@ jStrip1.getData("http://www.google.com") // url
 jStrip1.getData("my own string of text here!") // string
 //or
 jStrip1.getData({ name: "New York", high: 47.3, low: 42 }) // json
+jStrip1.getData('{ name: "London", high: 30, low: 28.5 }') // json (as a string)
+
 //pr
 jStrip1.getData("http://prices.com/btc/api/data.json") // json
 
 ```
+
 If you use a **url** the default timeout for the http/s request is 10000 milli-seconds. You can change this per instance by changing the `timeout` property.
 
 ```js
@@ -91,6 +94,7 @@ jStrip1.getData("hello world").show()   //hello world
 jStrip1.getData("hello    world")
     .pretty().show();  // hello world (removes extra spaces)
 ```
+
 ### .jpretty()
 
 Make `json` data more readable in a key=value layout. `jpretty()` outputs the `json` format into an easy to read layout.
@@ -109,7 +113,7 @@ jStrip18.getData("https://api.coindesk.com/v1/bpi/currentprice/gbp.json")
     .marker("m1").jpretty().show();
 ```
 
-`jpretty()` console output of json:
+`jpretty().show()` console output of json:
 
 ```sh
 {}.bpi.USD.code = USD
@@ -118,8 +122,7 @@ jStrip18.getData("https://api.coindesk.com/v1/bpi/currentprice/gbp.json")
 {}.bpi.USD.rate_float = 8262.8113
 ```
 
-`jpretty()` outputs the `json` into a dot delimited layout of key = value, making it easy to identify its fields and values. **Note** that `jpretty()` changes the json into a different format, so any property access using the object must be performed beforehand, as in the example above.
-
+`jpretty()` outputs the `json` into a dot delimited layout of key = value, making it easy to identify its fields and values. **Note** that `jpretty()` changes the `json` into a different format, so any property access using the object must be performed beforehand, as in the example above.
 
 ### .selector(*jquery*)
 

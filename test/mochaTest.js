@@ -325,9 +325,11 @@ const jStrip21 = new jStrip();
 const jStrip22 = new jStrip();
 const jStrip23 = new jStrip();
 const jStrip24 = new jStrip();
+const jStrip25 = new jStrip();
+const jStrip26 = new jStrip();
 
 describe('jStrip - json content', () => {
-  it('jPretty() - tidy json output to console', (done) => {
+  it('jpretty() - tidy json output to console', (done) => {
     jStrip21.on('m5', (d) => {
       console.log(`21 - ${d.type}, ${d.data}`);
 
@@ -340,11 +342,11 @@ describe('jStrip - json content', () => {
   });
 
 
-  it('should return json as input', (done) => {
+  it('jpretty() - should return json as input', (done) => {
     jStrip22.on('m5', (d) => {
-      console.log(`22 - ${d.type}, ${d.data}`);
+      //console.log(`22 - ${d.type}, ${d.data}`);
 
-      chai.expect(d.data).to.equal('{"name":"jStrip","awesome":"true"}');
+      chai.expect(d.data).to.deep.equal({ name: 'jStrip', awesome: 'true' });
       done();
     });
 
@@ -352,7 +354,7 @@ describe('jStrip - json content', () => {
     jStrip22.getData({ name: 'jStrip', awesome: 'true' }).marker('m5').show();
   });
 
-  it('jPretty() - parse in a more complex json object', (done) => {
+  it('jpretty() - parse in a more complex json object', (done) => {
     jStrip23.on('m5', (d) => {
       console.log(`21 - ${d.type}, ${d.data}`);
 
@@ -384,7 +386,7 @@ describe('jStrip - json content', () => {
     jStrip23.getData(jsonData).jpretty().marker('m5').show();
   });
 
-  it('jPretty() - grab json from the web', (done) => {
+  it('jpretty() - grab json from the web', (done) => {
     jStrip24.on('m5', (d) => {
       // console.log(`21 - ${d.type}, ${d.data}`);
 
@@ -394,5 +396,29 @@ describe('jStrip - json content', () => {
 
 
     jStrip24.getData('https://api.coindesk.com/v1/bpi/currentprice/gbp.json').marker('m5').jpretty().show();
+  });
+
+  it('jpretty() - pass json stringified', (done) => {
+    jStrip25.on('m5', (d) => {
+      // console.log(`21 - ${d.type}, ${d.data}`);
+
+      chai.expect(d.type).to.equal('json');
+      done();
+    });
+
+
+    jStrip25.getData('{"a" : 1, "b" : 2}').jpretty().marker('m5').show();
+  });
+
+  it('jpretty() - pass json as an object', (done) => {
+    jStrip26.on('m5', (d) => {
+      // console.log(`21 - ${d.type}, ${d.data}`);
+
+      chai.expect(d.type).to.equal('json');
+      done();
+    });
+
+
+    jStrip26.getData({"a" : 1, "b" : 2}).jpretty().marker('m5').show();
   });
 });

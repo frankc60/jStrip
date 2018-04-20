@@ -87,6 +87,7 @@ class jStrip extends jStripEmitter {
         }
         return false;
       } catch (er) {
+        // never called!
         // console.log("not  json " + er)
         // return false;
       }
@@ -186,7 +187,7 @@ class jStrip extends jStripEmitter {
       } else if (jStrip.isJson(data)) {
       //   console.log('data is JSON format.');
         this.emit('dataReceived', {
-          data: JSON.stringify(data),
+          data: (data),
           type: 'json',
         });
         // return this;
