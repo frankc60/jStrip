@@ -6,7 +6,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/frankc60/jStrip/badge.svg)](https://coveralls.io/github/frankc60/jStrip)
 [![Join the chat at https://gitter.im/jStrip_npm/Lobby](https://badges.gitter.im/jStrip_npm/Lobby.svg)](https://gitter.im/jStrip_npm/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-jStrip let's you easily grab data from the web or from text and apply multiple filters to change the data to your liking, it then gets returned to you asynchronously. jStrip also works with `json` formats.
+jStrip let's you easily grab data from the web - from `json`, or from text and apply multiple filters to change the data to your liking, before it is returned to you asynchronously. jStrip also works with `json` formats, making API access a breeze.
 
 Since `v 2.x` chainable methods and event handlers have been added, with new features being added regularly. *To keep your `v 1.x` code working as before, please read the Migration section below.*
 
@@ -88,7 +88,7 @@ jStrip1.getData("hello    world")
 ```
 ### .jpretty()
 
-Tidy up `json` data, passed into jStrip. `jpretty()` outputs the `json` format into an easy to read layout.
+Make `json` data readable in a key=value layout. `jpretty()` outputs the `json` format into an easy to read layout.
 
 ```js
 const jStrip18 = new jStrip();
@@ -113,7 +113,7 @@ jStrip18.getData("https://api.coindesk.com/v1/bpi/currentprice/gbp.json")
 {}.bpi.USD.rate_float = 8262.8113
 ```
 
-`jpretty()` outputs the `json` in a dot delimited layout of key = value, making it easy to identify its fields and values. **Note** that `jpretty()` changes the json into a different format, so any property access using the object must be performed beforehand, as in the example above.
+`jpretty()` outputs the `json` into a dot delimited layout of key = value, making it easy to identify its fields and values. **Note** that `jpretty()` changes the json into a different format, so any property access using the object must be performed beforehand, as in the example above.
 
 
 ### .selector(*jquery*)
