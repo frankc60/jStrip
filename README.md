@@ -56,14 +56,19 @@ jStrip4.getData('https://goo.gl/e234y2').selector("div#rs1")
 
 The only requirement is to first grab the data. Start by using the `.getData()` method.
 
-`getData()` accepts 2 string types: a **"url"** or **"text"**.
+`getData()` accepts 3 string types: a **"url"**, **"text"** or **json**. `json` can also be a **url**, if the returned data is recognised as **json**.
 
 ```js
 jStrip1.getData("http://www.google.com") // url
 //or
 jStrip1.getData("my own string of text here!") // string
+//or
+jStrip1.getData({ name: "New York", high: 47.3, low: 42 }) // json
+//pr
+jStrip1.getData("http://prices.com/btc/api/data.json") // json
+
 ```
-If you use a **url** the default timeout for the http/s request is 10000 milli-seconds. You can change this per instance by changing the timeout property.
+If you use a **url** the default timeout for the http/s request is 10000 milli-seconds. You can change this per instance by changing the `timeout` property.
 
 ```js
 jStrip1.timeout = 15000;
