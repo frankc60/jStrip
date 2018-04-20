@@ -56,7 +56,7 @@ jStrip4.getData('https://goo.gl/e234y2').selector("div#rs1")
 
 The only requirement is to first grab the data. Start by using the `.getData()` method.
 
-`getData()` accepts 3 string types: a **"url"**, **"text"** or **json**. `json` can also be a **url**, if the returned data is recognised as **json**.
+`getData()` accepts 3 string types: a **"url"**, **"text"** or **json**. If a **url** returns `json`, the type will be **json**.
 
 ```js
 jStrip1.getData("http://www.google.com") // url
