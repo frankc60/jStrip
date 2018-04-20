@@ -8,7 +8,7 @@
 
 jStrip let's you easily grab data from the web - from `json`, or from text and apply multiple filters to change the data to your liking, before it is returned to you asynchronously. jStrip also works with `json` formats, making API access a breeze.
 
-Since `v 2.x` chainable methods and event handlers have been added, with new features being added regularly. *To keep your `v 1.x` code working as before, please read the [Migration][1] section below.*
+Since `v 2.x` chainable methods and event handlers have been added, with new features being added regularly. *To keep your `v 1.x` code working as before, please read the [Migration][#migrating-from-version-1-to-version-2] section below.*
 
 ## Example
 
@@ -206,7 +206,6 @@ jStrip1.on("marker2",(d) => {  //           second marker
 - The **on()** event handler(s) should be placed before the **marker()** is set.
 
 ##Migrating from Version 1 to Version 2
-[1]: #migration
 
 To keep your `v 1.x` code working with `v 2.x`, make these two simple updates to your existing code:
 
