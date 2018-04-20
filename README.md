@@ -88,7 +88,7 @@ jStrip1.getData("hello    world")
 ```
 ### .jpretty()
 
-Make `json` data readable in a key=value layout. `jpretty()` outputs the `json` format into an easy to read layout.
+Make `json` data more readable in a key=value layout. `jpretty()` outputs the `json` format into an easy to read layout.
 
 ```js
 const jStrip18 = new jStrip();
@@ -172,16 +172,17 @@ Set a **marker** (or many) in your jStrip call, simply by using the **marker()**
 
 ```js
 jStrip1.getData("have  a   nice   day")
-    .marker("marker1") // 1st marker
+    .marker("marker1") //            1st marker
     .pretty().marker("marker2"); //  2nd marker
 ```
 
 Display the markers asynchronously with the **on()** event handler.
 Two parameters are needed: the named marker() to trigger on followed with a function,
-jStrip returns an object to the function, with 3 properties:
-- `data`  - containing the content
-- `type`  - datatype (*string* | *url* | *json*)
-- `url`   - url address used, if type is 'url', otherwise equals undefined.
+jStrip returns an object to the function, with 4 properties:
+
+- `data`  - containing the content, as a string
+- `type`  - datatype (*string* | *url* | *json* )
+- `url`   - url address used if type = 'url', otherwise equals `undefined`.
 
 #### .on(*marker name*, *function(returned data)*)
 
