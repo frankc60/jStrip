@@ -358,7 +358,7 @@ describe('jStrip - json content', () => {
     jStrip23.on('m5', (d) => {
       console.log(`21 - ${d.type}, ${d.data}`);
 
-      chai.expect(d.data).to.equal('{}.a = 1\n{}.b = 2\n{}.c.ca = 3\n{}.c.cb = 4\n{}.c.cc[0] = 5\n{}.c.cc[1] = 6\n{}.c.cc[2] = 7\n{}.c.cc[3] = 8\n{}.c.cd.cda[0] = 55\n{}.c.cd.cda[1] = 66\n{}.c.cd.cda[2] = 77\n{}.c.cd.cdb = a\n{}.d[0] = 9\n{}.d[1] = 10\n{}.d[2] = 11\n{}.items.[0].id = Open\n{}.items.[1].id = OpenNew\n{}.items.[1].label = Open New\n{}.items.[2].id = ZoomIn\n{}.items.[2].label = Zoom In\n');
+      chai.expect(d.data).to.equal('{}.a = 1\n{}.b = 2\n{}.c.ca = 3\n{}.c.cb = 4\n{}.c.cc[0] = 5\n{}.c.cc[1] = 6\n{}.c.cc[2] = 7\n{}.c.cc[3] = 8\n{}.c.cd.cda[0] = 55\n{}.c.cd.cda[1] = 66\n{}.c.cd.cda[2] = 77\n{}.c.cd.cdb = a\n{}.d[0] = 9\n{}.d[1] = 10\n{}.d[2] = 11\n{}.items[0].id = Open\n{}.items[1].id = OpenNew\n{}.items[1].label = Open New\n{}.items[2].id = ZoomIn\n{}.items[2].label = Zoom In\n');
       done();
     });
 

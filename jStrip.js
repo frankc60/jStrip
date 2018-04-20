@@ -1,5 +1,5 @@
 const jsdom = require('jsdom');
-const jPretty = require('./jPretty');
+const jPretty = require('jpretty');
 
 const {
   JSDOM,
