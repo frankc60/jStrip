@@ -52,22 +52,17 @@ jStrip4.getData('https://goo.gl/e234y2').selector("div#rs1")
     .show();  //displays current time in new zealand
 ```
 
-| Method |
-| ------ |
-| [getData()](#first-method---getdata-url--text--json-) |
-| [show()](#show) |
-| [pretty()](#pretty) |
-| [jpretty()](#jpretty) |
-| [selector(*jquery*)](#selector-jquery-) |
-| [replace(*pattern*, *text*)](#replace-pattern--text-) |
-| [removehtml()](#removehtml) |
-| [uppercase()](#uppercase) |
-| [lowercase()](#lowercase) |
-| **Event Handler** |
-| [marker(*eventname*)](#marker-eventname-) |
-| [on(*marker name*, *function(returned data)*)](#on-marker-name--functionreturned-data-) |
-| **Legacy** |
-| [_jStrip( *"url", "jquery"* )](#_jstrip-url-jquery-) |
+| Method | Event Handler | Legacy |
+| ------ | ------------- | -------|
+| [getData()](#first-method---getdata-url--text--json-) | [marker()](#marker-eventname-) | [_jStrip()](#_jstrip-url-jquery-) |
+| [show()](#show) | [on()](#on-marker-name--functionreturned-data-) | |
+| [pretty()](#pretty) | | |
+| [jpretty()](#jpretty) | | |
+| [selector()](#selector-jquery-) | | |
+| [replace()](#replace-pattern--text-) | | |
+| [removehtml()](#removehtml) | | |
+| [uppercase()](#uppercase) | | |
+| [lowercase()](#lowercase) | | |
 
 ### First method - .getData( *url* | *text* | *json* )
 
