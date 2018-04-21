@@ -64,8 +64,12 @@ jStrip4.getData('https://goo.gl/e234y2').selector("div#rs1")
 | [removehtml()](#removehtml) |
 | [uppercase()](#uppercase) |
 | [lowercase()](#lowercase) |
+| Event Handler |
+| ------------- |
 | [marker(*eventname*)](#marker-eventname-) |
 | [on(*marker name*, *function(returned data)*)](#on-marker-name--functionreturned-data-) |
+| Legacy |
+| ------ |
 | [_jStrip( *"url", "jquery"* )](#_jstrip-url-jquery-) |
 
 ### First method - .getData( *url* | *text* | *json* )
