@@ -58,7 +58,7 @@ jStrip4.getData('https://goo.gl/e234y2').selector("div#rs1")
 | ------ | ------------- | -------|
 | [getData()](#first-method---getdata-url--text--json-) | [Async Event Handler](#async-event-handlers-marker-and-on) | [_jStrip()](#_jstrip-url-jquery-) |
 | [show()](#show) | [marker()](#marker-eventname-) | |
-| [pretty()](#pretty) | [on()](#on-marker-name--functionreturned-data-) | |
+| [pretty()](#pretty) | [on()](#on-marker-name--callback-fnreturned-data-) | |
 | [jpretty()](#jpretty) | | |
 | [selector()](#selector-jquery-) | | |
 | [replace()](#replace-pattern--text-) | | |
