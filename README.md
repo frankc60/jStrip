@@ -206,7 +206,7 @@ jStrip returns an object to the function, with 4 properties:
 - `type`  - datatype (*string* | *url* | *json* )
 - `url`   - url address used if type = 'url', otherwise equals `undefined`.
 
-#### .on(*marker name*, *function(returned data)*)
+#### .on( *marker name*, *callback fn(returned data)* )
 
 ```js
 jStrip1.on("marker1",(d) => {  //       first marker
