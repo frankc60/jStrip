@@ -52,6 +52,8 @@ jStrip4.getData('https://goo.gl/e234y2').selector("div#rs1")
     .show();  //displays current time in new zealand
 ```
 
+### Table of Contents
+
 | Method | Event Handler | Legacy |
 | ------ | ------------- | -------|
 | [getData()](#first-method---getdata-url--text--json-) | [marker()](#marker-eventname-) | [_jStrip()](#_jstrip-url-jquery-) |
