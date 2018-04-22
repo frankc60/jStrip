@@ -73,7 +73,7 @@ const objjson2 = {
 const jStrip7 = new jStrip();
 
 jStrip7.on('m1', (d) => {
-  const x = JSON.parse(d.data);
+  const x = JSON.stringify(d.data);
 
   console.log(`a ${x}`);
   console.log(`aa : ${(d.data)}`);
@@ -160,3 +160,6 @@ jStrip18.on('m1', (d) => {
 
 jStrip18.getData("https://api.coindesk.com/v1/bpi/currentprice/gbp.json").marker("m1").jpretty().show();
 
+const jStrip19 = new jStrip();
+
+jStrip19.getData("<html>hello</html> <p>world</p> i say <br/>").show().removehtml().show();
