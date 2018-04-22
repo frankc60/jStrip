@@ -11,7 +11,10 @@
     "crawl",
     "html",
     "scrape",
-    "jquery"
+    "jquery",
+    "jpretty",
+    "json",
+    "api"
   ],
   "author": "frankc60",
   "license": "MIT",
