@@ -1,5 +1,5 @@
 const jsdom = require('jsdom');
-const jPretty = require('jpretty');
+const jPrettyMod = require('jpretty');
 const removehtml = require('./modules/removehtml')
 
 const {
@@ -272,7 +272,7 @@ class jStrip extends jStripEmitter {
     if (this.o.dataRetrieved === false) {
       this.addToQueue(this.jpretty, true);
     } else {
-      this.o.contents = jPretty(this.o.contents);
+      this.o.contents = jPrettyMod(this.o.contents);
     }
 
     return this;
