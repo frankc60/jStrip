@@ -74,14 +74,15 @@ class jStrip extends jStripEmitter {
   //* **********************************************
 
   static isJson(data) {
+    const tdata = data;
     try {
-      JSON.parse(data); // if json data is already stringified (in quotes)
+      JSON.parse(tdata); // if json data is already stringified (in quotes)
       return true;
     } catch (e) {
       // console.log("not  json " + e)
       try {
         // add json featues!
-        const obj = JSON.parse(JSON.stringify(data)); // if json in raw format.
+        const obj = JSON.parse(JSON.stringify(tdata)); // if json in raw format.
         // console.log("obj: " + obj)z
         if (obj && typeof obj === 'object') {
           return true;
@@ -272,6 +273,9 @@ class jStrip extends jStripEmitter {
     if (this.o.dataRetrieved === false) {
       this.addToQueue(this.jpretty, true);
     } else {
+      console.log("jpretty(");
+      console.log(this.o.contents);
+      
       this.o.contents = jPrettyMod(this.o.contents);
     }
 
