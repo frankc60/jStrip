@@ -163,3 +163,15 @@ jStrip18.getData("https://api.coindesk.com/v1/bpi/currentprice/gbp.json").marker
 const jStrip19 = new jStrip();
 
 jStrip19.getData("<html>hello</html> <p>world</p> i say <br/>").show().removehtml().show();
+
+const jStrip18 = new jStrip();
+
+jStrip18.on('m1', (d) => {
+
+  let pJson = JSON.stringify(d.data); // need to stringify the json before
+  console.log(`data type: ${d.type}`);//  accessing it's properties
+  console.log(`Bitcoin-USD rate: ${pJson.bpi.USD.rate}`);
+}); //          .bpi.USD.rate is easy seen from jpretty output
+
+jStrip18.getData("https://api.coindesk.com/v1/bpi/currentprice/gbp.json")
+    .marker("m1").jpretty().show();
