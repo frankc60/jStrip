@@ -273,8 +273,8 @@ class jStrip extends jStripEmitter {
     if (this.o.dataRetrieved === false) {
       this.addToQueue(this.jpretty, true);
     } else {
-      console.log("jpretty(");
-      console.log(this.o.contents);
+     // console.log("jpretty(");
+     // console.log(this.o.contents);
       
       this.o.contents = jPrettyMod(this.o.contents);
     }
