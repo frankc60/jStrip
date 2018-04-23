@@ -388,7 +388,9 @@ describe('jStrip - json content', () => {
 
   it('jpretty() - grab json from the web', (done) => {
     jStrip24.on('m5', (d) => {
-      // console.log(`21 - ${d.type}, ${d.data}`);
+      const o = JSON.parse(d.data);
+
+      console.log(`24 - ${d.type}, ${o.time.updatedISO}`);
 
       chai.expect(d.type).to.equal('json');
       done();
