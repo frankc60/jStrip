@@ -1,6 +1,6 @@
 const jsdom = require('jsdom');
 const jPrettyMod = require('jpretty');
-const removehtml = require('./modules/removehtml')
+const removehtml = require('./modules/removehtml');
 
 const {
   JSDOM,
@@ -188,7 +188,7 @@ class jStrip extends jStripEmitter {
       } else if (jStrip.isJson(data)) {
       //   console.log('data is JSON format.');
         this.emit('dataReceived', {
-          data: (data),
+          data,
           type: 'json',
         });
         // return this;
