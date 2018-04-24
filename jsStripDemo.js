@@ -190,3 +190,15 @@ jStrip18.getData("https://api.coindesk.com/v1/bpi/currentprice/gbp.json")
         .marker("m1").jpretty().show();
     
     
+
+        const jStrip222 = new jStrip();
+ 
+jStrip222.on('m1', (d) => {
+ 
+  let pJson = JSON.parse(d.data); // need to parse the json before
+  console.log(`data type: ${d.type}`);//  accessing it's properties
+  console.log(`Bitweewcoin-USD rate: ${pJson.bpi.USD.rate}`);
+}); //          .bpi.USD.rate is easy seen from jpretty output
+ 
+jStrip222.getData("https://api.coindesk.com/v1/bpi/currentprice/gbp.json")
+    .marker("m1").jpretty().show();

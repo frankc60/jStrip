@@ -16,15 +16,16 @@ To migrate any `v1.x` code see the [Migration section](#migrating-from-version-1
 ```js
 const jStrip = require("jstrip");
 
-let jStrip1 = new jStrip();
+const jStrip1 = new jStrip();
 
-jStrip1.on("nzTime", (d) => {
-  console.log(`current time in nz is: ${d.data}`);
-  console.log(`url: ${d.url}`); // https://goo.gl/e234y2
+jStrip1.on('m1', (d) => {
+  let pJson = JSON.parse(d.data);
+  console.log(`data type: ${d.type}`);//  accessing it's properties
+  console.log(`Chuck Norris Joke: ${pJson.value}`);
 });
 
-jStrip1.getData('https://goo.gl/e234y2').selector("div#rs1")
-  .selector("#i_time").marker("nzTime");
+jStrip1.getData("https://api.chucknorris.io/jokes/random")
+    .marker("m1").jpretty().show();
 ```
 
 ### Install
