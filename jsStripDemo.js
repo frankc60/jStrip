@@ -146,8 +146,8 @@ jStrip1.getData('https://goo.gl/e234y2').selector('div#rs1')
   .selector('#i_time').marker('marker3');
 jStrip1.pretty().show();
 
-const jStrip18 = new jStrip();
-
+//const jStrip18 = new jStrip();
+/* 
 jStrip18.on('m1', (d) => {
 
   let t = JSON.parse(d.data);
@@ -155,10 +155,10 @@ jStrip18.on('m1', (d) => {
   console.log(`data type: ${d.type}`);
   console.log(`dd: ${t.bpi.USD.rate}`);
 });
+ */
 
 
-
-jStrip18.getData("https://api.coindesk.com/v1/bpi/currentprice/gbp.json").marker("m1").jpretty().show();
+//jStrip18.getData("https://api.coindesk.com/v1/bpi/currentprice/gbp.json").marker("m1").jpretty().show();
 
 const jStrip19 = new jStrip();
 
@@ -168,10 +168,25 @@ const jStrip18 = new jStrip();
 
 jStrip18.on('m1', (d) => {
 
-  let pJson = JSON.stringify(d.data); // need to stringify the json before
+  let pJson = JSON.parse(d.data); // need to stringify the json before
   console.log(`data type: ${d.type}`);//  accessing it's properties
   console.log(`Bitcoin-USD rate: ${pJson.bpi.USD.rate}`);
 }); //          .bpi.USD.rate is easy seen from jpretty output
 
 jStrip18.getData("https://api.coindesk.com/v1/bpi/currentprice/gbp.json")
     .marker("m1").jpretty().show();
+
+
+    const jStrip22 = new jStrip();
+
+    jStrip22.on('m1', (d) => {
+    
+      let pJson = JSON.parse(d.data); // need to stringify the json before
+      console.log(`data type: ${d.type}`);//  accessing it's properties
+      console.log(`joke: ${pJson.value}`);
+    }); //          .bpi.USD.rate is easy seen from jpretty output
+    
+    jStrip22.getData("https://api.chucknorris.io/jokes/random")
+        .marker("m1").jpretty().show();
+    
+    
