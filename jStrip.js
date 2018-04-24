@@ -1,7 +1,8 @@
 const jsdom = require('jsdom');
 const jPrettyMod = require('jpretty');
 const removehtml = require('./modules/removehtml');
-const show = require('./modules/show.js');
+const show = require('./modules/show');
+const uppercase = require('./modules/uppercase');
 
 const {
   JSDOM,
@@ -14,7 +15,7 @@ const request = require('request');
 //* ******************************************************************************************
 /**
  * jStripEmitter
- * 
+ *
  */
 class jStripEmitter {
   constructor() {
@@ -274,9 +275,9 @@ class jStrip extends jStripEmitter {
     if (this.o.dataRetrieved === false) {
       this.addToQueue(this.jpretty, true);
     } else {
-     // console.log("jpretty(");
-     // console.log(this.o.contents);
-      
+      // console.log("jpretty(");
+      // console.log(this.o.contents);
+
       this.o.contents = jPrettyMod(this.o.contents);
     }
 
@@ -299,7 +300,7 @@ class jStrip extends jStripEmitter {
     if (this.o.dataRetrieved === false) {
       this.addToQueue(this.uppercase, true);
     } else {
-      this.o.contents = (this.o.contents).toUpperCase();
+      this.o.contents = uppercase(this.o.contents);
     }
     return this;
   }
