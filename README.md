@@ -6,10 +6,11 @@
 [![Coverage Status](https://coveralls.io/repos/github/frankc60/jStrip/badge.svg)](https://coveralls.io/github/frankc60/jStrip)
 [![Join the chat at https://gitter.im/jStrip_npm/Lobby](https://badges.gitter.im/jStrip_npm/Lobby.svg)](https://gitter.im/jStrip_npm/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-jStrip let's you easily grab data from the web - from `json`, or from text and apply multiple filters to change the data to your liking, before it is returned to you asynchronously. jStrip also works with `json` formats, making API access a breeze.
+jStrip let's you easily grab data from the web - from `json`, or from text and apply multiple filters to change the data to your liking, before it is returned to you asynchronously. jStrip also works with `json` formats, making json API work a breeze.
 
-Since `v 2.x` chainable methods and event handlers have been added, with new features being added regularly. *To keep your `v 1.x` code working as before, please read the [Migration section](#migrating-from-version-1-to-version-2) below.*
+Since `v2.x` **chainable methods** and **event handlers** have been added, with new features being added regularly.
 
+To migrate any `v1.x` code see the [Migration section](#migrating-from-version-1-to-version-2) below.
 ## Example
 
 ```js
