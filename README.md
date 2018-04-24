@@ -20,7 +20,6 @@ const jStrip1 = new jStrip();
 
 jStrip1.on('m1', (d) => {
   let pJson = JSON.parse(d.data);
-  console.log(`data type: ${d.type}`);//  accessing it's properties
   console.log(`Chuck Norris Joke: ${pJson.value}`);
 });
 
