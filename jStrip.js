@@ -1,6 +1,7 @@
 const jsdom = require('jsdom');
 const jPrettyMod = require('jpretty');
 const removehtml = require('./modules/removehtml');
+const show = require('./modules/show.js');
 
 const {
   JSDOM,
@@ -221,7 +222,7 @@ class jStrip extends jStripEmitter {
     if (this.o.dataRetrieved === false) {
       this.addToQueue(this.show, true);
     } else {
-      console.log(this.o.contents);
+      show(this.o.contents);
     }
     return this;
   }
