@@ -30,13 +30,13 @@ chuckNJoke.getData("https://api.chucknorris.io/jokes/random")
     .marker("m1").jpretty().show();
 ```
 
-#### Bitcoin Rates - showing USB/BTC
+#### Live Bitcoin Rates
 
 ```js
 const bitcoinRates = new jStrip();
 
 bitcoinRates.on('m1', (d) => {
-  let pJson = JSON.parse(d.data); // need to parse the json before
+  let pJson = JSON.parse(d.data);
   console.log(`  updated: ${pJson.time.updated}
   1 Bitcoin/USD rate: $${pJson.bpi.USD.rate}`);
 });
