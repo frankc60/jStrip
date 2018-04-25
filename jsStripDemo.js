@@ -191,13 +191,23 @@ jStrip18.getData("https://api.coindesk.com/v1/bpi/currentprice/gbp.json")
     
     
 
-        const jStrip222 = new jStrip();
- 
-jStrip222.on('m1', (d) => {
+const bitcoinRates = new jStrip();
+
+bitcoinRates.on('m1', (d) => {
   let pJson = JSON.parse(d.data); // need to parse the json before
   console.log(`  updated: ${pJson.time.updated}
   1 Bitcoin/USD rate: $${pJson.bpi.USD.rate}`);
-}); //          .bpi.USD.rate is easy seen from jpretty output
+});
 
-jStrip222.getData("https://api.coindesk.com/v1/bpi/currentprice/gbp.json")
+bitcoinRates.getData("https://api.coindesk.com/v1/bpi/currentprice/gbp.json")
     .marker("m1");
+
+const jStrip2343 = new jStrip();
+
+jStrip2343.on("nztime", (d) => {
+  console.log(`Time in NZ now is: ${d.data}`);
+})
+
+
+jStrip2343.getData('https://goo.gl/e234y2').selector("div#rs1")
+    .selector("#i_time").marker("nztime");

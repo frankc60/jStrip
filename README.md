@@ -46,6 +46,19 @@ bitcoinRates.getData("https://api.coindesk.com/v1/bpi/currentprice/gbp.json")
     .marker("m1");
 ```
 
+### Live Time in New Zealand
+
+```js
+const nzTime = new jStrip();
+
+nzTime.on("nztime", (d) => {
+  console.log(`Time in NZ now is: ${d.data}`);
+})
+
+nzTime.getData('https://goo.gl/e234y2').selector("div#rs1")
+    .selector("#i_time").marker("nztime");
+```
+
 ## Installation
 
 Install **jstrip** with [npm](https://www.npmjs.com/):
