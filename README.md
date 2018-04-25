@@ -13,6 +13,8 @@ Since `v2.x` **chainable methods** and **event handlers** have been added, with 
 To migrate any `v1.x` code see the [Migration section](#migrating-from-version-1-to-version-2) below.
 ## Example
 
+#### Chuck Norris Random Joke
+
 ```js
 const jStrip = require("jstrip");
 
@@ -26,6 +28,21 @@ chuckNJoke.on('m1', (d) => {
 
 chuckNJoke.getData("https://api.chucknorris.io/jokes/random")
     .marker("m1").jpretty().show();
+```
+
+#### Bitcoin Rates - showing USB/BTC
+
+```js
+const bitcoinRates = new jStrip();
+
+bitcoinRates.on('m1', (d) => {
+  let pJson = JSON.parse(d.data); // need to parse the json before
+  console.log(`  updated: ${pJson.time.updated}
+  1 Bitcoin/USD rate: $${pJson.bpi.USD.rate}`);
+});
+
+bitcoinRates.getData("https://api.coindesk.com/v1/bpi/currentprice/gbp.json")
+    .marker("m1");
 ```
 
 ### Install
