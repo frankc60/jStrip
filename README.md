@@ -46,7 +46,7 @@ bitcoinRates.getData("https://api.coindesk.com/v1/bpi/currentprice/gbp.json")
     .marker("m1");
 ```
 
-### Install
+## Installation
 
 Install **jstrip** with [npm](https://www.npmjs.com/):
 
