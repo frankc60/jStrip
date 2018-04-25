@@ -10,6 +10,12 @@
       "name": "Attach by Process ID",
       "processId": "${command:PickProcess}"
     },
+    {
+    "type": "node",
+    "request": "launch",
+    "name": "Launch Demo2",
+    "program": "${workspaceFolder}/modules/iterate.js"
+  },
   {
     "type": "node",
     "request": "launch",

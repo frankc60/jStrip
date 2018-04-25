@@ -16,14 +16,15 @@ To migrate any `v1.x` code see the [Migration section](#migrating-from-version-1
 ```js
 const jStrip = require("jstrip");
 
-const jStrip1 = new jStrip();
+const chuckNJoke = new jStrip();
 
-jStrip1.on('m1', (d) => {
+//display random chuck norris joke
+chuckNJoke.on('m1', (d) => {
   let pJson = JSON.parse(d.data);
   console.log(`Chuck Norris Joke: ${pJson.value}`);
 });
 
-jStrip1.getData("https://api.chucknorris.io/jokes/random")
+chuckNJoke.getData("https://api.chucknorris.io/jokes/random")
     .marker("m1").jpretty().show();
 ```
 
