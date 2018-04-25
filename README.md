@@ -46,7 +46,7 @@ bitcoinRates.getData("https://api.coindesk.com/v1/bpi/currentprice/gbp.json")
     .marker("m1");
 ```
 
-### Live Time in New Zealand
+#### Live Time in New Zealand
 
 ```js
 const nzTime = new jStrip();
