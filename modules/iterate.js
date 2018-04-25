@@ -1,52 +1,75 @@
-/**
- * Make object iterable.
- *
- * @param {*} object to make iterable.
- */
 
-function* genrtr(k,v) {
+class itObj {
+  constructor() {
+    this.filtered = [];
+    this.start = (obj) => {
 
-  yield v
-  while (true) {
-    console.log("K" + k)
-  yield k;
-  }
- //return;
+      Object.entries(obj).forEach(([key, value]) => this.filtered.push([key,value])); 
 
-  while(true) {
-    yield 1;
-    yield 2;
-    yield 3;
-    return
+    }
   }
 
- 
+  * it() { 
+  for(let u=0; u < this.filtered.length;u++) {
+    yield this.filtered[u]; 
+  }
 }
 
-function a(obj) {
-  Object.entries(obj).forEach( function([key, val])  {
-     genrtr(key, val);
-  });
+*[Symbol.iterator]() {
+    while(true) {
+      yield this.filtered.next();
+    } 
+ }
 
 }
 
 
-const iterate = function* (obj) {
-  if (typeof obj === 'object') {
-    
-    yield  a(obj);
-    //yield genrtr(x);
+let a = new itObj();
+
+a.start({"aa":11,"bb":22});
+
+
+console.log(a.filtered)
+
+//console.log(a.next())
+
+let v = a.it();
+console.log(v.next());
+console.log(v.next());
+console.log(v.next());
+
+
+
+
+
+
+class Cx {
+  constructor() { this.a = [], this.u = 0; }
+  add(x) { this.a.push(x) }
+  *[Symbol.iterator]() { 
+    for(let u=0; u < this.a.length;u++) {
+      yield this.a[u]; 
+    }
   }
-  return new Error('Not an object');
-};
-
-
-const x = { a: 1, b: 44, c: 'hello world' };
-
-const it = iterate(x);
-
-for (const t of it) {
-  console.log(`t ${t}`);
+  * it() { 
+    for(let u=0; u < this.a.length;u++) {
+      yield this.a[u]; 
+    }
+  }
 }
 
-// module.exports = iterate;
+
+let c = new Cx();
+c.add(1); 
+c.add(2);
+c.add(3)
+for (let p of c) {
+  console.log(p)
+}
+
+let cit = c.it();
+console.log(cit.next())
+console.log(cit.next())
+console.log(cit.next())
+console.log(cit.next())
+
