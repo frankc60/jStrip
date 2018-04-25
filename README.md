@@ -28,6 +28,7 @@ chuckNJoke.on('m1', (d) => {
 
 chuckNJoke.getData("https://api.chucknorris.io/jokes/random")
     .marker("m1").jpretty().show();
+    //jpretty layouts json in easy to read format
 ```
 
 #### Live Bitcoin Rates
