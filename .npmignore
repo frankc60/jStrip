@@ -10,3 +10,4 @@ test/mochaTest.js
 .vscode/launch.json
 *.tgz
 coveralls
+*.json
