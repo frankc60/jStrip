@@ -6,7 +6,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/frankc60/jStrip/badge.svg)](https://coveralls.io/github/frankc60/jStrip)
 [![Join the chat at https://gitter.im/jStrip_npm/Lobby](https://badges.gitter.im/jStrip_npm/Lobby.svg)](https://gitter.im/jStrip_npm/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-jStrip let's you easily grab data from the web - from `json`, `html` or from text and apply multiple filters to change the data to your liking, before it is returned to you asynchronously. jStrip works great with `json` formats, making json API work a breeze. Also apply **jQuery** to `html` pages, locally or from the web.
+jStrip let's you easily grab data from the web - from `json`, `html`, `array` or from text and apply multiple filters to change the data to your liking, before it is returned to you asynchronously. jStrip works great with `json` formats, making json API work a breeze. Also apply **jQuery** to `html` pages, locally or from the web.
 
 Since `v2.x` **chainable methods** and **event handlers** have been added, with new features being added regularly.
 
@@ -243,7 +243,7 @@ jStrip5.getData('HELLO WORLD').lowercase()
 sorts an `array` contents into alphabetical or numeric order.
 
 ```js
-jStrip5.getData([1,5,3,6,2,4]).lowercase()
+jStrip5.getData([1,5,3,6,2,4]).sort()
      .show() //[ 1, 2, 3, 4, 5 ]
 ```
 
@@ -252,7 +252,7 @@ jStrip5.getData([1,5,3,6,2,4]).lowercase()
 convert an `array` into reverse order.
 
 ```js
-jStrip5.getData([1,2,3,4,5]).lowercase()
+jStrip5.getData([1,2,3,4,5]).reverse()
      .show() //[ 5, 4, 3, 2, 1 ]
 ```
 
