@@ -69,7 +69,11 @@ text.on("txt", (d) => {
 })
 
 text.getData('<b>hello</b> world.  npm rules!')
-    .marker("txt").pretty().uppercase().marker("txt").show();
+    .pretty().show()
+    .removehtml().show()
+    .uppercase().show()
+    .lowercase().show()
+    .uppercase().marker("txt");
 ```
 
 ## Installation
