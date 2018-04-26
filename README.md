@@ -120,7 +120,7 @@ jStrip4.getData('https://goo.gl/e234y2').selector("div#rs1")
 
 
 
-### First method - .getData( *url* | *text* | *json* )
+### First method - .getData( *url* | *text* | *json* | *array* )
 
 The only requirement is to first grab the data. Start by using the `.getData()` method.
 
@@ -240,7 +240,7 @@ jStrip5.getData('HELLO WORLD').lowercase()
 
 ### .sort()
 
-sorts array contents into alphabetical or numeric order.
+sorts an `array` contents into alphabetical or numeric order.
 
 ```js
 jStrip5.getData([1,5,3,6,2,4]).lowercase()
@@ -249,7 +249,7 @@ jStrip5.getData([1,5,3,6,2,4]).lowercase()
 
 ### .reverse()
 
-convert an array into reverse order.
+convert an `array` into reverse order.
 
 ```js
 jStrip5.getData([1,2,3,4,5]).lowercase()
