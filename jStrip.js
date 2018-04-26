@@ -1,16 +1,19 @@
-const jsdom = require('jsdom');
+const jsdom = require('jsdom'); // needed for legacy v.1
 const jPrettyMod = require('jpretty');
+const prettyHtml = require('pretty');
+const request = require('request');
+
 const removehtml = require('./modules/removehtml');
 const show = require('./modules/show');
 const uppercase = require('./modules/uppercase');
 const lowercase = require('./modules/lowercase');
-
-
+const selector = require('./modules/selector');
+const jStripEmitter = require('./modules/jStripEmitter');
+// needed for legacy v.1.x
 const {
   JSDOM,
 } = jsdom;
-const prettyHtml = require('pretty');
-const request = require('request');
+
 
 //* ******************************************************************************************
 //* ******************************************************************************************
@@ -19,7 +22,7 @@ const request = require('request');
  * jStripEmitter
  *
  */
-class jStripEmitter {
+/* class jStripEmitter {
   constructor() {
     this.events = {};
   }
@@ -43,7 +46,7 @@ class jStripEmitter {
     const that = this;
     return (that.events[eventName].filter(eventFn => fn !== eventFn));
   }
-}
+} */
 //* ******************************************************************************************
 //* ******************************************************************************************
 //* ******************************************************************************************
@@ -86,17 +89,17 @@ class jStrip extends jStripEmitter {
       // console.log("not  json " + e)
       try {
       // add json featues!
-      const obj = JSON.parse(JSON.stringify(tdata)); // if json in raw format.
-      // console.log("obj: " + obj)z
-      if (obj && typeof obj === 'object') {
-        return true;
-      }
-      return false;
-       } catch (er) {
+        const obj = JSON.parse(JSON.stringify(tdata)); // if json in raw format.
+        // console.log("obj: " + obj)z
+        if (obj && typeof obj === 'object') {
+          return true;
+        }
+        return false;
+      } catch (er) {
       // never called!
       // console.log("not  json " + er)
       // return false;
-       }
+      }
     }
   }
 
@@ -208,14 +211,11 @@ class jStrip extends jStripEmitter {
   }
   //* **********************************************
   //* **********************************************
-  selector(j) {
+  selector(jQry) {
     if (this.o.dataRetrieved === false) {
-      this.addToQueue(this.selector, j);
+      this.addToQueue(this.selector, jQry);
     } else {
-      const dom = (new JSDOM(this.o.contents));
-      // if (typeof dom.window !== 'object') throw ('problem with dom');
-      const $ = require('jquery')(dom.window);
-      this.o.contents = $(j).html();
+      this.o.contents = selector(this.o.contents, jQry);
     }
     return this;
   }
