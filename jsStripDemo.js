@@ -222,3 +222,11 @@ text.on("txt", (d) => {
 text.getData('<b>hello</b> world.  npm rules!')
     .pretty().show().removehtml().uppercase().show().lowercase().show().marker("txt")
     
+let tt = new jStrip();
+
+tt.getData([5,2,3,4]).show().sort().show().reverse().show();
+
+let tr = new jStrip();
+
+tr.getData("hello world again").show().reverse().show().sort().show();
+

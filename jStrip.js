@@ -63,8 +63,6 @@ class jStrip extends jStripEmitter {
         }
         return false;
       } catch (er) {
-      // never called!
-      // console.log("not  json " + er)
         return false;
       }
     }
@@ -283,6 +281,42 @@ class jStrip extends jStripEmitter {
     }
     return this;
   }
+  //* **********************************************
+  //* **********************************************
+  sort() {
+    if (this.o.dataRetrieved === false) {
+      this.addToQueue(this.sort, true);
+    } else if (Array.isArray(this.o.contents)) {
+      this.o.contents = this.o.contents.sort();
+    } else if (jStrip.isString(this.o.contents)) {
+      let splitString = this.o.contents.split("");
+      let reverseArray = splitString.sort();
+      let joinArray = reverseArray.join("");
+      this.o.contents = joinArray.trim();
+    } else {
+      throw Error('jStrip.sort() requires an array or string.');
+    }
+    return this;
+  }
+  //* **********************************************
+  //* **********************************************
+  reverse() {
+    if (this.o.dataRetrieved === false) {
+      this.addToQueue(this.sort, true);
+    } else if (Array.isArray(this.o.contents)) {
+      this.o.contents = this.o.contents.reverse();
+    } else if (jStrip.isString(this.o.contents)) {
+      let splitString = this.o.contents.split("");
+      let reverseArray = splitString.reverse();
+      let joinArray = reverseArray.join("");
+      this.o.contents = joinArray;
+    } else {
+      throw Error('jStrip.reverse() requires an array or string.');
+    }
+    return this;
+  }
+
+
   //* **********************************************
   //* **********************************************
   //* **********************************************
