@@ -119,7 +119,7 @@ d.show().replace(/hello/, 'hi').show();
 d.pretty().show();
 
 
-d.getData('next one here').show(); // ignoreed, as getData already executed.
+//d.getData('next one here').show(); // ignoreed, as getData already executed.
 
 const e = new jStrip();
 e.getData(htmlSample).selector('li').show();
@@ -228,5 +228,5 @@ tt.getData([5,2,3,4]).show().sort().show().reverse().show();
 
 let tr = new jStrip();
 
-tr.getData("hello world").show().reverse().show().sort().show();
+tr.getData([1,9,3,7,5,6]).show().reverse().show().sort().show();
 

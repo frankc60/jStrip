@@ -76,6 +76,14 @@ class jStrip extends jStripEmitter {
     return false;
   }
 
+  static isArray(data) {
+    if (data && typeof data === 'object') {
+      if (Array.isArray(data)) return true;
+    }
+
+    return false;
+  }
+
   static isString(data) {
     if (typeof (data) === 'string') return true;
 
@@ -158,6 +166,11 @@ class jStrip extends jStripEmitter {
             url: data,
           });
         });
+      } else if (jStrip.isArray(data)) {
+        this.emit('dataReceived', {
+          data,
+          type: 'array',
+        });
       } else if (jStrip.isJson(data)) {
       //   console.log('data is JSON format.');
         this.emit('dataReceived', {
@@ -171,8 +184,8 @@ class jStrip extends jStripEmitter {
           type: 'string',
         });
       }
+      return this;
     }
-    return this;
   }
   //* **********************************************
   //* **********************************************
@@ -288,13 +301,13 @@ class jStrip extends jStripEmitter {
       this.addToQueue(this.sort, true);
     } else if (Array.isArray(this.o.contents)) {
       this.o.contents = this.o.contents.sort();
-    } else if (jStrip.isString(this.o.contents)) {
-      let splitString = this.o.contents.split("");
-      let reverseArray = splitString.sort();
-      let joinArray = reverseArray.join("");
-      this.o.contents = joinArray.trim();
+    /* } else if (jStrip.isString(this.o.contents)) {
+      const splitString = this.o.contents.split('');
+      const reverseArray = splitString.sort();
+      const joinArray = reverseArray.join('');
+      this.o.contents = joinArray.trim(); */
     } else {
-      throw Error('jStrip.sort() requires an array or string.');
+      this.o.contents = ('jStrip.sort() requires an array.');
     }
     return this;
   }
@@ -302,16 +315,16 @@ class jStrip extends jStripEmitter {
   //* **********************************************
   reverse() {
     if (this.o.dataRetrieved === false) {
-      this.addToQueue(this.sort, true);
+      this.addToQueue(this.reverse, true);
     } else if (Array.isArray(this.o.contents)) {
       this.o.contents = this.o.contents.reverse();
-    } else if (jStrip.isString(this.o.contents)) {
-      let splitString = this.o.contents.split("");
-      let reverseArray = splitString.reverse();
-      let joinArray = reverseArray.join("");
-      this.o.contents = joinArray;
+   /*  } else if (jStrip.isString(this.o.contents)) {
+      const splitString = this.o.contents.split('');
+      const reverseArray = splitString.reverse();
+      const joinArray = reverseArray.join('');
+      this.o.contents = joinArray; */
     } else {
-      throw Error('jStrip.reverse() requires an array or string.');
+      this.o.contents = ('jStrip.reverse() requires an array.');
     }
     return this;
   }

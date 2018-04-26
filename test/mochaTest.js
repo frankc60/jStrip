@@ -141,12 +141,12 @@ const jStrip9 = new jStrip();
 
 describe('jStrip - pretty call before data ready', () => {
   it("should return 'hello world'", (done) => {
-    jStrip8.on('m4', (f) => {
+    jStrip9.on('m4', (f) => {
       chai.expect(f.data).to.equal('hello world');
       done();
     });
 
-    jStrip8.pretty(true).getData('hello world').pretty(false).marker('m4')
+    jStrip9.pretty().getData('hello world').pretty().marker('m4')
       .show();
   });
 });
@@ -344,7 +344,7 @@ describe('jStrip - json content', () => {
 
   it('jpretty() - should return json as input', (done) => {
     jStrip22.on('m5', (d) => {
-      //console.log(`22 - ${d.type}, ${d.data}`);
+      // console.log(`22 - ${d.type}, ${d.data}`);
 
       chai.expect(d.data).to.deep.equal({ name: 'jStrip', awesome: 'true' });
       done();
@@ -363,24 +363,24 @@ describe('jStrip - json content', () => {
     });
 
     const jsonData = {
-      'a': 1,
-      'b': 2,
-      'c': {
-        'ca': 3,
-        'cb': 4,
-        'cc': [5, 6, 7, 8],
-        'cd': {
-          'cda': [55,66,77],
-          'cdb' : 'a'
-        }
+      a: 1,
+      b: 2,
+      c: {
+        ca: 3,
+        cb: 4,
+        cc: [5, 6, 7, 8],
+        cd: {
+          cda: [55, 66, 77],
+          cdb: 'a',
+        },
       },
-      'd': [9, 10, 11],
-      "items": [
-        {"id": "Open"},
-        {"id": "OpenNew", "label": "Open New"},
-        {"id": "ZoomIn", "label": "Zoom In"}
-      ]
-      };
+      d: [9, 10, 11],
+      items: [
+        { id: 'Open' },
+        { id: 'OpenNew', label: 'Open New' },
+        { id: 'ZoomIn', label: 'Zoom In' },
+      ],
+    };
 
 
     jStrip23.getData(jsonData).jpretty().marker('m5').show();
@@ -421,63 +421,72 @@ describe('jStrip - json content', () => {
     });
 
 
-    jStrip26.getData({"a" : 1, "b" : 2}).jpretty().marker('m5').show();
+    jStrip26.getData({ a: 1, b: 2 }).jpretty().marker('m5').show();
   });
 });
 
 
 const sort = new jStrip();
 const sort2 = new jStrip();
+const sort3 = new jStrip();
+const sort4 = new jStrip();
+
 
 describe('jStrip - .sort()', () => {
   it('sort() - sort an array', (done) => {
     sort.on('m5', (d) => {
-      console.log(`sort() - ${d.type}, ${d.data}`);
+    //   console.log(`sort() - ${d.type}, ${d.data}`);
+    //   console.log(Array.isArray(d.data));
 
-      chai.expect(d.data).to.include.ordered.members([1,2,3,4,5]);
+      chai.expect(d.data).to.include.ordered.members([1, 2, 3, 4, 5]);
       done();
     });
-    sort.getData([1,5,2,4,3]).sort().marker('m5').show();
+    sort.getData([1, 5, 2, 4, 3]).sort().marker('m5');
   });
 
-    it('sort() - sort an string', (done) => {
-      sort2.on('m5', (d) => {
-        console.log(`sort2() - ${d.type}, ${d.data}`);
-  
-        chai.expect(d.data).to.equal("dehllloorw");
-        done();
-      });
-  
-      sort2.getData("hello world").sort().marker('m5').show();
+  it('sort() - try and sort an invalid type', (done) => {
+    sort2.on('m5', (d) => {
+      // console.log(`sort2() - ${d.type}, ${d.data}`);
+
+      chai.expect(d.data).to.equal('jStrip.sort() requires an array.');
+      done();
+    });
+
+    sort2.getData(11).sort().marker('m5');
   });
+
+
 
 });
-
 
 
 const reverse = new jStrip();
 const reverse2 = new jStrip();
+const reverse3 = new jStrip();
+const reverse4 = new jStrip();
 
 describe('jStrip - .reverse()', () => {
   it('reverse() - reverse an array', (done) => {
     reverse.on('m5', (d) => {
-      console.log(`reverse() - ${d.type}, ${d.data}`);
+    // console.log(`reverse() - ${d.type}, ${d.data}`);
 
-      chai.expect(d.data).to.include.ordered.members([1,2,3,4,5]);
+      chai.expect(d.data).to.include.ordered.members([1, 2, 3, 4, 5]);
       done();
     });
-    reverse.getData([5,4,3,2,1]).reverse().marker('m5').show();
+    reverse.getData([5, 4, 3, 2, 1]).reverse().marker('m5');
   });
 
-    it('sort() - reverse an string', (done) => {
-      reverse2.on('m5', (d) => {
-        console.log(`reverse2() - ${d.type}, ${d.data}`);
-  
-        chai.expect(d.data).to.equal("dlrow olleh");
-        done();
-      });
-  
-      reverse2.getData("hello world").reverse().marker('m5').show();
+  it('reverse() - try and reverse an invalid type', (done) => {
+    reverse3.on('m5', (d) => {
+      // console.log(`reverse3() - ${d.type}, ${d.data}`);
+      chai.expect(d.data).to.equal('jStrip.reverse() requires an array.');
+      done();
+    });
+    reverse3.getData(1).reverse().marker('m5');
   });
+
+  
 
 });
+
+
