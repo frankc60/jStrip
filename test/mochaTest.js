@@ -424,3 +424,60 @@ describe('jStrip - json content', () => {
     jStrip26.getData({"a" : 1, "b" : 2}).jpretty().marker('m5').show();
   });
 });
+
+
+const sort = new jStrip();
+const sort2 = new jStrip();
+
+describe('jStrip - .sort()', () => {
+  it('sort() - sort an array', (done) => {
+    sort.on('m5', (d) => {
+      console.log(`sort() - ${d.type}, ${d.data}`);
+
+      chai.expect(d.data).to.include.ordered.members([1,2,3,4,5]);
+      done();
+    });
+    sort.getData([1,5,2,4,3]).sort().marker('m5').show();
+  });
+
+    it('sort() - sort an string', (done) => {
+      sort2.on('m5', (d) => {
+        console.log(`sort2() - ${d.type}, ${d.data}`);
+  
+        chai.expect(d.data).to.equal("dehllloorw");
+        done();
+      });
+  
+      sort2.getData("hello world").sort().marker('m5').show();
+  });
+
+});
+
+
+
+const reverse = new jStrip();
+const reverse2 = new jStrip();
+
+describe('jStrip - .reverse()', () => {
+  it('reverse() - reverse an array', (done) => {
+    reverse.on('m5', (d) => {
+      console.log(`reverse() - ${d.type}, ${d.data}`);
+
+      chai.expect(d.data).to.include.ordered.members([1,2,3,4,5]);
+      done();
+    });
+    reverse.getData([5,4,3,2,1]).reverse().marker('m5').show();
+  });
+
+    it('sort() - reverse an string', (done) => {
+      reverse2.on('m5', (d) => {
+        console.log(`reverse2() - ${d.type}, ${d.data}`);
+  
+        chai.expect(d.data).to.equal("dlrow olleh");
+        done();
+      });
+  
+      reverse2.getData("hello world").reverse().marker('m5').show();
+  });
+
+});
