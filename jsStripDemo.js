@@ -211,3 +211,14 @@ jStrip2343.on("nztime", (d) => {
 
 jStrip2343.getData('https://goo.gl/e234y2').selector("div#rs1")
     .selector("#i_time").marker("nztime");
+
+
+    const text = new jStrip();
+
+text.on("txt", (d) => {
+  console.log(`the text looks: ${d.data}`);
+})
+
+text.getData('<b>hello</b> world.  npm rules!')
+    .marker("txt").pretty().uppercase().marker("txt").show();
+    

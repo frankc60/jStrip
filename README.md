@@ -13,7 +13,7 @@ Since `v2.x` **chainable methods** and **event handlers** have been added, with 
 To migrate any `v1.x` code see the [Migration section](#migrating-from-version-1-to-version-2) below.
 ## Examples
 
-#### Chuck Norris Random Joke
+#### Chuck Norris Random Joke - json api
 
 ```js
 const jStrip = require("jstrip");
@@ -31,7 +31,7 @@ chuckNJoke.getData("https://api.chucknorris.io/jokes/random")
     //jpretty layouts json in easy to read format
 ```
 
-#### Live Bitcoin Rates
+#### Live Bitcoin Rates - json api
 
 ```js
 const bitcoinRates = new jStrip();
@@ -46,7 +46,7 @@ bitcoinRates.getData("https://api.coindesk.com/v1/bpi/currentprice/gbp.json")
     .marker("m1");
 ```
 
-#### Live Time in New Zealand
+#### Live Time in New Zealand - html
 
 ```js
 const nzTime = new jStrip();
@@ -57,6 +57,19 @@ nzTime.on("nztime", (d) => {
 
 nzTime.getData('https://goo.gl/e234y2').selector("div#rs1")
     .selector("#i_time").marker("nztime");
+```
+
+#### textchange - text
+
+```js
+const text = new jStrip();
+
+text.on("txt", (d) => {
+  console.log(`jStrip text: ${d.data}`);
+})
+
+text.getData('<b>hello</b> world.  npm rules!')
+    .marker("txt").pretty().uppercase().marker("txt").show();
 ```
 
 ## Installation
