@@ -5,7 +5,8 @@
   "main": "jStrip.js",
   "scripts": {
     "test": "nyc mocha test",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "patch": "npm version patch && npm publish"
   },
   "keywords": [
     "crawl",
