@@ -65,15 +65,11 @@ nzTime.getData('https://goo.gl/e234y2').selector("div#rs1")
 const text = new jStrip();
 
 text.on("txt", (d) => {
-  console.log(`jStrip text: ${d.data}`);
+  console.log(`text: ${d.data}`);
 })
 
 text.getData('<b>hello</b> world.  npm rules!')
-    .pretty().show()
-    .removehtml().show()
-    .uppercase().show()
-    .lowercase().show()
-    .uppercase().marker("txt");
+    .marker("txt").pretty().uppercase().marker("txt").show();
 ```
 
 ## Installation
