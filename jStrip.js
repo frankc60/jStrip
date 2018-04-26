@@ -3,6 +3,8 @@ const jPrettyMod = require('jpretty');
 const removehtml = require('./modules/removehtml');
 const show = require('./modules/show');
 const uppercase = require('./modules/uppercase');
+const lowercase = require('./modules/lowercase');
+
 
 const {
   JSDOM,
@@ -310,7 +312,7 @@ class jStrip extends jStripEmitter {
     if (this.o.dataRetrieved === false) {
       this.addToQueue(this.lowercase, true);
     } else {
-      this.o.contents = (this.o.contents).toLowerCase();
+      this.o.contents = lowercase(this.o.contents);
     }
     return this;
   }
