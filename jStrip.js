@@ -82,19 +82,19 @@ class jStrip extends jStripEmitter {
       return true;
     } catch (e) {
       // console.log("not  json " + e)
-      try {
-        // add json featues!
-        const obj = JSON.parse(JSON.stringify(tdata)); // if json in raw format.
-        // console.log("obj: " + obj)z
-        if (obj && typeof obj === 'object') {
-          return true;
-        }
-        return false;
-      } catch (er) {
-        // never called!
-        // console.log("not  json " + er)
-        // return false;
+      // try {
+      // add json featues!
+      const obj = JSON.parse(JSON.stringify(tdata)); // if json in raw format.
+      // console.log("obj: " + obj)z
+      if (obj && typeof obj === 'object') {
+        return true;
       }
+      return false;
+      // } catch (er) {
+      // never called!
+      // console.log("not  json " + er)
+      // return false;
+      // }
     }
   }
 
