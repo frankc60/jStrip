@@ -228,5 +228,5 @@ tt.getData([5,2,3,4]).show().sort().show().reverse().show();
 
 let tr = new jStrip();
 
-tr.getData("hello world again").show().reverse().show().sort().show();
+tr.getData("hello world").show().reverse().show().sort().show();
 

@@ -234,6 +234,30 @@ jStrip5.getData('HELLO WORLD').lowercase()
      .show() // hello world
 ```
 
+### .sort()
+
+sorts string or array contents into alphabetical or numeric order.
+
+```js
+jStrip5.getData([1,5,3,6,2,4]).lowercase()
+     .show() //[ 1, 2, 3, 4, 5 ]
+
+jStrip6.getData("hello world").lowercase()
+     .show() // dehllloorw
+```
+
+### .reverse()
+
+convert a string or array into reverse order.
+
+```js
+jStrip5.getData([1,2,3,4,5]).lowercase()
+     .show() //[ 5, 4, 3, 2, 1 ]
+
+jStrip6.getData("hello world").lowercase()
+     .show() // dlrow olleh
+```
+
 ## Async Event Handlers .marker() and .on()
 
 Grabbing data from the web is not instant, so jStrip **caches** the filters and provides an **event handler** to tell you when it has all it's data ready, and send it asynchronously without blocking.
