@@ -216,9 +216,9 @@ jStrip2343.getData('https://goo.gl/e234y2').selector("div#rs1")
     const text = new jStrip();
 
 text.on("txt", (d) => {
-  console.log(`the text looks: ${d.data}`);
+  console.log(`text: ${d.data}`);
 })
 
 text.getData('<b>hello</b> world.  npm rules!')
-    .marker("txt").pretty().uppercase().marker("txt").show();
+    .marker("txt").pretty().removehtml().uppercase().marker("txt").show();
     
