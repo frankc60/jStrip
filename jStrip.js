@@ -9,45 +9,12 @@ const uppercase = require('./modules/uppercase');
 const lowercase = require('./modules/lowercase');
 const selector = require('./modules/selector');
 const jStripEmitter = require('./modules/jStripEmitter');
-// needed for legacy v.1.x
+
 const {
   JSDOM,
-} = jsdom;
+} = jsdom; // needed for legacy v.1.x
 
 
-//* ******************************************************************************************
-//* ******************************************************************************************
-//* ******************************************************************************************
-/**
- * jStripEmitter
- *
- */
-/* class jStripEmitter {
-  constructor() {
-    this.events = {};
-  }
-
-  emit(eventName, ...data) {
-    const event = this.events[eventName];
-    if (event) {
-      event.forEach((fn) => {
-        fn.call(null, ...data);
-      });
-    }
-  }
-
-  on(eventName, fn) {
-    if (!this.events[eventName]) {
-      this.events[eventName] = [];
-    }
-
-    this.events[eventName].push(fn);
-
-    const that = this;
-    return (that.events[eventName].filter(eventFn => fn !== eventFn));
-  }
-} */
-//* ******************************************************************************************
 //* ******************************************************************************************
 //* ******************************************************************************************
 /**
@@ -98,7 +65,7 @@ class jStrip extends jStripEmitter {
       } catch (er) {
       // never called!
       // console.log("not  json " + er)
-      // return false;
+        return false;
       }
     }
   }
