@@ -115,6 +115,10 @@ jStrip4.getData('https://goo.gl/e234y2').selector("div#rs1")
 | [removehtml()](#removehtml) | | |
 | [uppercase()](#uppercase) | | |
 | [lowercase()](#lowercase) | | |
+| [sort()](#sort) | | |
+| [reverse()](#reverse) | | |
+
+
 
 ### First method - .getData( *url* | *text* | *json* )
 
