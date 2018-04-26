@@ -1,1 +1,12 @@
 node_modules
+.git
+.npmrc
+npm-debug.log
+.travis.yml
+.coveralls.yml
+jsStripDemo.js
+test/mochaTest.js
+.eslintrc.json
+.vscode/launch.json
+*.tgz
+coveralls
