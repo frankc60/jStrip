@@ -220,5 +220,5 @@ text.on("txt", (d) => {
 })
 
 text.getData('<b>hello</b> world.  npm rules!')
-    .marker("txt").pretty().removehtml().uppercase().marker("txt").show();
+    .pretty().show().removehtml().uppercase().show().lowercase().show().marker("txt")
     
