@@ -66,6 +66,8 @@ class jStrip extends jStripEmitter {
         }
         return false;
       } catch (er) {
+        //doesn't appear to be json in any format.
+       // console.log("isJson = "+ data + ", " + JSON.stringify(data));
         return false;
       }
     }

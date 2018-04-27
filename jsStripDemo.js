@@ -220,7 +220,7 @@ text.on("txt", (d) => {
 })
 
 text.getData('<b>hello</b> world.  npm rules!')
-    .pretty().show().removehtml().uppercase().show().lowercase().show().marker("txt")
+    .pretty().show().removehtml().uppercase().show().lowercase().show().marker("txt").reverse().show()
     
 let tt = new jStrip();
 

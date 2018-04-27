@@ -73,7 +73,8 @@ text.getData('<b>hello</b> world.  npm rules!')
     .removehtml().show()
     .uppercase().show()
     .lowercase().show()
-    .uppercase().marker("txt");
+    .uppercase().marker("txt")
+    .reverse().show();
 ```
 
 ## Installation
