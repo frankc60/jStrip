@@ -448,14 +448,30 @@ describe('jStrip - .sort()', () => {
     sort2.on('m5', (d) => {
       // console.log(`sort2() - ${d.type}, ${d.data}`);
 
-      chai.expect(d.data).to.equal('jStrip.sort() requires an array.');
+      chai.expect(d.data).to.contains('jStrip.sort() requires an array');
       done();
     });
 
     sort2.getData(11).sort().marker('m5');
   });
 
+  it('sort() - url, short', (done) => {
+    sort3.on('m5', (d) => {
+      console.log(`sort3() - ${d.type}, ${d.data}`);
+      chai.expect(d.data).to.contain(',,12345');
+      done();
+    });
+    sort3.getData("https://my-json-server.typicode.com/frankc60/myJsonServer/profile").sort().marker('m5');
+  });
 
+  it('sort() - url, too long', (done) => {
+    sort4.on('m5', (d) => {
+      console.log(`sort4() - ${d.type}, ${d.data}`);
+      chai.expect(d.data).to.contain('error: sort() maximum string length is');
+      done();
+    });
+    sort4.getData("https://www.google.com").sort().marker('m5');
+  });
 
 });
 
@@ -479,13 +495,29 @@ describe('jStrip - .reverse()', () => {
   it('reverse() - try and reverse an invalid type', (done) => {
     reverse3.on('m5', (d) => {
       // console.log(`reverse3() - ${d.type}, ${d.data}`);
-      chai.expect(d.data).to.equal('jStrip.reverse() requires an array.');
+      chai.expect(d.data).to.contains('jStrip.reverse() requires an array');
       done();
     });
     reverse3.getData(1).reverse().marker('m5');
   });
 
+  it('reverse() - url, too long', (done) => {
+    reverse4.on('m5', (d) => {
+      console.log(`reverse4() - ${d.type}, ${d.data}`);
+      chai.expect(d.data).to.contain('error: reverse() maximum string length is');
+      done();
+    });
+    reverse4.getData("https://www.google.com").reverse().marker('m5');
+  });
   
+  it('reverse() - url, short', (done) => {
+    reverse2.on('m5', (d) => {
+      console.log(`reverse2() - ${d.type}, ${d.data}`);
+      chai.expect(d.data).to.contain('5 ,4 ,3 ,2 ,1');
+      done();
+    });
+    reverse2.getData("https://my-json-server.typicode.com/frankc60/myJsonServer/profile").reverse().pretty().marker('m5');
+  });
 
 });
 

@@ -31,6 +31,9 @@ class jStrip extends jStripEmitter {
     this.o.tmp = '';
     this.o.type = undefined;
     this.o.url = undefined;
+    this.reverse.maxLength = 100;
+    this.sort.maxLength = 100;
+    
   }
   //* **********************************************
   //* **********************************************
@@ -301,13 +304,17 @@ class jStrip extends jStripEmitter {
       this.addToQueue(this.sort, true);
     } else if (Array.isArray(this.o.contents)) {
       this.o.contents = this.o.contents.sort();
-    /* } else if (jStrip.isString(this.o.contents)) {
-      const splitString = this.o.contents.split('');
-      const reverseArray = splitString.sort();
-      const joinArray = reverseArray.join('');
-      this.o.contents = joinArray.trim(); */
+    } else if (jStrip.isString(this.o.contents)) {
+      if ((this.o.contents).length > this.sort.maxLength) {
+        this.o.contents = `error: sort() maximum string length is ${this.sort.maxLength}. Can't sort ${(this.o.contents).length}.`;
+      } else {
+        const splitString = this.o.contents.split('');
+        const sortArray = splitString.sort();
+        const joinArray = sortArray.join('');
+        this.o.contents = joinArray.trim();
+      }
     } else {
-      this.o.contents = ('jStrip.sort() requires an array.');
+      this.o.contents = ('jStrip.sort() requires an array or string/url');
     }
     return this;
   }
@@ -318,13 +325,18 @@ class jStrip extends jStripEmitter {
       this.addToQueue(this.reverse, true);
     } else if (Array.isArray(this.o.contents)) {
       this.o.contents = this.o.contents.reverse();
-   /*  } else if (jStrip.isString(this.o.contents)) {
-      const splitString = this.o.contents.split('');
-      const reverseArray = splitString.reverse();
-      const joinArray = reverseArray.join('');
-      this.o.contents = joinArray; */
+    } else if (jStrip.isString(this.o.contents)) {
+      if ((this.o.contents).length > this.reverse.maxLength) {
+        this.o.contents = `error: reverse() maximum string length is ${this.reverse.maxLength}. Can't reverse ${(this.o.contents).length}.`;
+      } else {
+        // console.log("length of contents: " + (this.o.contents).length);
+        const splitString = this.o.contents.split('');
+        const reverseArray = splitString.reverse();
+        const joinArray = reverseArray.join('');
+        this.o.contents = joinArray.trim();
+      }
     } else {
-      this.o.contents = ('jStrip.reverse() requires an array.');
+      this.o.contents = ('jStrip.reverse() requires an array or string/url.');
     }
     return this;
   }

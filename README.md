@@ -240,21 +240,25 @@ jStrip5.getData('HELLO WORLD').lowercase()
 
 ### .sort()
 
-sorts an `array` contents into alphabetical or numeric order.
+sorts an `array`, `string` or `url` contents into alphabetical / numeric order.
 
 ```js
 jStrip5.getData([1,5,3,6,2,4]).sort()
      .show() //[ 1, 2, 3, 4, 5 ]
 ```
 
+The `string` / `url` has a maximum string length of 100 characters.
+
 ### .reverse()
 
-convert an `array` into reverse order.
+convert an `array`, `string` or `url` into reverse order.
 
 ```js
 jStrip5.getData([1,2,3,4,5]).reverse()
      .show() //[ 5, 4, 3, 2, 1 ]
 ```
+
+The `string` / `url` has a maximum string length of 100 characters.
 
 ## Async Event Handlers .marker() and .on()
 
