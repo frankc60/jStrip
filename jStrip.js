@@ -9,6 +9,8 @@ const uppercase = require('./modules/uppercase');
 const lowercase = require('./modules/lowercase');
 const selector = require('./modules/selector');
 const jStripEmitter = require('./modules/jStripEmitter');
+const isArray = require('./modules/isarray');
+
 
 const {
   JSDOM,
@@ -81,14 +83,14 @@ class jStrip extends jStripEmitter {
     return false;
   }
 
-  static isArray(data) {
+ /*  static isArray(data) {
     if (data && typeof data === 'object') {
       if (Array.isArray(data)) return true;
     }
 
     return false;
   }
-
+ */
   static isString(data) {
     if (typeof (data) === 'string') return true;
 
@@ -171,7 +173,7 @@ class jStrip extends jStripEmitter {
             url: data,
           });
         });
-      } else if (jStrip.isArray(data)) {
+      } else if (isArray(data)) {
         this.emit('dataReceived', {
           data,
           type: 'array',
@@ -304,7 +306,7 @@ class jStrip extends jStripEmitter {
   sort() {
     if (this.o.dataRetrieved === false) {
       this.addToQueue(this.sort, true);
-    } else if (Array.isArray(this.o.contents)) {
+    } else if (isArray(this.o.contents)) {
       this.o.contents = this.o.contents.sort();
     } else if (jStrip.isString(this.o.contents)) {
       if ((this.o.contents).length > this.sort.maxLength) {
@@ -325,7 +327,7 @@ class jStrip extends jStripEmitter {
   reverse() {
     if (this.o.dataRetrieved === false) {
       this.addToQueue(this.reverse, true);
-    } else if (Array.isArray(this.o.contents)) {
+    } else if (isArray(this.o.contents)) {
       this.o.contents = this.o.contents.reverse();
     } else if (jStrip.isString(this.o.contents)) {
       if ((this.o.contents).length > this.reverse.maxLength) {
