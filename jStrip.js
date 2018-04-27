@@ -1,4 +1,3 @@
-/* const jsdom = require('jsdom'); // needed for legacy v.1 */
 const jPrettyMod = require('jpretty');
 const prettyHtml = require('pretty');
 const request = require('request');
@@ -15,10 +14,6 @@ const isUrl = require('./modules/isurl');
 const isString = require('./modules/isstring.js');
 const jStripV1 = require('./modules/jStripV1');
 
-/* const {
-  JSDOM,
-} = jsdom; // needed for legacy v.1.x
- */
 
 //* ******************************************************************************************
 //* ******************************************************************************************
