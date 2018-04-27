@@ -151,6 +151,24 @@ describe('jStrip - pretty call before data ready', () => {
   });
 });
 
+const jStrip9b = new jStrip();
+
+describe('jStrip - call getData twice', () => {
+  it("should return 'hello world'", (done) => {
+    jStrip9b.on('m4', (f) => {
+      chai.expect(f.data).to.equal('hello world');
+      done();
+    });
+
+    jStrip9b.pretty().getData('hello world').pretty().marker('m4')
+      .show()
+      .getData('hello world')
+      .show();
+  });
+});
+
+
+
 
 // removehtml()
 const jStrip10 = new jStrip();
