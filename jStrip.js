@@ -12,7 +12,7 @@ const jStripEmitter = require('./modules/jStripEmitter');
 const isArray = require('./modules/isarray');
 const isJson = require('./modules/isjson');
 const isUrl = require('./modules/isurl');
-
+const isString = require('./modules/isstring.js');
 
 const {
   JSDOM,
@@ -50,13 +50,6 @@ class jStrip extends jStripEmitter {
   // Setter
   set timeout(n) {
     this.o.timeout = n;
-  }
-  //* **********************************************
-  //* **********************************************
-  static isString(data) {
-    if (typeof (data) === 'string') return true;
-
-    return false;
   }
   //* **********************************************
   //* **********************************************
@@ -124,7 +117,7 @@ class jStrip extends jStripEmitter {
           type: 'json',
         });
         // return this;
-      } else if (jStrip.isString(data)) {
+      } else if (isString(data)) {
         this.emit('dataReceived', {
           data,
           type: 'string',
@@ -247,7 +240,7 @@ class jStrip extends jStripEmitter {
       this.addToQueue(this.sort, true);
     } else if (isArray(this.o.contents)) {
       this.o.contents = this.o.contents.sort();
-    } else if (jStrip.isString(this.o.contents)) {
+    } else if (isString(this.o.contents)) {
       if ((this.o.contents).length > this.sort.maxLength) {
         this.o.contents = `error: sort() maximum string length is ${this.sort.maxLength}. Can't sort ${(this.o.contents).length}.`;
       } else {
@@ -268,7 +261,7 @@ class jStrip extends jStripEmitter {
       this.addToQueue(this.reverse, true);
     } else if (isArray(this.o.contents)) {
       this.o.contents = this.o.contents.reverse();
-    } else if (jStrip.isString(this.o.contents)) {
+    } else if (isString(this.o.contents)) {
       if ((this.o.contents).length > this.reverse.maxLength) {
         this.o.contents = `error: reverse() maximum string length is ${this.reverse.maxLength}. Can't reverse ${(this.o.contents).length}.`;
       } else {
