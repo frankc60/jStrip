@@ -70,11 +70,11 @@ text.on("txt", (d) => {
 
 text.getData('<b>hello</b> world.  npm rules!')
     .pretty().show()
-    .removehtml().show()
-    .uppercase().show()
+    .removehtml().marker("txt")
+    .uppercase()..marker("txt")
     .lowercase().show()
     .uppercase().marker("txt")
-    .reverse().show();
+    .reverse().marker("txt");
 ```
 
 ## Installation
