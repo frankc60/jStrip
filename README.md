@@ -134,7 +134,7 @@ jStrip1.getData("my own string of text here!") // string
 jStrip1.getData({ name: "New York", high: 47.3, low: 42 }) // json
 jStrip1.getData('{ name: "London", high: 30, low: 28.5 }') // json (as a string)
 
-//pr
+//or
 jStrip1.getData("http://prices.com/btc/api/data.json") // json
 
 ```
