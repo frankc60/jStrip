@@ -4,8 +4,8 @@ This method takes a string and removes any html elements it may have.
 @returns {string}
  */
 
-const replace = (contents) => {
-  return contents.replace(/<(?:.|\n)*?>/gm, '');
-}
+const replace = (contents, regex, wth) => {
+  return contents.replace(regex, wth);
+};
 
-exports module replace;
+module.exports = replace;

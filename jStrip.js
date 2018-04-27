@@ -13,7 +13,7 @@ const isJson = require('./modules/isjson');
 const isUrl = require('./modules/isurl');
 const isString = require('./modules/isstring.js');
 const jStripV1 = require('./modules/jStripV1');
-
+const replace = require('./modules/replace');
 
 //* ******************************************************************************************
 //* ******************************************************************************************
@@ -162,8 +162,7 @@ class jStrip extends jStripEmitter {
     if (this.o.dataRetrieved === false) {
       this.addToQueue(this.replace, reg, wth);
     } else {
-      // console.log("marker: " + a);
-      this.o.contents = (this.o.contents).replace(reg, wth);
+      this.o.contents = replace(this.o.contents, reg, wth);
     }
     return this;
   }
