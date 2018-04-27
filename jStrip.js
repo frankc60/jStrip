@@ -123,8 +123,8 @@ class jStrip extends jStripEmitter {
           type: 'string',
         });
       }
-      return this;
     }
+    return this;
   }
   //* **********************************************
   //* **********************************************
