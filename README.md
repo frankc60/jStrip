@@ -8,7 +8,7 @@
 
 jStrip let's you easily grab data from the web - from `json`, `html`, `array` or from text and apply multiple filters to change the data to your liking, before it is returned to you asynchronously. jStrip works great with `json` formats, making json API work a breeze. Also apply **jQuery** to `html` pages, locally or from the web.
 
-Since `v2.x` **chainable methods** and **event handlers** have been added, with new features being added regularly.
+Use **chainable methods** and **event handlers** to enhance jStrip, with new features being added regularly.
 
 To migrate any `v1.x` code see the [Migration section](#migrating-from-version-1-to-version-2) below.
 ## Examples
