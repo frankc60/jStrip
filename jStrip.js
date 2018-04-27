@@ -13,7 +13,7 @@ const isArray = require('./modules/isarray');
 const isJson = require('./modules/isjson');
 const isUrl = require('./modules/isurl');
 const isString = require('./modules/isstring.js');
-const jStripV1 = require('./modules/jStripV1')
+const jStripV1 = require('./modules/jStripV1');
 
 /* const {
   JSDOM,
@@ -38,7 +38,6 @@ class jStrip extends jStripEmitter {
     this.o.url = undefined;
     this.reverse.maxLength = 100;
     this.sort.maxLength = 100;
-    
   }
   //* **********************************************
   //* **********************************************
@@ -278,59 +277,11 @@ class jStrip extends jStripEmitter {
     return this;
   }
 
-
+  /*
+  * Legacy V.1.x jStrip 
+  * @ jStrip_()
+  */
   jStrip_(uri, jquery) { return jStripV1(uri, jquery, this.o.timeout); }
-
-  //* **********************************************
-  //* **********************************************
-/*   //* **********************************************
-  //* **********************************************
-  async jStrip_(uri, jquery) {
-    try {
-      const options = {
-        url: uri,
-        timeout: this.o.timeout,
-      };
-      const body = await this.oldjStripGet(options);
-      const data = await this.oldjStripJsdom(body[0], jquery);
-      return {
-        data,
-        timed: body[1],
-        uri,
-        jquery,
-        statuscode: body[2],
-      };
-    } catch (err) {
-      throw err;
-    }
-  }
-  //* **********************************************
-  //* **********************************************
-  async oldjStripGet(url) {
-    return new Promise((resolve, reject) => {
-      // console.log(`crawling ${url}`);
-      const start = Date.now();
-      request(url, (error, response, body) => {
-        if (error) reject(error);
-        resolve([body, (Date.now() - start), response && response.statusCode]);
-      });
-    });
-  }
-  //* **********************************************
-  //* **********************************************
-  async oldjStripJsdom(body, jquery) {
-    const dom = await new JSDOM(body, {
-      runScripts: 'outside-only',
-    });
-    const window = await dom.window.document.defaultView;
-    const $ = await require('jquery')(window);
-    const rnd = await Math.floor((Math.random() * 1000) + 1);
-    await window.eval(`$('body').append('<jStrip id=\\'jStripSpecialTag${rnd}\\'>' + ${jquery}  + '</jStrip>');`);
-    const rtn = await $(`jStrip#jStripSpecialTag${rnd}`).html();
-    return rtn;
-  } */
-  //* **********************************************
-  //* **********************************************
 }
 
 
