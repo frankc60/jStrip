@@ -492,6 +492,19 @@ describe('jStrip - .reverse()', () => {
     reverse.getData([5, 4, 3, 2, 1]).reverse().marker('m5');
   });
 
+  
+
+
+  
+  it('reverse() - url, short', (done) => {
+    reverse2.on('m5', (d) => {
+      console.log(`reverse2() - ${d.type}, ${d.data}`);
+      chai.expect(d.data).to.contain('5 ,4 ,3 ,2 ,1');
+      done();
+    });
+    reverse2.getData("https://my-json-server.typicode.com/frankc60/myJsonServer/profile").reverse().pretty().marker('m5');
+  });
+
   it('reverse() - try and reverse an invalid type', (done) => {
     reverse3.on('m5', (d) => {
       // console.log(`reverse3() - ${d.type}, ${d.data}`);
@@ -509,16 +522,6 @@ describe('jStrip - .reverse()', () => {
     });
     reverse4.getData("https://www.google.com").reverse().marker('m5');
   });
-  
-  it('reverse() - url, short', (done) => {
-    reverse2.on('m5', (d) => {
-      console.log(`reverse2() - ${d.type}, ${d.data}`);
-      chai.expect(d.data).to.contain('5 ,4 ,3 ,2 ,1');
-      done();
-    });
-    reverse2.getData("https://my-json-server.typicode.com/frankc60/myJsonServer/profile").reverse().pretty().marker('m5');
-  });
-
 });
 
 
