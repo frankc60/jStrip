@@ -11,6 +11,7 @@ const selector = require('./modules/selector');
 const jStripEmitter = require('./modules/jStripEmitter');
 const isArray = require('./modules/isarray');
 const isJson = require('./modules/isjson');
+const isUrl = require('./modules/isurl');
 
 
 const {
@@ -52,45 +53,13 @@ class jStrip extends jStripEmitter {
   }
   //* **********************************************
   //* **********************************************
-
-  static isUrl(data) {
-    const urlRegex = new RegExp('^(http[s]?:\\/\\/(www\\.)?|ftp:\\/\\/(www\\.)?|www\\.){1}([0-9A-Za-z-\\.@:%_\+~#=]+)+((\\.[a-zA-Z]{2,3})+)(/(.)*)?(\\?(.)*)?');
-
-    if (urlRegex.test(data)) return true;
-
-    return false;
-  }
-
   static isString(data) {
     if (typeof (data) === 'string') return true;
 
     return false;
   }
-
-  /*  prettyJson(strEvents, t = 0) {
-    // for (i in events) {
-    // for (const i of Object.keys(events)) {
-    const events = JSON.parse(strEvents);
-    const that = this;
-    function pJson(events, t = 0) {
-     // console.log("pjson1")
-      Object.keys(events).forEach((i) => {
-     //   console.log("pjson2")
-    //    console.log(i, events[i]);
-        if (typeof events[i] === 'object') {
-          that.o.tmp += `${'\t'.repeat(t)}**${i}**\n`;
-          pJson(events[i], (t + 1));
-        } else {
-          that.o.tmp += `${'\t'.repeat(t)}${i} = ${events[i]}\n`;
-        }
-      });
-    }
-    pJson(events);
-    let tmpData = this.o.tmp;
-    this.o.tmp = "";
-    return tmpData;
-  } */
-
+  //* **********************************************
+  //* **********************************************
   addToQueue(f, ...d) {
     this.o.push([
       [f],
@@ -128,7 +97,7 @@ class jStrip extends jStripEmitter {
       });
 
 
-      if (jStrip.isUrl(data)) {
+      if (isUrl(data)) {
         // if (urlRegex.test(data)) {
         const options = {
           url: data,
