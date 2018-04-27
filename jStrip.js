@@ -1,4 +1,4 @@
-const jsdom = require('jsdom'); // needed for legacy v.1
+/* const jsdom = require('jsdom'); // needed for legacy v.1 */
 const jPrettyMod = require('jpretty');
 const prettyHtml = require('pretty');
 const request = require('request');
@@ -13,11 +13,12 @@ const isArray = require('./modules/isarray');
 const isJson = require('./modules/isjson');
 const isUrl = require('./modules/isurl');
 const isString = require('./modules/isstring.js');
+const jStripV1 = require('./modules/jStripV1')
 
-const {
+/* const {
   JSDOM,
 } = jsdom; // needed for legacy v.1.x
-
+ */
 
 //* ******************************************************************************************
 //* ******************************************************************************************
@@ -278,9 +279,11 @@ class jStrip extends jStripEmitter {
   }
 
 
+  jStrip_(uri, jquery) { return jStripV1(uri, jquery, this.o.timeout); }
+
   //* **********************************************
   //* **********************************************
-  //* **********************************************
+/*   //* **********************************************
   //* **********************************************
   async jStrip_(uri, jquery) {
     try {
@@ -325,7 +328,7 @@ class jStrip extends jStripEmitter {
     await window.eval(`$('body').append('<jStrip id=\\'jStripSpecialTag${rnd}\\'>' + ${jquery}  + '</jStrip>');`);
     const rtn = await $(`jStrip#jStripSpecialTag${rnd}`).html();
     return rtn;
-  }
+  } */
   //* **********************************************
   //* **********************************************
 }
