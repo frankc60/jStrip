@@ -10,6 +10,7 @@ const lowercase = require('./modules/lowercase');
 const selector = require('./modules/selector');
 const jStripEmitter = require('./modules/jStripEmitter');
 const isArray = require('./modules/isarray');
+const isJson = require('./modules/isjson');
 
 
 const {
@@ -52,29 +53,6 @@ class jStrip extends jStripEmitter {
   //* **********************************************
   //* **********************************************
 
-  static isJson(data) {
-    const tdata = data;
-    try {
-      JSON.parse(tdata); // if json data is already stringified (in quotes)
-      return true;
-    } catch (e) {
-      // console.log("not  json " + e)
-      try {
-      // add json featues!
-        const obj = JSON.parse(JSON.stringify(tdata)); // if json in raw format.
-        // console.log("obj: " + obj)z
-        if (obj && typeof obj === 'object') {
-          return true;
-        }
-        return false;
-      } catch (er) {
-        //doesn't appear to be json in any format.
-       // console.log("isJson = "+ data + ", " + JSON.stringify(data));
-        return false;
-      }
-    }
-  }
-
   static isUrl(data) {
     const urlRegex = new RegExp('^(http[s]?:\\/\\/(www\\.)?|ftp:\\/\\/(www\\.)?|www\\.){1}([0-9A-Za-z-\\.@:%_\+~#=]+)+((\\.[a-zA-Z]{2,3})+)(/(.)*)?(\\?(.)*)?');
 
@@ -83,14 +61,6 @@ class jStrip extends jStripEmitter {
     return false;
   }
 
- /*  static isArray(data) {
-    if (data && typeof data === 'object') {
-      if (Array.isArray(data)) return true;
-    }
-
-    return false;
-  }
- */
   static isString(data) {
     if (typeof (data) === 'string') return true;
 
@@ -149,7 +119,7 @@ class jStrip extends jStripEmitter {
     if (this.o.dataRetrieved === false) {
       this.on('dataReceived', (d) => {
         this.o.contents = d.data;
-        if (jStrip.isJson(d.data)) { this.o.type = 'json'; } else {
+        if (isJson(d.data)) { this.o.type = 'json'; } else {
           this.o.type = d.type; // need to check again, incase url is now json
         }
         if (d.url) this.o.url = d.url;
@@ -178,7 +148,7 @@ class jStrip extends jStripEmitter {
           data,
           type: 'array',
         });
-      } else if (jStrip.isJson(data)) {
+      } else if (isJson(data)) {
       //   console.log('data is JSON format.');
         this.emit('dataReceived', {
           data,
