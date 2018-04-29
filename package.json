@@ -15,7 +15,8 @@
     "jquery",
     "jpretty",
     "json",
-    "api"
+    "api",
+    "jstrip"
   ],
   "author": "frankc60",
   "license": "MIT",
