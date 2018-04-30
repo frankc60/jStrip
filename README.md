@@ -117,10 +117,10 @@ jStrip4.getData('https://goo.gl/e234y2').selector("div#rs1")
 | [lowercase()](#lowercase) | | |
 | [sort()](#sort) | | |
 | [reverse()](#reverse) | | |
+| [add()](#add) | | |
+| [minus()](#minus) | | |
 
-
-
-### First method - .getData( *url* | *text* | *json* | *array* )
+### First method - .getData( *url* | *text* | *json* | *array* | *number* )
 
 The only requirement is to first grab the data. Start by using the `.getData()` method.
 
@@ -132,8 +132,9 @@ jStrip1.getData("http://www.google.com") // url
 jStrip1.getData("my own string of text here!") // string
 //or
 jStrip1.getData({ name: "New York", high: 47.3, low: 42 }) // json
-jStrip1.getData('{ name: "London", high: 30, low: 28.5 }') // json (as a string)
-
+jStrip1.getData('{ name: "London", high: 30, low: 28.5 }') // json 
+                                                //  (as a string)
+jStrip.getData(168) // number
 //or
 jStrip1.getData("http://prices.com/btc/api/data.json") // json
 
@@ -259,6 +260,26 @@ jStrip5.getData([1,2,3,4,5]).reverse()
 ```
 
 The `string` / `url` has a maximum string length of 100 characters.
+
+### .add(*number*)
+
+performs an mathematical **addition**.
+The getData value needs to be a **number**.
+
+```js
+jStrip5.getData(1500).add(500)
+     .show() // 2000
+```
+
+### .minus(*number*)
+
+performs an mathematical **subtraction**.
+The getData value needs to be a **number**.
+
+```js
+jStrip5.getData(1500).minus(500)
+     .show() // 1000
+```
 
 ## Async Event Handlers .marker() and .on()
 

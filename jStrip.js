@@ -12,8 +12,10 @@ const isArray = require('./modules/isarray');
 const isJson = require('./modules/isjson');
 const isUrl = require('./modules/isurl');
 const isString = require('./modules/isstring.js');
+const isNumber = require('./modules/isnumber.js');
 const jStripV1 = require('./modules/jStripV1');
 const replace = require('./modules/replace');
+
 
 //* ******************************************************************************************
 //* ******************************************************************************************
@@ -99,6 +101,11 @@ class jStrip extends jStripEmitter {
             type: 'url',
             url: data,
           });
+        });
+      } else if (isNumber(data)) {
+        this.emit('dataReceived', {
+          data,
+          type: 'number',
         });
       } else if (isArray(data)) {
         this.emit('dataReceived', {
@@ -270,9 +277,34 @@ class jStrip extends jStripEmitter {
     }
     return this;
   }
-
+  //* **********************************************
+  //* **********************************************
+  add(num) {
+    if (this.o.dataRetrieved === false) {
+      this.addToQueue(this.add, num);
+    } else if (isNumber(this.o.contents) && isNumber(num)) {
+      this.o.contents = this.o.contents + num;
+    } else {
+      this.o.contents = ('jStrip.add() requires a number only.');
+    }
+    return this;
+  }
+  //* **********************************************
+  //* **********************************************
+  minus(num) {
+    if (this.o.dataRetrieved === false) {
+      this.addToQueue(this.minus, num);
+    } else if (isNumber(this.o.contents) && isNumber(num)) {
+      this.o.contents = this.o.contents - num;
+    } else {
+      this.o.contents = ('jStrip.minus() requires a number only.');
+    }
+    return this;
+  }
+  //* **********************************************
+  //* **********************************************
   /*
-  * Legacy V.1.x jStrip 
+  * Legacy V.1.x jStrip
   * @ jStrip_()
   */
   jStrip_(uri, jquery) { return jStripV1(uri, jquery, this.o.timeout); }

@@ -230,3 +230,5 @@ let tr = new jStrip();
 
 tr.getData([1,9,3,7,5,6]).show().reverse().show().sort().show();
 
+let n = new jStrip();
+n.getData(15).show().add(25).show().minus(2).show()

@@ -168,8 +168,6 @@ describe('jStrip - call getData twice', () => {
 });
 
 
-
-
 // removehtml()
 const jStrip10 = new jStrip();
 
@@ -479,7 +477,7 @@ describe('jStrip - .sort()', () => {
       chai.expect(d.data).to.contain(',,12345');
       done();
     });
-    sort3.getData("https://my-json-server.typicode.com/frankc60/myJsonServer/profile").sort().marker('m5');
+    sort3.getData('https://my-json-server.typicode.com/frankc60/myJsonServer/profile').sort().marker('m5');
   });
 
   it('sort() - url, too long', (done) => {
@@ -488,9 +486,8 @@ describe('jStrip - .sort()', () => {
       chai.expect(d.data).to.contain('error: sort() maximum string length is');
       done();
     });
-    sort4.getData("https://www.google.com").sort().marker('m5');
+    sort4.getData('https://www.google.com').sort().marker('m5');
   });
-
 });
 
 
@@ -510,17 +507,14 @@ describe('jStrip - .reverse()', () => {
     reverse.getData([5, 4, 3, 2, 1]).reverse().marker('m5');
   });
 
-  
 
-
-  
   it('reverse() - url, short', (done) => {
     reverse2.on('m5', (d) => {
       console.log(`reverse2() - ${d.type}, ${d.data}`);
       chai.expect(d.data).to.contain('5 ,4 ,3 ,2 ,1');
       done();
     });
-    reverse2.getData("https://my-json-server.typicode.com/frankc60/myJsonServer/profile").reverse().pretty().marker('m5');
+    reverse2.getData('https://my-json-server.typicode.com/frankc60/myJsonServer/profile').reverse().pretty().marker('m5');
   });
 
   it('reverse() - try and reverse an invalid type', (done) => {
@@ -538,8 +532,70 @@ describe('jStrip - .reverse()', () => {
       chai.expect(d.data).to.contain('error: reverse() maximum string length is');
       done();
     });
-    reverse4.getData("https://www.google.com").reverse().marker('m5');
+    reverse4.getData('https://www.google.com').reverse().marker('m5');
   });
 });
 
+
+const number1 = new jStrip();
+const number2 = new jStrip();
+const number3 = new jStrip();
+const number4 = new jStrip();
+const number5 = new jStrip();
+
+describe('jStrip - .add() .minus()', () => {
+  it('add() - add a number', (done) => {
+    number1.on('m5', (d) => {
+    // console.log(`reverse() - ${d.type}, ${d.data}`);
+
+      chai.expect(d.data).to.equal(2000);
+      done();
+    });
+    number1.getData(1500).add(500).marker('m5').show();
+  });
+
+  it('minus() - subtract a number', (done) => {
+    number2.on('m5', (d) => {
+    // console.log(`reverse() - ${d.type}, ${d.data}`);
+
+      chai.expect(d.data).to.equal(1000);
+      done();
+    });
+    number2.getData(1500).minus(500).marker('m5').show();
+  });
+
+  it('add() minus()- add a number and subtract a number', (done) => {
+    number3.on('m5', (d) => {
+    // console.log(`reverse() - ${d.type}, ${d.data}`);
+
+      chai.expect(d.data).to.equal(750);
+      done();
+    });
+    number3.getData(1500).add(500).minus(1250).marker('m5')
+      .show();
+  });
+
+  it('add() error trapping', (done) => {
+    number4.on('m5', (d) => {
+      console.log(`add() - ${d.type}, ${d.data}`);
+      // chai.expect(d.data).to.contain('error: reverse() maximum string length is');
+      chai.expect(d.data).to.contain('jStrip.add() requires a number');
+      done();
+    });
+    number4.getData('hello world').add(500).marker('m5').show();
+  });
+
+
+  it('minus() error trapping', (done) => {
+    number5.on('m5', (d) => {
+      console.log(`add() - ${d.type}, ${d.data}`);
+      // chai.expect(d.data).to.contain('error: reverse() maximum string length is');
+      chai.expect(d.data).to.contain('jStrip.minus() requires a number');
+      done();
+    });
+    number5.getData('hello world').minus(500).marker('m5').show();
+  });
+
+
+});
 
