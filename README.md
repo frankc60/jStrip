@@ -10,7 +10,7 @@ jStrip let's you easily grab data from the web - from `json`, `html`, `array`, `
 
 Use **chainable methods** and **event handlers** to enhance jStrip, with new features being added regularly.
 
-To migrate any `v1.x` code see the [Migration section](#migrating-from-version-1-to-version-2) below.
+To migrate any `v1.x` code see the [Migration section](#migrating-from-version-1-to-version-2).
 ## Examples
 
 #### Chuck Norris Random Joke - json api
