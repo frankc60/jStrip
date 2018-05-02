@@ -232,3 +232,13 @@ tr.getData([1,9,3,7,5,6]).show().reverse().show().sort().show();
 
 let n = new jStrip();
 n.getData(15).show().add(25).show().minus(2).show()
+
+let p = new jStrip();
+
+p.on("sat1", (d) => {
+
+  console.log(`sat data: ${d.data}`);
+
+})
+
+p.getData("https://www.pulsesat.com/satellites/s/0bcd3a1c-ea73-49b8-8e15-8738f5a32693/").selector(".callout.secondary pre").marker("sat1")

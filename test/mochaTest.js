@@ -542,8 +542,12 @@ const number2 = new jStrip();
 const number3 = new jStrip();
 const number4 = new jStrip();
 const number5 = new jStrip();
+const number6 = new jStrip();
+const number7 = new jStrip();
 
-describe('jStrip - .add() .minus()', () => {
+describe('jStrip - .add() .minus()', function go() {
+  this.timeout(25000);
+
   it('add() - add a number', (done) => {
     number1.on('m5', (d) => {
     // console.log(`reverse() - ${d.type}, ${d.data}`);
@@ -588,14 +592,28 @@ describe('jStrip - .add() .minus()', () => {
 
   it('minus() error trapping', (done) => {
     number5.on('m5', (d) => {
-      console.log(`add() - ${d.type}, ${d.data}`);
+      console.log(`minus() - ${d.type}, ${d.data}`);
       // chai.expect(d.data).to.contain('error: reverse() maximum string length is');
       chai.expect(d.data).to.contain('jStrip.minus() requires a number');
       done();
     });
     number5.getData('hello world').minus(500).marker('m5').show();
   });
+/* 
+   const that = this;
 
+  it('minus() from url data', (done) => {
+    that.timeout(25000);
+    number6.on('m5', (d) => {
+      console.log(`m url() - ${d.type}, ${d.data}`);
+      // chai.expect(d.data).to.contain('error: reverse() maximum string length is');
+      chai.expect(d.data).to.contain('jStrip.minus() requires a number');
+      done();
+    });
+    number6.getData('https://jstrip.coffeeboat.co.uk/data/file2a.html').marker('m5').minus(500).marker('m5').show();
+  });
+   */
 
 });
 
+ 

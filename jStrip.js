@@ -95,7 +95,7 @@ class jStrip extends jStripEmitter {
         };
         // success
         request(options, (error, response, body) => {
-          //   if (error) { body = (`${error} ${response && response.statusCode}`); }
+          if (error) { body = (`${error} ${response && response.statusCode}`); }
           this.emit('dataReceived', {
             data: body,
             type: 'url',
