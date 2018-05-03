@@ -11,86 +11,8 @@ jStrip let's you easily grab data from the web - from `json`, `html`, `array`, `
 Use **chainable methods** and **event handlers** to enhance jStrip, with new features being added regularly.
 
 To migrate any `v1.x` code see the [Migration section](#migrating-from-version-1-to-version-2) below.
-## Examples
 
-#### Chuck Norris Random Joke - json api
-
-```js
-const jStrip = require("jstrip");
-
-const chuckNJoke = new jStrip();
-
-//display random chuck norris joke
-chuckNJoke.on('m1', (d) => {
-  let pJson = JSON.parse(d.data);
-  console.log(`Chuck Norris Joke: ${pJson.value}`);
-});
-
-chuckNJoke.getData("https://api.chucknorris.io/jokes/random")
-    .marker("m1").jpretty().show();
-    //jpretty layouts json in easy to read format
-```
-
-#### Live Bitcoin Rates - json api
-
-```js
-const bitcoinRates = new jStrip();
-
-bitcoinRates.on('m1', (d) => {
-  let pJson = JSON.parse(d.data);
-  console.log(`  updated: ${pJson.time.updated}
-  1 Bitcoin/USD rate: $${pJson.bpi.USD.rate}`);
-});
-
-bitcoinRates.getData("https://api.coindesk.com/v1/bpi/currentprice/gbp.json")
-    .marker("m1");
-```
-
-#### Live Time in New Zealand - html
-
-```js
-const nzTime = new jStrip();
-
-nzTime.on("nztime", (d) => {
-  console.log(`Time in NZ now is: ${d.data}`);
-})
-
-nzTime.getData('https://goo.gl/e234y2').selector("div#rs1")
-    .selector("#i_time").marker("nztime");
-```
-
-#### textchange - text
-
-```js
-const text = new jStrip();
-
-text.on("txt", (d) => {
-  console.log(`text: ${d.data}`);
-})
-
-text.getData('<b>hello</b> world.  npm rules!')
-    .pretty().show()
-    .removehtml().marker("txt")
-    .uppercase()..marker("txt")
-    .lowercase().show()
-    .reverse().marker("txt");
-```
-
-#### add/subtract - number
-
-```js
-const num = new jStrip();
-
-num.on("updateSum", (d) => {
-  console.log(`Update Amount: ${d.data}`);
-})
-
-num.getData(67895.42).marker("updateSum")
-    .minus(75.99).marker("updateSum")
-    .minus(32.00).marker("updateSum").show()
-    .add(137.50).marker("updateSum")
-    .minus(12.95).marker("updateSum");
-```
+Check out the many [Examples](#examples) of jStrip.
 
 ## Installation
 
@@ -396,6 +318,87 @@ const fn = (async () => {
     console.log(`error ${err}`);
   }
 })();
+```
+
+## Examples
+
+#### Chuck Norris Random Joke - json api
+
+```js
+const jStrip = require("jstrip");
+
+const chuckNJoke = new jStrip();
+
+//display random chuck norris joke
+chuckNJoke.on('m1', (d) => {
+  let pJson = JSON.parse(d.data);
+  console.log(`Chuck Norris Joke: ${pJson.value}`);
+});
+
+chuckNJoke.getData("https://api.chucknorris.io/jokes/random")
+    .marker("m1").jpretty().show();
+    //jpretty layouts json in easy to read format
+```
+
+#### Live Bitcoin Rates - json api
+
+```js
+const bitcoinRates = new jStrip();
+
+bitcoinRates.on('m1', (d) => {
+  let pJson = JSON.parse(d.data);
+  console.log(`  updated: ${pJson.time.updated}
+  1 Bitcoin/USD rate: $${pJson.bpi.USD.rate}`);
+});
+
+bitcoinRates.getData("https://api.coindesk.com/v1/bpi/currentprice/gbp.json")
+    .marker("m1");
+```
+
+#### Live Time in New Zealand - html
+
+```js
+const nzTime = new jStrip();
+
+nzTime.on("nztime", (d) => {
+  console.log(`Time in NZ now is: ${d.data}`);
+})
+
+nzTime.getData('https://goo.gl/e234y2').selector("div#rs1")
+    .selector("#i_time").marker("nztime");
+```
+
+#### textchange - text
+
+```js
+const text = new jStrip();
+
+text.on("txt", (d) => {
+  console.log(`text: ${d.data}`);
+})
+
+text.getData('<b>hello</b> world.  npm rules!')
+    .pretty().show()
+    .removehtml().marker("txt")
+    .uppercase()..marker("txt")
+    .lowercase().show()
+    .reverse().marker("txt");
+```
+
+#### add/subtract - number
+
+```js
+const num = new jStrip();
+
+num.on("updateSum", (d) => {
+  console.log(`Update Amount: ${d.data}`);
+})
+
+num.getData(67895.42).marker("updateSum")
+    .minus(75.99).marker("updateSum")
+    .minus(32.00).marker("updateSum").show()
+    .add(137.50).marker("updateSum")
+    .minus(12.95).marker("updateSum");
 ```
 
 ## Tests
