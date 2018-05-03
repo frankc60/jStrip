@@ -53,7 +53,7 @@ class jStrip extends jStripEmitter {
       this.o[objectSymbols[0]] = n;
       return true;
     }
-    console.log('ERROR: timeout can only accepts numbers');
+    process.stdout.write('ERROR: timeout can only accepts numbers\n');
     return false;
   }
   //* **********************************************
