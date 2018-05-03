@@ -76,6 +76,22 @@ text.getData('<b>hello</b> world.  npm rules!')
     .reverse().marker("txt");
 ```
 
+#### add/subtract - number
+
+```js
+const num = new jStrip();
+
+num.on("updateSum", (d) => {
+  console.log(`Update Amount: ${d.data}`);
+})
+
+num.getData(67895.42).marker("updateSum")
+    .minus(75.99).marker("updateSum")
+    .minus(32.00).marker("updateSum").show()
+    .add(137.50).marker("updateSum")
+    .minus(12.95).marker("updateSum");
+```
+
 ## Installation
 
 Install **jstrip** with [npm](https://www.npmjs.com/):

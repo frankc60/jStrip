@@ -242,3 +242,18 @@ p.on("sat1", (d) => {
 })
 
 p.getData("https://www.pulsesat.com/satellites/s/0bcd3a1c-ea73-49b8-8e15-8738f5a32693/").selector(".callout.secondary pre").marker("sat1")
+
+
+const num = new jStrip();
+
+num.on("updateSum", (d) => {
+  console.log(`Update Amount: ${d.data}`);
+})
+
+num.getData(67895.42).marker("updateSum")
+    .minus(75.99).marker("updateSum")
+    .minus(32.00).marker("updateSum").show()
+    .add(137.50).marker("updateSum")
+    .minus(12.95).marker("updateSum");
+    
+
