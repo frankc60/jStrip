@@ -25,11 +25,10 @@ const replace = require('./modules/replace');
 class jStrip extends jStripEmitter {
   constructor() {
     super();
-
     this.o = []; // new Map(); //
     this.o.dataRetrieved = false;
     this.o.contents = '';
-    this.o.timeout = 10000;
+    this.o[Symbol('timeout')] = 10000;
     this.o.tmp = '';
     this.o.type = undefined;
     this.o.url = undefined;
@@ -40,13 +39,22 @@ class jStrip extends jStripEmitter {
   //* **********************************************
   // Getter
   get timeout() {
-    return this.o.timeout;
+    const objectSymbols = Object.getOwnPropertySymbols(this.o);
+    // objectSymbols[0] = [ Symbol(timeout) ]
+    return this.o[objectSymbols[0]];
   }
   //* **********************************************
   //* **********************************************
   // Setter
   set timeout(n) {
-    this.o.timeout = n;
+    if (isNumber(n)) {
+      const objectSymbols = Object.getOwnPropertySymbols(this.o);
+      // objectSymbols[0] }= [ Symbol(timeout) ]
+      this.o[objectSymbols[0]] = n;
+      return true;
+    }
+    console.log('ERROR: timeout can only accepts numbers');
+    return false;
   }
   //* **********************************************
   //* **********************************************

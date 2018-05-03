@@ -299,6 +299,17 @@ describe('jStrip - http instance timeout', () => {
     chai.expect(x).to.equal(8000);
     done();
   });
+
+  it('try to assign a string to the timeout property', (done) => {
+
+    jStrip18.timeout = "hello";
+    const x = jStrip18.timeout;
+
+    chai.expect(x).to.equal(8000); //no change!
+    done();
+  });
+
+
 });
 
 
