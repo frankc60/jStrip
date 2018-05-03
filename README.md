@@ -32,6 +32,46 @@ chuckNJoke.getData("https://api.chucknorris.io/jokes/random")
 
 Check out the many more [Examples](#examples) of using jStrip.
 
+***
+
+**Table of Contents**
+
+- [Installation](#what-is-the-community-bookstore)
+- [Chainable Methods](#what-are-the-objectives-of-community-bookstore)
+  - [first - getData()](#first-method---getdata-url--text--json-) 
+  - [show()](#show)
+  - [pretty()](#pretty) 
+  - [jpretty()](#jpretty)
+  - [selector()](#selector-jquery-)
+  - [replace()](#replace-pattern--text-)
+  - [removehtml()](#removehtml)
+  - [uppercase()](#uppercase)
+  - [lowercase()](#lowercase)
+  - [sort()](#sort)
+  - [reverse()](#reverse)
+  - [add()](#add-number-)
+  - [minus()](#xx)
+- [Async Event Handler](#async-event-handlers-marker-and-on) 
+  - [marker()](#marker-eventname-)
+  - [on()](#on-marker-name--callback-fnreturned-data-)
+- [Migration from v.1.x](#_jstrip-url-jquery-)
+  - [_jStrip()](#_jstrip-url-jquery-)
+- [Examples](##examples)
+  - [Chuck Norris Random Jokes](#chuck-norris-random-joke---json-api-1)
+  - [Live Bitcoin Rates](#live-bitcoin-rates---json-api)
+  - [Live Time in New Zealand](#live-time-in-new-zealand---html)
+  - [Text Change](#textchange---text)
+  - [Add / Subtract](#addsubtract---number)
+- [Testing](#tests)
+- [Versioning](#versioning)
+- [Getting Involved](#get-involved)
+  - [Issues](#issues)
+  - [Contributing](#contributing)
+- [Authors](#authors)
+- [Licence](#license)
+
+***
+
 ## Installation
 
 Install **jstrip** with [npm](https://www.npmjs.com/):
@@ -57,24 +97,6 @@ jStrip4.getData('https://goo.gl/e234y2').selector("div#rs1")
     .selector("#i_time").pretty()
     .show();  //displays current time in new zealand
 ```
-
-### Table of Contents
-
-| Method | Event Handler | Legacy |
-| ------ | ------------- | -------|
-| [getData()](#first-method---getdata-url--text--json-) | [Async Event Handler](#async-event-handlers-marker-and-on) | [_jStrip()](#_jstrip-url-jquery-) |
-| [show()](#show) | [marker()](#marker-eventname-) | |
-| [pretty()](#pretty) | [on()](#on-marker-name--callback-fnreturned-data-) | |
-| [jpretty()](#jpretty) | | |
-| [selector()](#selector-jquery-) | | |
-| [replace()](#replace-pattern--text-) | | |
-| [removehtml()](#removehtml) | | |
-| [uppercase()](#uppercase) | | |
-| [lowercase()](#lowercase) | | |
-| [sort()](#sort) | | |
-| [reverse()](#reverse) | | |
-| [add()](#add-number-) | | |
-| [minus()](#minus-number-) | | |
 
 ### First method - .getData( *url* | *text* | *json* | *array* | *number* )
 
