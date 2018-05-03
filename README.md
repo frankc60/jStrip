@@ -54,7 +54,7 @@ Check out the many more [Examples](#examples) of using jStrip.
 - [Async Event Handler](#async-event-handlers-marker-and-on)
   - [marker()](#marker-eventname-)
   - [on()](#on-marker-name--callback-fnreturned-data-)
-- [Migration from v.1.x](#_jstrip-url-jquery-)
+- [Migration from v.1.x](#migrating-from-version-1-to-version-2)
   - [_jStrip()](#_jstrip-url-jquery-)
 - [Examples](##examples)
   - [Chuck Norris Random Jokes](#chuck-norris-random-joke---json-api-1)
