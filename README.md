@@ -36,11 +36,11 @@ Check out the many more [Examples](#examples) of using jStrip.
 
 **Table of Contents**
 
-- [Installation](#what-is-the-community-bookstore)
-- [Chainable Methods](#what-are-the-objectives-of-community-bookstore)
-  - [first - getData()](#first-method---getdata-url--text--json-) 
+- [Installation](#installation)
+- [Chainable Methods](#chainable-methods)
+  - [first - getData()](#first-method---getdata-url--text--json--array--number-) 
   - [show()](#show)
-  - [pretty()](#pretty) 
+  - [pretty()](#pretty)
   - [jpretty()](#jpretty)
   - [selector()](#selector-jquery-)
   - [replace()](#replace-pattern--text-)
@@ -50,8 +50,8 @@ Check out the many more [Examples](#examples) of using jStrip.
   - [sort()](#sort)
   - [reverse()](#reverse)
   - [add()](#add-number-)
-  - [minus()](#xx)
-- [Async Event Handler](#async-event-handlers-marker-and-on) 
+  - [minus()](#minus-number-)
+- [Async Event Handler](#async-event-handlers-marker-and-on)
   - [marker()](#marker-eventname-)
   - [on()](#on-marker-name--callback-fnreturned-data-)
 - [Migration from v.1.x](#_jstrip-url-jquery-)
