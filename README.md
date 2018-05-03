@@ -12,7 +12,7 @@ Use **chainable methods** and **event handlers** to enhance jStrip, with new fea
 
 To migrate any `v1.x` code see the [Migration section](#migrating-from-version-1-to-version-2) below.
 
-Check out the many [Examples](#examples) of jStrip.
+Check out the many [Examples](#examples) of using jStrip.
 
 ## Installation
 
