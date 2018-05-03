@@ -12,7 +12,25 @@ Use **chainable methods** and **event handlers** to enhance jStrip, with new fea
 
 To migrate any `v1.x` code see the [Migration section](#migrating-from-version-1-to-version-2) below.
 
-Check out the many [Examples](#examples) of using jStrip.
+#### Chuck Norris Random Joke - json api
+
+```js
+const jStrip = require("jstrip");
+
+const chuckNJoke = new jStrip();
+
+//display random chuck norris joke
+chuckNJoke.on('m1', (d) => {
+  let pJson = JSON.parse(d.data);
+  console.log(`Chuck Norris Joke: ${pJson.value}`);
+});
+
+chuckNJoke.getData("https://api.chucknorris.io/jokes/random")
+    .marker("m1").jpretty().show();
+    //jpretty layouts json in easy to read format
+```
+
+Check out the many more [Examples](#examples) of using jStrip.
 
 ## Installation
 
