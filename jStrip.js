@@ -75,10 +75,7 @@ class jStrip extends jStripEmitter {
       fn[0].apply(that, ...arg);
       i++;
     }
-    // console.log("o: " + JSON.stringify(this.o))
     this.o.splice(0, i);
-    // console.log("i:" + i)
-    // console.log("o: " + JSON.stringify(this.o))
   }
   //* **********************************************
   //* **********************************************
