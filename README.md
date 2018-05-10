@@ -30,7 +30,7 @@ chuckNJoke.getData("https://api.chucknorris.io/jokes/random")
     //jpretty layouts json in easy to read format
 ```
 
-Check out the many more [Examples](#examples) of using jStrip.
+Check out the more [Examples](#examples) below of using jStrip.
 
 ***
 
